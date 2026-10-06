@@ -39,11 +39,14 @@ class DemoUsersSeeder extends Seeder
         ];
 
         foreach ($users as $userData) {
+            $isSuperAdmin = ($userData['email'] === 'admin@ayurpravah.org');
+            $password = $isSuperAdmin ? 'Ayurpravah@2027' : ('Ayur_' . \Illuminate\Support\Str::password(12, true, true, false));
+
             $user = User::firstOrCreate([
                 'email' => $userData['email'],
             ], [
                 'name' => $userData['name'],
-                'password' => Hash::make('password'),
+                'password' => Hash::make($password),
             ]);
 
             $user->syncRoles([$userData['role']]);
