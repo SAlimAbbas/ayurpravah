@@ -66,6 +66,21 @@ set -e
 mkdir -p $REMOTE_DIR
 cd $REMOTE_DIR
 
+rm -f default.php
+
+PHP_BIN="php"
+if [ -f "/opt/alt/php83/usr/bin/php" ]; then
+    PHP_BIN="/opt/alt/php83/usr/bin/php"
+elif command -v php8.3 >/dev/null 2>&1; then
+    PHP_BIN="php8.3"
+fi
+
+if [ -f "/usr/local/bin/composer" ]; then
+    COMPOSER_CMD="\$PHP_BIN /usr/local/bin/composer"
+else
+    COMPOSER_CMD="\$PHP_BIN \$(which composer)"
+fi
+
 if [ -f ".env" ]; then
     cp .env .env.backup
 fi
@@ -79,14 +94,14 @@ elif [ -f ".env.production" ]; then
     cp .env.production .env
 fi
 
-composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
-php artisan key:generate --force 2>/dev/null || true
-php artisan storage:link || true
-php artisan migrate --force
-php artisan db:seed --force
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+\$COMPOSER_CMD install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+\$PHP_BIN artisan key:generate --force 2>/dev/null || true
+\$PHP_BIN artisan storage:link || true
+\$PHP_BIN artisan migrate --force
+\$PHP_BIN artisan db:seed --force
+\$PHP_BIN artisan config:cache
+\$PHP_BIN artisan route:cache
+\$PHP_BIN artisan view:cache
 chmod -R 775 storage bootstrap/cache
 
 echo "DEPLOY_COMPLETE"

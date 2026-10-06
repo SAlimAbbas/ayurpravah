@@ -73,6 +73,25 @@ echo "Extracting release files..."
 tar -xzf ~/ayurpravah-deploy.tar.gz
 rm -f ~/ayurpravah-deploy.tar.gz
 
+# Remove Hostinger default placeholder page if present
+rm -f default.php
+
+# Detect PHP 8.3 binary on Hostinger or fallback to system php
+PHP_BIN="php"
+if [ -f "/opt/alt/php83/usr/bin/php" ]; then
+    PHP_BIN="/opt/alt/php83/usr/bin/php"
+elif command -v php8.3 >/dev/null 2>&1; then
+    PHP_BIN="php8.3"
+fi
+echo "Using PHP binary: \$(\$PHP_BIN -v | head -n 1)"
+
+# Detect Composer binary
+if [ -f "/usr/local/bin/composer" ]; then
+    COMPOSER_CMD="\$PHP_BIN /usr/local/bin/composer"
+else
+    COMPOSER_CMD="\$PHP_BIN \$(which composer)"
+fi
+
 # Restore .env if backup exists, otherwise use .env.production
 if [ -f ".env.backup" ]; then
     mv .env.backup .env
@@ -83,32 +102,33 @@ fi
 
 # Install production composer dependencies
 echo "Installing Composer dependencies..."
-composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+\$COMPOSER_CMD install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
 # Generate app key if needed
-php artisan key:generate --force 2>/dev/null || true
+\$PHP_BIN artisan key:generate --force 2>/dev/null || true
 
 # Create storage symlink for uploaded images & media
 echo "Creating storage symlink..."
-php artisan storage:link || true
+\$PHP_BIN artisan storage:link || true
 
 # Run database migrations
 echo "Running database migrations..."
-php artisan migrate --force
+\$PHP_BIN artisan migrate --force
 
 # Seed initial database records (roles, conclaves, default admin, etc.)
 echo "Seeding initial conclaves, settings & admin account..."
-php artisan db:seed --force
+\$PHP_BIN artisan db:seed --force
 
 # Optimize Laravel cache for high performance
 echo "Caching configurations, routes, and views..."
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+\$PHP_BIN artisan config:cache
+\$PHP_BIN artisan route:cache
+\$PHP_BIN artisan view:cache
 
 # Set permissions for storage & cache
 echo "Securing directory permissions..."
 chmod -R 775 storage bootstrap/cache
+
 
 echo "========================================================="
 echo "✅ AYURPRAVAH 2027 Deployment finished successfully!"
