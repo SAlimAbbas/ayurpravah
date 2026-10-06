@@ -1,8 +1,12 @@
 import React from "react";
+import { Link, usePage } from "@inertiajs/react";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 
-export default function Hero({ onOpenRegister, siteSettings = {} }) {
+export default function Hero({ onOpenRegister, siteSettings: customSiteSettings }) {
+    const { props } = usePage();
+    const siteSettings = customSiteSettings || props?.site_settings || {};
+
     const brandHindi = siteSettings.brand_hindi || "आयुर प्रवाह";
     const eventName = siteSettings.event_name || "AYURPRAVAH 2027";
     const eyebrow =
@@ -16,9 +20,12 @@ export default function Hero({ onOpenRegister, siteSettings = {} }) {
         siteSettings.dates_label || "16th, 17th & 18th April 2027";
     const countdownDate = siteSettings.countdown_date || "2027-04-16T09:00:00";
     const venueName = siteSettings.venue?.name || "To Be Announced";
+    const venueCity = siteSettings.venue?.city || "";
+    const venueDisplay = venueCity && venueCity !== "TBC" ? `${venueName} (${venueCity})` : `${venueName} (India)`;
 
     return (
-        <section className="relative overflow-hidden bg-[#F7F5EC] pt-8 pb-16 sm:pt-14 sm:pb-24 lg:pt-18 lg:pb-28 border-b border-black/5">
+        <section className="relative overflow-hidden bg-[#F7F5EC] pt-8 pb-16 sm:pt-14 sm:pb-10 lg:pt-10 lg:pb-10 border-b border-black/5">
+
             {/* Multi-Screen Responsive Hero Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                 <img
@@ -70,7 +77,7 @@ export default function Hero({ onOpenRegister, siteSettings = {} }) {
                     </div>
                     <div className="inline-flex items-center space-x-2 bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full border border-[#503323]">
                         <MapPin className="w-6 h-6 text-[#164a08]" />
-                        <span className="text-lg">{venueName} (India)</span>
+                        <span className="text-lg">{venueDisplay}</span>
                     </div>
                 </div>
 

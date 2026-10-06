@@ -1,20 +1,28 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import Hero from '../Components/Hero';
-import InteractiveCoverflowShowcase from '../Components/InteractiveCoverflowShowcase';
-import EcosystemSection from '../Components/EcosystemSection';
-import ConclavesSection from '../Components/ConclavesSection';
-import SpeakersSection from '../Components/SpeakersSection';
-import ProgramPreviewSection from '../Components/ProgramPreviewSection';
-import ExpoShowcaseSection from '../Components/ExpoShowcaseSection';
-import GallerySection from '../Components/GallerySection';
-import StagesSection from '../Components/StagesSection';
-import GlanceStatsSection from '../Components/GlanceStatsSection';
-import TicketTiersSection from '../Components/TicketTiersSection';
-import SponsorsWallSection from '../Components/SponsorsWallSection';
-import FaqSection from '../Components/FaqSection';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import Hero from "../Components/Hero";
+import InteractiveCoverflowShowcase from "../Components/InteractiveCoverflowShowcase";
+import EcosystemSection from "../Components/EcosystemSection";
+import ConclavesSection from "../Components/ConclavesSection";
+import SpeakersSection from "../Components/SpeakersSection";
+import ProgramPreviewSection from "../Components/ProgramPreviewSection";
+import ExpoShowcaseSection from "../Components/ExpoShowcaseSection";
+import GallerySection from "../Components/GallerySection";
+import StagesSection from "../Components/StagesSection";
+import GlanceStatsSection from "../Components/GlanceStatsSection";
+import TicketTiersSection from "../Components/TicketTiersSection";
+import SponsorsWallSection from "../Components/SponsorsWallSection";
+import FaqSection from "../Components/FaqSection";
 
-export default function Home({ conclaves = [], speakers = [], tiers = [], sponsors = {}, sessions = [], faqs = [], galleryItems = [] }) {
+export default function Home({
+    conclaves = [],
+    speakers = [],
+    tiers = [],
+    sponsors = {},
+    sessions = [],
+    faqs = [],
+    galleryItems = [],
+}) {
     return (
         <AppLayout
             title="AYURPRAVAH 2027 | International Ayurveda Conclave & Expo"
@@ -26,7 +34,7 @@ export default function Home({ conclaves = [], speakers = [], tiers = [], sponso
                     <Hero onOpenRegister={() => openRegisterWithTier(null)} />
 
                     {/* Chapter 2: Interactive 3D Coverflow Showcase */}
-                    <InteractiveCoverflowShowcase />
+                    {/* <InteractiveCoverflowShowcase /> */}
 
                     {/* Chapter 3: The Ecosystem & Foundation */}
                     <EcosystemSection />

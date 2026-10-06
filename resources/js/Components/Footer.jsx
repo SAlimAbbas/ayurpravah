@@ -45,24 +45,19 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-14 border-b border-white/10">
                     {/* Brand Column */}
                     <div className="lg:col-span-2 space-y-4">
-                        <div className="flex items-center space-x-3.5">
-                            <img
-                                src="/logo.png"
-                                alt="AyurPravah Yasharth Logo"
-                                className="w-15 h-15 rounded-full object-contain shadow-md bg-white p-0.5 border border-white/10 shrink-0"
-                            />
-                            <div>
-                                <div className="flex items-baseline space-x-2">
-                                    <span className="font-hindi text-2xl font-bold text-[#DFC479]">
-                                        {brandHindi}
-                                    </span>
-                                    <span className="font-heading text-xl font-bold text-white tracking-wide">
-                                        {eventName}
-                                    </span>
-                                </div>
-                                <div className="text-xs font-sans text-[#DFC479] tracking-widest font-semibold uppercase mt-0.5">
-                                    International Ayurveda Conclave & Expo
-                                </div>
+                        <div className="flex items-center space-x-3">
+                            <div className="bg-white/95 rounded-xl px-2.5 py-1.5 shadow-sm inline-flex items-center gap-2">
+                                <img
+                                    src="/images/main-logo.png"
+                                    alt="AyurPravah Main Logo"
+                                    className="h-9 w-auto object-contain"
+                                />
+                                <div className="h-6 w-px bg-stone-300" />
+                                <img
+                                    src="/images/logo.png"
+                                    alt="Yasharth Veda Foundation"
+                                    className="h-8 w-8 rounded-full object-contain"
+                                />
                             </div>
                         </div>
 

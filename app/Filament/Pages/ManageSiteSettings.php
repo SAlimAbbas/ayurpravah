@@ -21,6 +21,11 @@ class ManageSiteSettings extends Page
     public function mount(): void
     {
         $this->form->fill([
+            'brand_hindi' => Setting::get('brand_hindi', 'आयुर प्रवाह'),
+            'event_name' => Setting::get('event_name', 'AYURPRAVAH 2027'),
+            'event_eyebrow' => Setting::get('event_eyebrow', 'INTERNATIONAL AYURVEDA CONCLAVE & EXPO'),
+            'tagline' => Setting::get('tagline', 'One Vision. One Platform. One Future.'),
+            'supporting_message' => Setting::get('supporting_message', 'Uniting Global Experts, Researchers, Innovators & Industry Leaders to Shape the Future of Ayurveda.'),
             'countdown_date' => Setting::get('countdown_date', '2027-04-16 09:00:00'),
             'venue_name' => Setting::get('venue_name', 'To Be Announced'),
             'venue_city' => Setting::get('venue_city', 'TBC'),
@@ -37,6 +42,28 @@ class ManageSiteSettings extends Page
     {
         return $form
             ->schema([
+                Forms\Components\Section::make('Hero & Branding Dynamic Content')
+                    ->description('Powers the hero section titles, Hindi wordmark, and narrative on the homepage')
+                    ->schema([
+                        Forms\Components\TextInput::make('brand_hindi')
+                            ->label('Hindi Brand Wordmark')
+                            ->required(),
+                        Forms\Components\TextInput::make('event_name')
+                            ->label('Event Title / English Brand Name')
+                            ->required(),
+                        Forms\Components\TextInput::make('event_eyebrow')
+                            ->label('Eyebrow Badge Chip')
+                            ->required(),
+                        Forms\Components\TextInput::make('tagline')
+                            ->label('Hero Main Tagline')
+                            ->required(),
+                        Forms\Components\Textarea::make('supporting_message')
+                            ->label('Hero Supporting Narrative Description')
+                            ->rows(3)
+                            ->columnSpanFull()
+                            ->required(),
+                    ])->columns(2),
+
                 Forms\Components\Section::make('Master Countdown & Schedule Settings')
                     ->description('Powers the live countdown timer across the entire website and landing page')
                     ->schema([
@@ -56,6 +83,7 @@ class ManageSiteSettings extends Page
                             ->label('Google Maps Embed / Navigation URL')
                             ->placeholder('https://maps.google.com/...'),
                     ])->columns(2),
+
 
                 Forms\Components\Section::make('Global Contact & Floating Chat')
                     ->schema([

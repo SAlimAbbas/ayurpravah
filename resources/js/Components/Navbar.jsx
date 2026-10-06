@@ -161,29 +161,27 @@ export default function Navbar({ onOpenRegister }) {
         >
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
                 <div className="flex items-center justify-between gap-3">
-                    {/* Brand Wordmark & Official Logo */}
+                    {/* Dual Brand Logos: Main Logo + Yasharth Emblem */}
                     <Link
                         href="/"
-                        className="flex items-center space-x-3 group shrink-0 select-none"
+                        className="flex items-center gap-2 sm:gap-3 group shrink-0 select-none py-1"
                     >
+                        {/* 1. Main Logo (AyurPravah) */}
                         <img
-                            src="/logo.png"
-                            alt="AyurPravah Yasharth Logo"
-                            className="w-20 h-20 sm:w-20 sm:h-20 rounded-full object-contain shadow-sm group-hover:scale-105 transition-transform duration-300 shrink-0 bg-white p-0.5 border border-black/5"
+                            src="/images/main-logo.png"
+                            alt="AYURPRAVAH 2027 Main Logo"
+                            className="w-auto object-contain transition-transform duration-200 group-hover:scale-102"
                         />
-                        <div className="flex flex-col">
-                            <div className="flex items-baseline space-x-1.5 sm:space-x-2">
-                                <span className="font-hindi text-lg sm:text-xl md:text-2xl font-bold text-[#164a08] tracking-wide leading-none whitespace-nowrap">
-                                    {brandHindi}
-                                </span>
-                                <span className="font-heading text-sm sm:text-base md:text-lg font-black tracking-wider text-[#164a08] leading-none whitespace-nowrap">
-                                    {eventName}
-                                </span>
-                            </div>
-                            <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-wider text-[#3e7405] uppercase mt-0.5 sm:mt-1 whitespace-nowrap hidden xs:inline-block">
-                                International Conclave & Expo
-                            </span>
-                        </div>
+
+                        {/* Subtle Vertical Divider */}
+                        <div className="h-6 sm:h-8 w-[1.5px] bg-stone-300 shrink-0" />
+
+                        {/* 2. Secondary Logo (Yasharth Veda Foundation) */}
+                        <img
+                            src="/images/logo.png"
+                            alt="Yasharth Veda Foundation Emblem"
+                            className="h-14 sm:h-15 md:h-15 w-auto object-contain rounded-full bg-white p-0.5 border border-black/10 shadow-xs transition-transform duration-200 group-hover:scale-105"
+                        />
                     </Link>
 
                     {/* Desktop Navigation (>= 1200px / xl) */}
@@ -365,11 +363,11 @@ export default function Navbar({ onOpenRegister }) {
                     </div>
 
                     {/* Mobile & Tablet Bar Controls */}
-                    <div className="flex xl:hidden items-center space-x-2 shrink-0">
+                    <div className="flex xl:hidden items-center space-x-1.5 sm:space-x-2 shrink-0">
                         {/* Submit Abstract link on tablet/md screens */}
                         <Link
                             href="/submit-abstract"
-                            className="hidden md:inline-flex text-xs lg:text-sm font-sans font-semibold text-[#164a08] hover:text-[#0e3005] px-3 py-1.5 rounded-full hover:bg-black/5 whitespace-nowrap"
+                            className="hidden md:inline-flex text-xs font-sans font-semibold text-[#164a08] hover:text-[#0e3005] px-3 py-1.5 rounded-full hover:bg-black/5 whitespace-nowrap"
                         >
                             Submit Abstract
                         </Link>
@@ -378,240 +376,273 @@ export default function Navbar({ onOpenRegister }) {
                         {onOpenRegister ? (
                             <button
                                 onClick={onOpenRegister}
-                                className="bg-[#164a08] text-white text-xs sm:text-sm font-heading font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap cursor-pointer shrink-0"
+                                className="bg-[#164a08] text-white text-[11px] sm:text-xs font-heading font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap cursor-pointer shrink-0"
                             >
                                 REGISTER
                             </button>
                         ) : (
                             <Link
                                 href="/register/delegate"
-                                className="bg-[#164a08] text-white text-xs sm:text-sm font-heading font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap shrink-0"
+                                className="bg-[#164a08] text-white text-[11px] sm:text-xs font-heading font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap shrink-0"
                             >
                                 REGISTER
                             </Link>
                         )}
 
-                        {/* Hamburger Button */}
+                        {/* Prominent Hamburger Button */}
                         <button
                             onClick={() => setMobileOpen(!mobileOpen)}
-                            className="p-2 sm:p-2.5 rounded-full text-[#164a08] hover:bg-black/5 focus:outline-none cursor-pointer shrink-0 transition-colors"
-                            aria-label="Toggle Navigation Menu"
+                            className="p-1.5 sm:p-2 rounded-full text-[#164a08] bg-[#164a08]/10 hover:bg-[#164a08]/20 focus:outline-none cursor-pointer shrink-0 transition-colors"
+                            aria-label="Toggle Navigation Sidebar"
                         >
                             {mobileOpen ? (
-                                <X className="w-6 h-6" />
+                                <X className="w-5 h-5 sm:w-6 sm:h-6" />
                             ) : (
-                                <Menu className="w-6 h-6" />
+                                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
                             )}
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* Mobile & Tablet Full Navigation Menu Dropdown */}
-            {mobileOpen && (
-                <div className="xl:hidden border-t border-black/5 bg-white shadow-2xl max-h-[calc(100vh-75px)] overflow-y-auto animate-in slide-in-from-top-2 duration-200">
-                    <div className="max-w-4xl mx-auto px-5 sm:px-8 py-6 space-y-6">
-                        {/* 2-column grid on tablet, 1-column on mobile */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* Section: Main Conclave Pages */}
-                            <div>
-                                <span className="text-xs font-sans font-bold tracking-widest text-[#3e7405] uppercase px-3">
-                                    Conference Agenda
-                                </span>
-                                <div className="mt-2 space-y-1">
-                                    <Link
-                                        href="/"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            url === "/"
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>Home Overview</span>
-                                    </Link>
-                                    <Link
-                                        href="/ayurpravah"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/ayurpravah")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>AyurPravah Concept</span>
-                                    </Link>
-                                    <Link
-                                        href="/conclaves"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/conclaves")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>13 Conclaves Directory</span>
-                                    </Link>
-                                    <Link
-                                        href="/speakers"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/speakers")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>Distinguished Speakers</span>
-                                    </Link>
-                                    <Link
-                                        href="/program"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/program")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>Program Schedule</span>
-                                    </Link>
-                                    <Link
-                                        href="/expo"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/expo")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>International Expo</span>
-                                    </Link>
-                                </div>
-                            </div>
+            {/* Mobile & Tablet Navigation Sidebar (Slide-over Drawer) */}
+            {/* 1. Backdrop Overlay */}
+            <div
+                className={`fixed inset-0 bg-black/60 backdrop-blur-xs z-50 transition-opacity duration-300 xl:hidden ${
+                    mobileOpen
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
+                }`}
+                onClick={() => setMobileOpen(false)}
+                aria-hidden="true"
+            />
 
-                            {/* Section: Organisers & Details */}
-                            <div>
-                                <span className="text-xs font-sans font-bold tracking-widest text-[#3e7405] uppercase px-3">
-                                    Explore & Logistics
-                                </span>
-                                <div className="mt-2 space-y-1">
-                                    <Link
-                                        href="/about"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/about")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>
-                                            About Ecosystem & Organisers
-                                        </span>
-                                    </Link>
-                                    <Link
-                                        href="/partners"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/partners")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>Partners & Patrons</span>
-                                    </Link>
-                                    <Link
-                                        href="/accommodation"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/accommodation")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>
-                                            Hospitality & Accommodations
-                                        </span>
-                                    </Link>
-                                    <Link
-                                        href="/venue"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/venue")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>Venue & City Guide (IICC)</span>
-                                    </Link>
-                                    <Link
-                                        href="/gallery"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/gallery")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>Conclave Visual Gallery</span>
-                                    </Link>
-                                    <Link
-                                        href="/contact"
-                                        onClick={() => setMobileOpen(false)}
-                                        className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-sans font-semibold transition ${
-                                            isActive("/contact")
-                                                ? "text-[#164a08] bg-[#164a08]/10 font-bold"
-                                                : "text-[#503323] hover:bg-stone-50"
-                                        }`}
-                                    >
-                                        <span>Contact Secretariat & FAQs</span>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+            {/* 2. Slide-out Sidebar Drawer */}
+            <aside
+                className={`fixed top-0 right-0 bottom-0 w-[86vw] max-w-[360px] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-out xl:hidden ${
+                    mobileOpen ? "translate-x-0" : "translate-x-full"
+                }`}
+                aria-label="Mobile Navigation Sidebar"
+            >
+                {/* Drawer Header: Dual Logos & Close Button */}
+                <div className="flex items-center justify-between px-5 py-3.5 border-b border-black/10 bg-[#F7F5EC] shrink-0">
+                    <div className="flex items-center gap-2">
+                        <img
+                            src="/images/main-logo.png"
+                            alt="AyurPravah Main Logo"
+                            className="h-7 w-auto object-contain"
+                        />
+                        <div className="h-5 w-px bg-stone-300 shrink-0" />
+                        <img
+                            src="/images/logo.png"
+                            alt="Yasharth Logo"
+                            className="h-7 w-7 rounded-full object-contain bg-white p-0.5 border border-black/10"
+                        />
+                    </div>
+                    <button
+                        onClick={() => setMobileOpen(false)}
+                        className="p-2 rounded-full text-[#164a08] bg-black/5 hover:bg-black/10 transition-colors cursor-pointer"
+                        aria-label="Close Navigation Sidebar"
+                    >
+                        <X className="w-5 h-5" />
+                    </button>
+                </div>
 
-                        {/* Section: Direct CTAs */}
-                        <div className="pt-4 border-t border-black/5 space-y-2.5 max-w-lg mx-auto">
+                {/* Scrollable Navigation Body */}
+                <div className="flex-1 overflow-y-auto px-5 py-5 space-y-6">
+                    {/* Section: Conference Agenda */}
+                    <div>
+                        <span className="text-[11px] font-sans font-bold tracking-widest text-[#3e7405] uppercase px-1">
+                            Conference Agenda
+                        </span>
+                        <div className="mt-2 space-y-1">
                             <Link
-                                href="/submit-abstract"
+                                href="/"
                                 onClick={() => setMobileOpen(false)}
-                                className="w-full flex items-center justify-center space-x-2 py-3 rounded-full border-2 border-[#164a08] text-[#164a08] font-heading font-bold text-xs tracking-wider hover:bg-[#164a08]/5 transition"
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    url === "/"
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
                             >
-                                <Send className="w-3.5 h-3.5" />
-                                <span>SUBMIT SCIENTIFIC ABSTRACT</span>
+                                <span>Home Overview</span>
                             </Link>
-
-                            <button
-                                onClick={() => {
-                                    setMobileOpen(false);
-                                    if (onOpenRegister) onOpenRegister();
-                                }}
-                                className="w-full flex items-center justify-center space-x-2 py-3.5 rounded-full bg-[#164a08] text-white font-heading font-bold text-xs tracking-wider shadow-md hover:bg-[#0e3005] transition cursor-pointer"
-                            >
-                                <span>REGISTER AS DELEGATE</span>
-                                <ArrowRight className="w-4 h-4 text-white" />
-                            </button>
-
                             <Link
-                                href="/register/exhibitor"
+                                href="/ayurpravah"
                                 onClick={() => setMobileOpen(false)}
-                                className="w-full flex items-center justify-center space-x-2 py-3 rounded-full bg-[#3e7405] text-white font-heading font-bold text-xs tracking-wider hover:bg-[#325e04] transition"
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/ayurpravah")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
                             >
-                                <span>BOOK EXHIBITION STALL</span>
+                                <span>AyurPravah Concept</span>
                             </Link>
-
-                            {/* WhatsApp Direct Concierge */}
-                            <a
-                                href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent("Hello AyurPravah Desk, I would like to inquire about delegate registration.")}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full flex items-center justify-center space-x-2 py-2.5 rounded-full bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 font-sans font-semibold text-xs transition"
+                            <Link
+                                href="/conclaves"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/conclaves")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
                             >
-                                <MessageCircle className="w-4 h-4 fill-current" />
-                                <span>Chat with Secretariat on WhatsApp</span>
-                            </a>
+                                <span>13 Conclaves Directory</span>
+                            </Link>
+                            <Link
+                                href="/speakers"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/speakers")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>Distinguished Speakers</span>
+                            </Link>
+                            <Link
+                                href="/program"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/program")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>Program Schedule</span>
+                            </Link>
+                            <Link
+                                href="/expo"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/expo")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>International Expo</span>
+                            </Link>
+                            <Link
+                                href="/gallery"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/gallery")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>Visual Gallery</span>
+                            </Link>
                         </div>
                     </div>
+
+                    {/* Section: Ecosystem & Logistics */}
+                    <div>
+                        <span className="text-[11px] font-sans font-bold tracking-widest text-[#3e7405] uppercase px-1">
+                            Ecosystem & Logistics
+                        </span>
+                        <div className="mt-2 space-y-1">
+                            <Link
+                                href="/about"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/about")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>About Ecosystem & Organisers</span>
+                            </Link>
+                            <Link
+                                href="/partners"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/partners")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>Partners & Patrons</span>
+                            </Link>
+                            <Link
+                                href="/accommodation"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/accommodation")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>Hospitality & Stay</span>
+                            </Link>
+                            <Link
+                                href="/venue"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/venue")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>Venue & City Guide (IICC)</span>
+                            </Link>
+                            <Link
+                                href="/contact"
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-sans font-semibold transition ${
+                                    isActive("/contact")
+                                        ? "text-[#164a08] bg-[#164a08]/10 font-bold"
+                                        : "text-[#503323] hover:bg-stone-50"
+                                }`}
+                            >
+                                <span>Contact & Support</span>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Section: Direct Action CTAs */}
+                    <div className="pt-4 border-t border-black/10 space-y-2.5">
+                        <button
+                            onClick={() => {
+                                setMobileOpen(false);
+                                if (onOpenRegister) onOpenRegister();
+                            }}
+                            className="w-full flex items-center justify-center space-x-2 py-3 rounded-full bg-[#164a08] text-white font-heading font-bold text-xs tracking-wider shadow-md hover:bg-[#0e3005] transition cursor-pointer"
+                        >
+                            <span>REGISTER AS DELEGATE</span>
+                            <ArrowRight className="w-4 h-4 text-white" />
+                        </button>
+
+                        <Link
+                            href="/submit-abstract"
+                            onClick={() => setMobileOpen(false)}
+                            className="w-full flex items-center justify-center space-x-2 py-2.5 rounded-full border border-[#164a08] text-[#164a08] font-heading font-bold text-xs tracking-wider hover:bg-[#164a08]/5 transition"
+                        >
+                            <Send className="w-3.5 h-3.5" />
+                            <span>SUBMIT SCIENTIFIC ABSTRACT</span>
+                        </Link>
+
+                        <Link
+                            href="/register/exhibitor"
+                            onClick={() => setMobileOpen(false)}
+                            className="w-full flex items-center justify-center space-x-2 py-2.5 rounded-full bg-[#3e7405] text-white font-heading font-bold text-xs tracking-wider hover:bg-[#325e04] transition"
+                        >
+                            <span>BOOK EXHIBITION STALL</span>
+                        </Link>
+
+                        {/* WhatsApp Direct Concierge */}
+                        <a
+                            href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent("Hello AyurPravah Desk, I would like to inquire about delegate registration.")}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full flex items-center justify-center space-x-2 py-2.5 rounded-full bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 font-sans font-semibold text-xs transition"
+                        >
+                            <MessageCircle className="w-4 h-4 fill-current" />
+                            <span>Chat with Secretariat on WhatsApp</span>
+                        </a>
+                    </div>
                 </div>
-            )}
+            </aside>
         </header>
     );
 }
