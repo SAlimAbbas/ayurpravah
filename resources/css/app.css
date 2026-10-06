@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@source '../**/*.jsx';
+@source '../**/*.js';
+@source '../**/*.blade.php';
+
+@theme {
+    --font-heading: 'Sora', sans-serif;
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-hindi: 'Noto Serif Devanagari', serif;
+
+    --color-ayur-green: #164a08;
+    --color-ayur-green-deep: #0e3005;
+    --color-ayur-olive: #3e7405;
+    --color-ayur-gold: #B89A4A;
+    --color-ayur-gold-light: #DFC479;
+    --color-ayur-ivory: #F7F5EC;
+    --color-ayur-ivory-dark: #ECE7D6;
+    --color-ayur-brown: #503323;
+    --color-ayur-brown-light: #6e4732;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #F7F5EC;
+    color: #503323;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+}
+
+.font-heading {
+    font-family: var(--font-heading) !important;
+}
+
+.font-sans {
+    font-family: var(--font-sans) !important;
+}
+
+.font-hindi {
+    font-family: var(--font-hindi) !important;
+}

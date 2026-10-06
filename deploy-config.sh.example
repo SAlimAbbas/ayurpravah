@@ -1,0 +1,10 @@
+#!/bin/bash
+# =============================================================================
+# AYURPRAVAH Hostinger SSH Deployment Configuration Template
+# Copy this to deploy-config.sh and fill in your credentials from Hostinger hPanel -> Advanced -> SSH Access
+# =============================================================================
+
+SSH_HOST="ayurpravah.com"
+SSH_USER="u597814446"
+SSH_PORT="65002"
+REMOTE_DIR="domains/ayurpravah.com/public_html"
