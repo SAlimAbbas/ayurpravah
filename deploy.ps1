@@ -25,7 +25,7 @@ Write-Host "=========================================================" -Foregrou
 
 # 1. Build React frontend locally
 Write-Host "🔨 Step 1/4: Building React frontend locally (npm run build)..." -ForegroundColor Cyan
-npm run build
+cmd.exe /c "npm run build"
 if ($LASTEXITCODE -ne 0) {
     Write-Host "❌ Local build failed! Aborting deployment." -ForegroundColor Red
     exit 1
