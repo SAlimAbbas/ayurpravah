@@ -3,19 +3,55 @@ import { User, MessageSquare, ArrowRight } from 'lucide-react';
 import SpeakerModal from './SpeakerModal';
 import { Link } from '@inertiajs/react';
 
-export default function SpeakersSection({ speakers = [] }) {
-    const [selectedSpeaker, setSelectedSpeaker] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false);
-    const [activeCategory, setActiveCategory] = useState('ALL');
-
-    const resolveSpeakerPhoto = (speaker) => {
-        const path = speaker?.photo_url || speaker?.photo;
+const SpeakerAvatar = ({ speaker }) => {
+    const [imgError, setImgError] = useState(false);
+    
+    const resolvePath = (s) => {
+        const path = s?.photo_url || s?.photo;
         if (!path) return null;
         if (path.startsWith('http://') || path.startsWith('https://')) return path;
         if (path.startsWith('/storage/')) return path;
         if (path.startsWith('storage/')) return `/${path}`;
         return `/storage/${path.replace(/^\/+/, '')}`;
     };
+
+    const photo = resolvePath(speaker);
+
+    const getInitials = (name) => {
+        if (!name) return 'AP';
+        const clean = name.replace(/^(Dr\.|Prof\.|Vd\.|Acharya|Ms\.|Mr\.)\s+/i, '').trim();
+        const parts = clean.split(' ').filter(Boolean);
+        if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+        return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    };
+
+    if (photo && !imgError) {
+        return (
+            <img
+                src={photo}
+                alt={speaker.name}
+                className="w-full h-full object-cover"
+                onError={() => setImgError(true)}
+            />
+        );
+    }
+
+    return (
+        <div className="w-full h-full bg-gradient-to-br from-[#0e3005] via-[#164a08] to-[#243F05] flex flex-col items-center justify-center text-[#DFC479] font-heading font-bold select-none p-2 text-center">
+            <span className="text-2xl sm:text-3xl tracking-widest">{getInitials(speaker.name)}</span>
+            {speaker.country && speaker.country !== 'TBC' && (
+                <span className="text-[10px] text-[#ECE7D6]/80 font-sans tracking-wide uppercase mt-0.5 truncate max-w-[90px]">
+                    {speaker.country}
+                </span>
+            )}
+        </div>
+    );
+};
+
+export default function SpeakersSection({ speakers = [] }) {
+    const [selectedSpeaker, setSelectedSpeaker] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [activeCategory, setActiveCategory] = useState('ALL');
 
     const categories = ['ALL', ...new Set(speakers.map(s => s.category).filter(Boolean))];
 
@@ -74,14 +110,8 @@ export default function SpeakersSection({ speakers = [] }) {
                         >
                             <div>
                                 {/* Speaker Avatar Frame */}
-                                <div className="w-28 h-28 mx-auto rounded-full bg-white border border-[#164a08]/20 flex items-center justify-center text-[#164a08] shadow-sm mb-5 overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                                    {resolveSpeakerPhoto(speaker) ? (
-                                        <img src={resolveSpeakerPhoto(speaker)} alt={speaker.name} className="w-full h-full object-cover" />
-                                    ) : (
-                                        <div className="w-full h-full bg-gradient-to-br from-[#164a08]/15 to-[#3e7405]/20 flex items-center justify-center">
-                                            <User className="w-12 h-12 text-[#164a08]/70" />
-                                        </div>
-                                    )}
+                                <div className="w-28 h-28 mx-auto rounded-full bg-white border-2 border-[#164a08]/20 flex items-center justify-center text-[#164a08] shadow-sm mb-5 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                    <SpeakerAvatar speaker={speaker} />
                                 </div>
 
                                 <div className="text-center">

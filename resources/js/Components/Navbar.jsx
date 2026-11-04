@@ -31,7 +31,7 @@ export default function Navbar({ onOpenRegister }) {
     const siteSettings = props.site_settings || {};
     const brandHindi = siteSettings.brand_hindi || "आयुर प्रवाह";
     const eventName = siteSettings.event_name || "AYURPRAVAH 2027";
-    const whatsappNumber = siteSettings.whatsapp || "+919450362145";
+    const whatsappNumber = siteSettings.whatsapp || "+919704321786";
     const cleanPhone = whatsappNumber.replace(/[^0-9]/g, "");
 
     useEffect(() => {
@@ -108,7 +108,7 @@ export default function Navbar({ onOpenRegister }) {
         },
         {
             title: "Venue & City Guide",
-            desc: "Yashobhoomi IICC, New Delhi travel & accessibility",
+            desc: "IIT Delhi (Hauz Khas), New Delhi travel & accessibility",
             href: "/venue",
             icon: Building2,
         },
@@ -159,28 +159,28 @@ export default function Navbar({ onOpenRegister }) {
                       : "bg-[#F7F5EC]/95 backdrop-blur-sm border-b border-black/5"
             }`}
         >
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
-                <div className="flex items-center justify-between gap-3">
+            <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5">
+                <div className="flex items-center justify-between gap-2 sm:gap-3">
                     {/* Dual Brand Logos: Main Logo + Yasharth Emblem */}
                     <Link
                         href="/"
-                        className="flex items-center gap-2 sm:gap-3 group shrink-0 select-none py-1"
+                        className="flex items-center gap-1.5 sm:gap-2.5 group shrink min-w-0 select-none py-1"
                     >
                         {/* 1. Main Logo (AyurPravah) */}
                         <img
                             src="/images/main-logo.png"
                             alt="AYURPRAVAH 2027 Main Logo"
-                            className="w-auto object-contain transition-transform duration-200 group-hover:scale-102"
+                            className="h-6 sm:h-8 md:h-10 max-h-10 w-auto max-w-[105px] sm:max-w-[150px] md:max-w-none object-contain transition-transform duration-200 group-hover:scale-102 shrink"
                         />
 
                         {/* Subtle Vertical Divider */}
-                        <div className="h-6 sm:h-8 w-[1.5px] bg-stone-300 shrink-0" />
+                        <div className="h-4 sm:h-6 w-[1px] bg-stone-300 shrink-0" />
 
                         {/* 2. Secondary Logo (Yasharth Veda Foundation) */}
                         <img
                             src="/images/logo.png"
                             alt="Yasharth Veda Foundation Emblem"
-                            className="h-14 sm:h-15 md:h-15 w-auto object-contain rounded-full bg-white p-0.5 border border-black/10 shadow-xs transition-transform duration-200 group-hover:scale-105"
+                            className="h-5.5 w-5.5 sm:h-7 sm:w-7 md:h-8 md:w-8 object-contain rounded-full bg-white p-0.5 border border-black/10 shadow-xs transition-transform duration-200 group-hover:scale-105 shrink-0"
                         />
                     </Link>
 
@@ -363,11 +363,11 @@ export default function Navbar({ onOpenRegister }) {
                     </div>
 
                     {/* Mobile & Tablet Bar Controls */}
-                    <div className="flex xl:hidden items-center space-x-1.5 sm:space-x-2 shrink-0">
+                    <div className="flex xl:hidden items-center gap-1.5 sm:gap-2 shrink-0">
                         {/* Submit Abstract link on tablet/md screens */}
                         <Link
                             href="/submit-abstract"
-                            className="hidden md:inline-flex text-xs font-sans font-semibold text-[#164a08] hover:text-[#0e3005] px-3 py-1.5 rounded-full hover:bg-black/5 whitespace-nowrap"
+                            className="hidden md:inline-flex text-xs font-sans font-semibold text-[#164a08] hover:text-[#0e3005] px-3 py-1.5 rounded-full hover:bg-black/5 whitespace-nowrap shrink-0"
                         >
                             Submit Abstract
                         </Link>
@@ -375,24 +375,26 @@ export default function Navbar({ onOpenRegister }) {
                         {/* Primary Register Button on Mobile/Tablet */}
                         {onOpenRegister ? (
                             <button
+                                type="button"
                                 onClick={onOpenRegister}
-                                className="bg-[#164a08] text-white text-[11px] sm:text-xs font-heading font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap cursor-pointer shrink-0"
+                                className="bg-[#164a08] text-white text-[11px] sm:text-xs font-heading font-bold px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap cursor-pointer shrink-0"
                             >
                                 REGISTER
                             </button>
                         ) : (
                             <Link
                                 href="/register/delegate"
-                                className="bg-[#164a08] text-white text-[11px] sm:text-xs font-heading font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap shrink-0"
+                                className="bg-[#164a08] text-white text-[11px] sm:text-xs font-heading font-bold px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:bg-[#0e3005] transition-colors whitespace-nowrap shrink-0"
                             >
                                 REGISTER
                             </Link>
                         )}
 
-                        {/* Prominent Hamburger Button */}
+                        {/* Prominent Hamburger Button - Guaranteed visible on all viewports */}
                         <button
+                            type="button"
                             onClick={() => setMobileOpen(!mobileOpen)}
-                            className="p-1.5 sm:p-2 rounded-full text-[#164a08] bg-[#164a08]/10 hover:bg-[#164a08]/20 focus:outline-none cursor-pointer shrink-0 transition-colors"
+                            className="p-1.5 sm:p-2 rounded-lg sm:rounded-full text-[#164a08] bg-[#164a08]/10 hover:bg-[#164a08]/20 focus:outline-none cursor-pointer shrink-0 transition-colors flex items-center justify-center min-w-[34px] min-h-[34px]"
                             aria-label="Toggle Navigation Sidebar"
                         >
                             {mobileOpen ? (
@@ -419,8 +421,8 @@ export default function Navbar({ onOpenRegister }) {
 
             {/* 2. Slide-out Sidebar Drawer */}
             <aside
-                className={`fixed top-0 right-0 bottom-0 w-[86vw] max-w-[360px] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-out xl:hidden ${
-                    mobileOpen ? "translate-x-0" : "translate-x-full"
+                className={`fixed top-0 right-0 bottom-0 w-[86vw] max-w-[340px] bg-white z-50 shadow-2xl flex flex-col transform transition-all duration-300 ease-out xl:hidden ${
+                    mobileOpen ? "translate-x-0 visible opacity-100" : "translate-x-full invisible opacity-0 pointer-events-none"
                 }`}
                 aria-label="Mobile Navigation Sidebar"
             >

@@ -65,7 +65,7 @@ export default function Accommodation({ accommodations = [] }) {
                                             {acc.contact_info || 'AyurPravah Hospitality'}
                                         </div>
                                         <a
-                                            href={`https://wa.me/919450362145?text=${encodeURIComponent(`Inquiry for accommodation: ${acc.name}`)}`}
+                                            href={`https://wa.me/919704321786?text=${encodeURIComponent(`Inquiry for accommodation: ${acc.name}`)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-sm font-heading font-bold text-[#164a08] hover:underline"
@@ -85,7 +85,7 @@ export default function Accommodation({ accommodations = [] }) {
                                 Need Dedicated Group Booking or University Delegation Accommodation?
                             </h4>
                             <p className="text-base text-[#ECE7D6]/90 max-w-lg mx-auto">
-                                Contact our Hospitality & Logistics Secretariat directly at +91 94503 62145 or yasharthvedafoundation@gmail.com
+                                Contact our Hospitality & Logistics Secretariat directly at +91 97043 21786 or info@ayurpravah.com
                             </p>
                         </div>
                     </div>

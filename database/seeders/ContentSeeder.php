@@ -19,13 +19,13 @@ class ContentSeeder extends Seeder
             [
                 'category' => 'General',
                 'question' => 'What is AYURPRAVAH 2027?',
-                'answer' => 'AYURPRAVAH 2027 (आयुर प्रवाह) is the premier International Ayurveda Conclave & Expo organized by Yasharth Veda Foundation and AyurWings Health Tech. It is a unified platform bringing together over 5,000 global experts, clinicians, researchers, innovators, institutions, and industry leaders to shape the future of Ayurveda.',
+                'answer' => 'AYURPRAVAH 2027 (आयुर प्रवाह) is the International AYUSH Conclave & Expo organized jointly by the Indian Institute of Technology Delhi (IIT Delhi) and Yasharth Veda Foundation, in association with AyurWings HealthTech. It brings together over 60+ global speakers, 13 conclaves, 150+ brands, researchers, and clinicians across three days.',
                 'sort_order' => 1,
             ],
             [
                 'category' => 'General',
                 'question' => 'When and where will AYURPRAVAH 2027 be held?',
-                'answer' => 'AYURPRAVAH 2027 will take place over three days: 16th, 17th, and 18th April 2027. The premier venue will be announced shortly.',
+                'answer' => 'AYURPRAVAH 2027 will take place from 16 to 18 April 2027 at the Indian Institute of Technology Delhi (IIT Delhi), Hauz Khas, New Delhi 110016. Direct access is available via IIT Delhi Metro Station (Magenta Line Gate No. 1, 200m).',
                 'sort_order' => 2,
             ],
             [
@@ -43,19 +43,19 @@ class ContentSeeder extends Seeder
             [
                 'category' => 'Exhibition',
                 'question' => 'How can our company book an exhibition booth at the Expo?',
-                'answer' => 'You can submit your stall interest via the "Register as Exhibitor" form on the Expo page or reach our Industry & Exhibition Cell at +91 94503 62145 / yasharthvedafoundation@gmail.com. We offer standard shell schemes and custom bare spaces with prime footfall visibility.',
+                'answer' => 'You can submit your stall interest via the "Register as Exhibitor" form on the Expo page or reach our Expo Cell at expo@ayurpravah.com / +91 97160 48074, +91 76690 89388. We offer 9 sqm & 18 sqm standard shell schemes, and custom bare space island pavilions with prime footfall visibility.',
                 'sort_order' => 5,
             ],
             [
                 'category' => 'Scientific Papers',
                 'question' => 'How can I submit an abstract for oral or poster presentation?',
-                'answer' => 'Abstract submissions are open through our online portal under "Submit Abstract". Submissions must align with one of the 13 thematic conclave tracks. Peer-reviewed accepted abstracts will be published in the AYURPRAVAH 2027 Indexed Scientific Proceedings.',
+                'answer' => 'Abstract submissions are open through our online portal under "Submit Abstract" or by email to ayurpravah.research@gmail.com. Submissions must align with one of the conclave tracks. Peer-reviewed accepted abstracts will be published in the AYURPRAVAH 2027 Indexed Scientific Proceedings.',
                 'sort_order' => 6,
             ],
             [
                 'category' => 'Accommodations',
                 'question' => 'Are hotel accommodations provided for outstation delegates?',
-                'answer' => 'We partner with accredited hospitality providers near the conclave venue offering exclusive discounted delegate rates. You can view recommended accommodations and register booking preferences through our portal.',
+                'answer' => 'We partner with accredited hospitality providers near IIT Delhi offering exclusive discounted delegate rates. You can view recommended accommodations and register booking preferences through our portal.',
                 'sort_order' => 7,
             ],
         ];

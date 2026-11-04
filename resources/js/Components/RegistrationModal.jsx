@@ -221,22 +221,23 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden border border-stone-200/60 relative animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/65 backdrop-blur-sm flex items-center justify-center p-2.5 sm:p-4 md:p-6">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-stone-200/60 relative animate-in fade-in zoom-in-95 duration-200 my-auto">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-[#0e3005] to-[#164a08] text-white p-6 flex items-center justify-between">
+                <div className="bg-gradient-to-r from-[#0e3005] to-[#164a08] text-white p-3.5 sm:p-6 flex items-center justify-between shrink-0">
                     <div>
                         <div className="flex items-center space-x-2">
-                            <span className="font-hindi text-lg text-[#DFC479]">आयुर प्रवाह</span>
-                            <span className="font-heading text-xl font-bold">AYURPRAVAH 2027</span>
+                            <span className="font-hindi text-base sm:text-lg text-[#DFC479]">आयुर प्रवाह</span>
+                            <span className="font-heading text-lg sm:text-xl font-bold">AYURPRAVAH 2027</span>
                         </div>
-                        <p className="text-sm text-[#ECE7D6]/90 font-sans mt-0.5">
+                        <p className="text-xs sm:text-sm text-[#ECE7D6]/90 font-sans mt-0.5">
                             Official Delegate Registration & Pass Confirmation
                         </p>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-2 rounded-full hover:bg-white/10 text-white transition"
+                        className="p-1.5 sm:p-2 rounded-full hover:bg-white/10 text-white transition cursor-pointer shrink-0"
+                        aria-label="Close modal"
                     >
                         <X className="w-5 h-5" />
                     </button>
@@ -244,33 +245,33 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
 
                 {/* Progress Indicators */}
                 {step < 3 && (
-                    <div className="bg-[#F7F5EC] px-6 py-3 border-b border-[#164a08]/10 flex items-center justify-between text-sm font-sans">
-                        <span className={`font-semibold ${step === 1 ? 'text-[#164a08]' : 'text-gray-400'}`}>
+                    <div className="bg-[#F7F5EC] px-3.5 sm:px-6 py-2.5 sm:py-3 border-b border-[#164a08]/10 flex items-center justify-between text-xs sm:text-sm font-sans shrink-0">
+                        <span className={`font-semibold ${step === 1 ? 'text-[#164a08]' : 'text-stone-400'}`}>
                             1. Select Pass Tier
                         </span>
-                        <span className="text-gray-300">→</span>
-                        <span className={`font-semibold ${step === 2 ? 'text-[#164a08]' : 'text-gray-400'}`}>
-                            2. Delegate Details & Verification
+                        <span className="text-stone-300">→</span>
+                        <span className={`font-semibold ${step === 2 ? 'text-[#164a08]' : 'text-stone-400'}`}>
+                            2. Details & Verification
                         </span>
                     </div>
                 )}
 
                 {/* Body Content */}
-                <div className="p-6 sm:p-8">
+                <div className="p-3.5 sm:p-6 md:p-8 overflow-y-auto flex-1 min-w-0">
                     {errorMsg && (
-                        <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-2xl flex items-center space-x-2 text-sm text-red-700">
-                            <AlertCircle className="w-5 h-5 shrink-0" />
+                        <div className="mb-4 p-3.5 bg-red-50 border border-red-200 rounded-xl flex items-center space-x-2 text-xs sm:text-sm text-red-700">
+                            <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                             <span>{errorMsg}</span>
                         </div>
                     )}
 
                     {/* Step 1: Tier Selection */}
                     {step === 1 && (
-                        <div className="space-y-5">
-                            <h3 className="font-heading text-base font-bold text-[#164a08] uppercase tracking-wider">
+                        <div className="space-y-4 sm:space-y-5">
+                            <h3 className="font-heading text-sm sm:text-base font-bold text-[#164a08] uppercase tracking-wider">
                                 Choose Delegate Category / Tier
                             </h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-h-[360px] overflow-y-auto pr-1">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[360px] overflow-y-auto pr-0.5 sm:pr-1">
                                 {tierList.map((tier) => {
                                     const isSelected = selectedTier?.id === tier.id;
                                     const isFreeOrTbc = tier.price === 0 || !tier.is_active;
@@ -279,28 +280,28 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         <div
                                             key={tier.id}
                                             onClick={() => setSelectedTier(tier)}
-                                            className={`p-4 rounded-2xl border cursor-pointer transition-all ${
+                                            className={`p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border cursor-pointer transition-all ${
                                                 isSelected
-                                                    ? 'border-[#164a08] bg-[#F7F5EC] ring-2 ring-[#164a08]/20 shadow-md'
+                                                    ? 'border-[#164a08] bg-[#F7F5EC] ring-2 ring-[#164a08]/20 shadow-sm'
                                                     : 'border-stone-200 hover:border-[#164a08]/40 bg-white'
                                             }`}
                                         >
-                                            <div className="flex items-start justify-between">
-                                                <div>
-                                                    <span className="text-xs font-sans font-bold tracking-wider text-[#3e7405] uppercase">
+                                            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1 sm:gap-2">
+                                                <div className="min-w-0 flex-1">
+                                                    <span className="text-[10px] sm:text-xs font-sans font-bold tracking-wider text-[#3e7405] uppercase block">
                                                         {tier.category}
                                                     </span>
-                                                    <h4 className="font-heading text-base font-bold text-[#164a08]">
+                                                    <h4 className="font-heading text-sm sm:text-base font-bold text-[#164a08] break-words">
                                                         {tier.name}
                                                     </h4>
                                                 </div>
-                                                <div className="text-right">
+                                                <div className="shrink-0 self-start sm:self-auto">
                                                     {isFreeOrTbc ? (
-                                                        <span className="text-xs font-bold text-[#3e7405] bg-[#3e7405]/10 px-3 py-1 rounded-full">
+                                                        <span className="inline-block text-[10px] sm:text-xs font-bold text-[#3e7405] bg-[#3e7405]/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full whitespace-nowrap">
                                                             {tier.price > 0 ? `₹${(tier.price / 100).toLocaleString()}` : 'Pre-Registration'}
                                                         </span>
                                                     ) : (
-                                                        <span className="text-base font-heading font-extrabold text-[#164a08]">
+                                                        <span className="text-sm sm:text-base font-heading font-extrabold text-[#164a08] whitespace-nowrap">
                                                             ₹{(tier.price / 100).toLocaleString()}
                                                         </span>
                                                     )}
@@ -308,9 +309,9 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                             </div>
 
                                             {tier.inclusions && (
-                                                <ul className="mt-3 space-y-1.5 text-xs text-[#503323]">
+                                                <ul className="mt-2.5 space-y-1 text-xs text-[#503323]">
                                                     {tier.inclusions.slice(0, 3).map((inc, i) => (
-                                                        <li key={i} className="flex items-center space-x-1.5">
+                                                        <li key={i} className="flex items-center space-x-1.5 min-w-0">
                                                             <CheckCircle className="w-3.5 h-3.5 text-[#164a08] shrink-0" />
                                                             <span className="truncate">{inc}</span>
                                                         </li>
@@ -322,18 +323,18 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                 })}
                             </div>
 
-                            <div className="pt-4 flex items-center justify-between border-t border-stone-200">
-                                <div className="text-sm text-[#3e7405]">
+                            <div className="pt-3.5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-stone-200">
+                                <div className="text-xs sm:text-sm text-[#3e7405] truncate">
                                     Selected: <strong className="text-[#164a08]">{selectedTier?.name || 'None'}</strong>
                                 </div>
                                 <button
                                     type="button"
                                     disabled={!selectedTier}
                                     onClick={() => setStep(2)}
-                                    className="bg-[#164a08] text-white px-7 py-3 rounded-full text-sm font-heading font-semibold tracking-wider hover:bg-[#0e3005] transition flex items-center space-x-2 disabled:opacity-50 shadow-md"
+                                    className="w-full sm:w-auto justify-center bg-[#164a08] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-heading font-semibold tracking-wider hover:bg-[#0e3005] transition flex items-center space-x-2 disabled:opacity-50 shadow-md shrink-0 cursor-pointer"
                                 >
-                                    <span>CONTINUE TO DETAILS</span>
-                                    <ArrowRight className="w-4 h-4 text-[#DFC479]" />
+                                    <span className="whitespace-nowrap">CONTINUE TO DETAILS</span>
+                                    <ArrowRight className="w-4 h-4 text-[#DFC479] shrink-0" />
                                 </button>
                             </div>
                         </div>
@@ -341,17 +342,17 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
 
                     {/* Step 2: Delegate Profile Form & Payment Summary */}
                     {step === 2 && (
-                        <form onSubmit={handleSubmitRegistration} className="space-y-4">
+                        <form onSubmit={handleSubmitRegistration} className="space-y-3.5 sm:space-y-4 min-w-0">
                             <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         Title *
                                     </label>
                                     <select
                                         name="title"
                                         value={formData.title}
                                         onChange={handleInputChange}
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                         required
                                     >
                                         <option value="Dr.">Dr.</option>
@@ -362,8 +363,8 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                     </select>
                                 </div>
 
-                                <div className="sm:col-span-3">
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="sm:col-span-3 min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         Full Name *
                                     </label>
                                     <input
@@ -372,15 +373,15 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.full_name}
                                         onChange={handleInputChange}
                                         placeholder="e.g. Anand Sharma"
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                         required
                                     />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         Email Address *
                                     </label>
                                     <input
@@ -389,12 +390,12 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         placeholder="doctor@hospital.org"
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                         required
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         Phone / WhatsApp *
                                     </label>
                                     <input
@@ -403,15 +404,15 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         placeholder="+91 98765 43210"
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                         required
                                     />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         Designation / Specialization
                                     </label>
                                     <input
@@ -420,11 +421,11 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.designation}
                                         onChange={handleInputChange}
                                         placeholder="Ayurveda Consultant / PG Scholar"
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         Organisation / College
                                     </label>
                                     <input
@@ -433,14 +434,14 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.organisation_college}
                                         onChange={handleInputChange}
                                         placeholder="Hospital, University, or Clinic"
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                     />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         City
                                     </label>
                                     <input
@@ -449,11 +450,11 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.city}
                                         onChange={handleInputChange}
                                         placeholder="City"
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         State
                                     </label>
                                     <input
@@ -462,11 +463,11 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.state}
                                         onChange={handleInputChange}
                                         placeholder="State"
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-sans font-semibold text-[#503323] mb-1.5">
+                                <div className="min-w-0">
+                                    <label className="block text-xs sm:text-sm font-sans font-semibold text-[#503323] mb-1">
                                         Ayurveda Board Reg No
                                     </label>
                                     <input
@@ -475,36 +476,36 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                         value={formData.registration_council_no}
                                         onChange={handleInputChange}
                                         placeholder="Board / Council No."
-                                        className="w-full text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
+                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 focus:ring-2 focus:ring-[#164a08]/30 focus:border-[#164a08]"
                                     />
                                 </div>
                             </div>
 
                             {/* Coupon Code Section */}
-                            <div className="bg-[#F7F5EC] p-4 rounded-2xl border border-[#164a08]/15 mt-3">
-                                <div className="flex space-x-2">
+                            <div className="bg-[#F7F5EC] p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-[#164a08]/15 mt-3 min-w-0">
+                                <div className="flex gap-2 min-w-0">
                                     <input
                                         type="text"
                                         value={couponInput}
                                         onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
                                         placeholder="PROMO / COUPON CODE"
-                                        className="flex-1 text-sm border border-stone-300 rounded-full px-4 py-2 font-mono uppercase focus:ring-2 focus:ring-[#164a08]/30"
+                                        className="flex-1 min-w-0 text-xs sm:text-sm border border-stone-300 rounded-full px-3 sm:px-4 py-2 font-mono uppercase focus:ring-2 focus:ring-[#164a08]/30"
                                     />
                                     <button
                                         type="button"
                                         onClick={handleApplyCoupon}
                                         disabled={couponLoading || !couponInput.trim()}
-                                        className="bg-[#164a08] text-white px-5 py-2 rounded-full text-sm font-heading font-semibold hover:bg-[#0e3005] disabled:opacity-50 transition shadow-sm"
+                                        className="bg-[#164a08] text-white px-3.5 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-heading font-semibold hover:bg-[#0e3005] disabled:opacity-50 transition shadow-sm whitespace-nowrap shrink-0 cursor-pointer"
                                     >
                                         {couponLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'APPLY'}
                                     </button>
                                 </div>
-                                {couponSuccess && <p className="text-sm text-green-700 mt-2 font-medium">{couponSuccess}</p>}
-                                {couponError && <p className="text-sm text-red-600 mt-2">{couponError}</p>}
+                                {couponSuccess && <p className="text-xs sm:text-sm text-green-700 mt-2 font-medium">{couponSuccess}</p>}
+                                {couponError && <p className="text-xs sm:text-sm text-red-600 mt-2">{couponError}</p>}
 
                                 {/* Dynamic Pricing Summary */}
                                 {quote && (
-                                    <div className="mt-3 pt-3 border-t border-[#164a08]/10 text-sm space-y-1.5 font-sans">
+                                    <div className="mt-3 pt-3 border-t border-[#164a08]/10 text-xs sm:text-sm space-y-1.5 font-sans">
                                         <div className="flex justify-between text-stone-600">
                                             <span>Base Registration:</span>
                                             <span>₹{(quote.subtotal / 100).toFixed(2)}</span>
@@ -521,7 +522,7 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                                 <span>₹{(quote.tax / 100).toFixed(2)}</span>
                                             </div>
                                         )}
-                                        <div className="flex justify-between font-heading font-bold text-base text-[#164a08] pt-2 border-t border-[#164a08]/10">
+                                        <div className="flex justify-between font-heading font-bold text-sm sm:text-base text-[#164a08] pt-2 border-t border-[#164a08]/10">
                                             <span>Payable Total:</span>
                                             <span>₹{(quote.total / 100).toFixed(2)}</span>
                                         </div>
@@ -529,28 +530,28 @@ export default function RegistrationModal({ isOpen, onClose, preselectedTierId =
                                 )}
                             </div>
 
-                            <div className="pt-3 flex items-center justify-between">
+                            <div className="pt-3 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
                                 <button
                                     type="button"
                                     onClick={() => setStep(1)}
-                                    className="text-sm text-stone-500 hover:text-[#164a08] font-medium"
+                                    className="text-xs sm:text-sm text-stone-500 hover:text-[#164a08] font-medium py-2 text-center cursor-pointer"
                                 >
                                     ← Back to Tiers
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={submitting}
-                                    className="bg-gradient-to-r from-[#164a08] to-[#164a08] text-white px-7 py-3 rounded-full text-sm font-heading font-bold tracking-wider hover:brightness-110 shadow-md transition flex items-center space-x-2 disabled:opacity-50"
+                                    className="w-full sm:w-auto justify-center bg-[#164a08] text-white px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-heading font-bold tracking-wider hover:bg-[#0e3005] shadow-md transition flex items-center space-x-2 disabled:opacity-50 cursor-pointer whitespace-nowrap shrink-0"
                                 >
                                     {submitting ? (
                                         <>
-                                            <Loader2 className="w-4 h-4 animate-spin text-[#DFC479]" />
-                                            <span>PROCESSING...</span>
+                                            <Loader2 className="w-4 h-4 animate-spin text-[#DFC479] shrink-0" />
+                                            <span className="whitespace-nowrap">PROCESSING...</span>
                                         </>
                                     ) : (
                                         <>
-                                            <span>COMPLETE REGISTRATION</span>
-                                            <ArrowRight className="w-4 h-4 text-[#DFC479]" />
+                                            <span className="whitespace-nowrap">CONFIRM & COMPLETE</span>
+                                            <ArrowRight className="w-4 h-4 text-[#DFC479] shrink-0" />
                                         </>
                                     )}
                                 </button>

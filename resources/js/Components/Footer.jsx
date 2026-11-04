@@ -8,28 +8,31 @@ export default function Footer() {
     const eventName = siteSettings.event_name || "AYURPRAVAH 2027";
     const datesLabel =
         siteSettings.dates_label || "16th, 17th & 18th April 2027";
-    const venueName = siteSettings.venue?.name || "To Be Announced";
+    const rawVenueName = siteSettings.venue?.name;
+    const venueName = (rawVenueName && rawVenueName !== "To Be Announced")
+        ? rawVenueName
+        : "Indian Institute of Technology Delhi, Hauz Khas, New Delhi 110016";
 
     const defaultDepartments = [
         {
-            name: "Delegate Registration",
-            email: "registration@ayurpravah.in",
-            phone: "+91 94503 62145",
+            name: "General & Secretariat",
+            email: "info@ayurpravah.com",
+            phone: "+91 97043 21786 / +91 85869 59638",
         },
         {
             name: "Exhibition & Stalls",
-            email: "expo@ayurpravah.in",
-            phone: "+91 94503 62145",
+            email: "expo@ayurpravah.com",
+            phone: "+91 97160 48074 / +91 76690 89388",
         },
         {
-            name: "Scientific Committee",
-            email: "abstracts@ayurpravah.in",
-            phone: "+91 80040 03000",
+            name: "Research & Abstracts",
+            email: "ayurpravah.research@gmail.com",
+            phone: "+91 97043 21786",
         },
         {
-            name: "Sponsorships & MoUs",
-            email: "partners@ayurpravah.in",
-            phone: "+91 94503 62145",
+            name: "Startups & Pitch",
+            email: "info@ayurpravah.com",
+            phone: "+91 85869 59638",
         },
     ];
 
@@ -87,14 +90,17 @@ export default function Footer() {
                         {/* Joint Organisers */}
                         <div className="pt-4">
                             <div className="text-xs font-sans font-semibold tracking-wider text-[#DFC479] uppercase mb-2">
-                                Organized In Joint Confluence By
+                                Joint Conclave Stewardship
                             </div>
                             <div className="flex flex-col space-y-1.5 text-sm text-white">
                                 <span className="font-heading font-medium tracking-wide">
-                                    • Yasharth Veda Foundation
+                                    • Indian Institute of Technology Delhi
                                 </span>
                                 <span className="font-heading font-medium tracking-wide">
-                                    • AyurWings Health Tech Private Limited
+                                    • Yasharth Veda Foundation
+                                </span>
+                                <span className="font-heading font-medium tracking-wide text-[#ECE7D6]/85">
+                                    • In association with AyurWings HealthTech
                                 </span>
                             </div>
                         </div>
@@ -257,9 +263,8 @@ export default function Footer() {
                     <div className="text-center md:text-left">
                         © {new Date().getFullYear()} {eventName} (आयुर प्रवाह).
                         All rights reserved.
-                        <span className="block sm:inline sm:ml-2 text-xs text-[#DFC479]">
-                            An official initiative of Yasharth Veda Foundation &
-                            AyurWings.
+                        <span className="block text-xs text-[#DFC479] mt-1 italic font-serif">
+                            From Knowledge to Innovation. From Innovation to Impact. From Bharat to the World.
                         </span>
                     </div>
 

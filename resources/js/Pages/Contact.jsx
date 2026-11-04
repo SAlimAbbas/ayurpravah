@@ -19,34 +19,34 @@ export default function Contact({ faqs = [] }) {
 
     const departments = [
         {
-            name: 'Delegate Registration & Ticketing',
-            email: 'registration@ayurpravah.in',
-            phone: '+91 94503 62145',
-            desc: 'Pass inquiries, group registrations, invoice requests, and check-in confirmation.',
+            name: 'General Enquiries & Secretariat',
+            email: 'info@ayurpravah.com',
+            phone: '+91 97043 21786 / +91 85869 59638',
+            desc: 'General conclave information, delegate passes, venue directions, and official notices.',
         },
         {
-            name: 'Exhibition & Industry Stalls',
-            email: 'expo@ayurpravah.in',
-            phone: '+91 94503 62145',
-            desc: 'Booth layouts, shell scheme packages, bare spaces, and freight assistance.',
+            name: 'Exhibition, Stalls & Industry Booths',
+            email: 'expo@ayurpravah.com',
+            phone: '+91 97160 48074 / +91 76690 89388',
+            desc: '9 sqm, 18 sqm shell schemes, bare spaces, sponsorship packages, and booth allocations.',
         },
         {
-            name: 'Scientific Committee & Abstracts',
-            email: 'abstracts@ayurpravah.in',
-            phone: '+91 80040 03000',
-            desc: 'Oral and poster abstract submissions, review status, and journal publication guidelines.',
+            name: 'Research, Scientific Papers & Abstracts',
+            email: 'ayurpravah.research@gmail.com',
+            phone: '+91 97043 21786',
+            desc: 'Abstract review status, oral & poster guidelines, presentation awards, and proceedings.',
         },
         {
-            name: 'Partnerships, MoUs & Sponsorships',
-            email: 'partners@ayurpravah.in',
-            phone: '+91 94503 62145',
-            desc: 'Institutional MoUs, corporate sponsorships, and patron privileges.',
+            name: 'Startups, Innovation & Venture Pitch',
+            email: 'info@ayurpravah.com',
+            phone: '+91 85869 59638',
+            desc: 'Founder pitches, incubator participation, venture partner meetings, and demo tables.',
         },
         {
-            name: 'Media, Press & Communications',
-            email: 'yasharthvedafoundation@gmail.com',
-            phone: '+91 94503 62145',
-            desc: 'Press accreditation, media passes, official announcements, and interview slots.',
+            name: 'Institutional MoUs & Strategic Patrons',
+            email: 'info@ayurpravah.com',
+            phone: '+91 97043 21786',
+            desc: 'University partnerships, bilateral healthcare agreements, and global delegations.',
         },
     ];
 
@@ -135,29 +135,29 @@ export default function Contact({ faqs = [] }) {
                     </div>
 
                     {/* Interactive Enquiry Form */}
-                    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200/80 shadow-md">
+                    <div className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8">
+                        <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-stone-200/80 shadow-md">
                             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#164a08] text-center">
                                 Direct Online Message
                             </h2>
-                            <p className="text-base text-stone-600 text-center mt-2 mb-8">
+                            <p className="text-sm sm:text-base text-stone-600 text-center mt-1.5 mb-6 sm:mb-8">
                                 Send a prioritized message directly to the secretariat.
                             </p>
 
                             {successMsg ? (
-                                <div className="p-5 bg-green-50 border border-green-200 text-green-800 rounded-2xl text-sm text-center font-medium">
+                                <div className="p-4 sm:p-5 bg-green-50 border border-green-200 text-green-800 rounded-2xl text-xs sm:text-sm text-center font-medium">
                                     {successMsg}
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-5">
+                                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                                     <div>
-                                        <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                        <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                             Target Department Desk *
                                         </label>
                                         <select
                                             value={formData.department}
                                             onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                                            className="w-full text-sm border border-stone-300 rounded-xl p-3 bg-white focus:ring-2 focus:ring-[#164a08]/30"
+                                            className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 bg-white focus:ring-2 focus:ring-[#164a08]/30"
                                         >
                                             {departments.map((d, i) => (
                                                 <option key={i} value={d.name}>{d.name}</option>
@@ -165,9 +165,9 @@ export default function Contact({ faqs = [] }) {
                                         </select>
                                     </div>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Your Full Name *
                                             </label>
                                             <input
@@ -175,25 +175,25 @@ export default function Contact({ faqs = [] }) {
                                                 required
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Organisation / Clinic / College
                                             </label>
                                             <input
                                                 type="text"
                                                 value={formData.organisation}
                                                 onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Email Address *
                                             </label>
                                             <input
@@ -201,11 +201,11 @@ export default function Contact({ faqs = [] }) {
                                                 required
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Phone Number / WhatsApp *
                                             </label>
                                             <input
@@ -213,13 +213,13 @@ export default function Contact({ faqs = [] }) {
                                                 required
                                                 value={formData.phone}
                                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                        <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                             Your Inquiry / Message *
                                         </label>
                                         <textarea
@@ -228,14 +228,14 @@ export default function Contact({ faqs = [] }) {
                                             value={formData.message}
                                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                             placeholder="Write your query clearly..."
-                                            className="w-full text-sm border border-stone-300 rounded-2xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                            className="w-full text-xs sm:text-sm border border-stone-300 rounded-2xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                         ></textarea>
                                     </div>
 
                                     <button
                                         type="submit"
                                         disabled={submitting}
-                                        className="w-full bg-[#164a08] text-white py-4 rounded-full font-heading text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50"
+                                        className="w-full bg-[#164a08] text-white py-3.5 sm:py-4 rounded-full font-heading text-xs sm:text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50 whitespace-nowrap cursor-pointer"
                                     >
                                         {submitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <span>DISPATCH MESSAGE</span>}
                                     </button>

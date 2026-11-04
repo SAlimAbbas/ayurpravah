@@ -25,8 +25,8 @@ export default function Home({
 }) {
     return (
         <AppLayout
-            title="AYURPRAVAH 2027 | International Ayurveda Conclave & Expo"
-            description="Uniting Global Experts, Researchers, Innovators & Industry Leaders to Shape the Future of Ayurveda."
+            title="AYURPRAVAH 2027 | International AYUSH Conclave & Expo | IIT Delhi"
+            description="Uniting Global Experts, Researchers, Innovators & Industry Leaders to Shape the Future of AYUR. 16–18 April 2027 at IIT Delhi."
         >
             {({ openRegisterWithTier }) => (
                 <div className="space-y-0">

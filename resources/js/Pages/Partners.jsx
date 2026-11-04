@@ -96,23 +96,29 @@ export default function Partners({ sponsors = {} }) {
                     </div>
 
                     {/* Organisers Strip */}
-                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="bg-[#164a08] text-white rounded-3xl p-8 sm:p-10 border border-[#164a08]/30 text-center space-y-5 shadow-xl">
-                            <span className="text-sm font-sans font-bold tracking-widest text-[#DFC479] uppercase">
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="bg-[#164a08] text-white rounded-3xl p-6 sm:p-10 border border-[#164a08]/30 text-center space-y-5 shadow-xl">
+                            <span className="text-xs sm:text-sm font-sans font-bold tracking-widest text-[#DFC479] uppercase">
                                 Joint Conclave Stewardship
                             </span>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-                                <div className="bg-[#164a08]/40 p-5 rounded-2xl border border-[#164a08]/20">
-                                    <h3 className="font-heading text-lg font-bold text-white">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                                <div className="bg-[#164a08]/40 p-4 sm:p-5 rounded-2xl border border-[#164a08]/20">
+                                    <h3 className="font-heading text-base sm:text-lg font-bold text-white">
+                                        IIT Delhi
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">Host Institution & Academic Partner</p>
+                                </div>
+                                <div className="bg-[#164a08]/40 p-4 sm:p-5 rounded-2xl border border-[#164a08]/20">
+                                    <h3 className="font-heading text-base sm:text-lg font-bold text-white">
                                         Yasharth Veda Foundation
                                     </h3>
-                                    <p className="text-base text-[#DFC479] mt-1">Ecosystem-Building Non-Profit Trust</p>
+                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">Ecosystem-Building Non-Profit Trust</p>
                                 </div>
-                                <div className="bg-[#164a08]/40 p-5 rounded-2xl border border-[#164a08]/20">
-                                    <h3 className="font-heading text-lg font-bold text-white">
-                                        AyurWings Health Tech
+                                <div className="bg-[#164a08]/40 p-4 sm:p-5 rounded-2xl border border-[#164a08]/20">
+                                    <h3 className="font-heading text-base sm:text-lg font-bold text-white">
+                                        AyurWings HealthTech
                                     </h3>
-                                    <p className="text-base text-[#DFC479] mt-1">Digital Backbone & Health Tech Enterprise</p>
+                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">Digital Backbone & HealthTech Platform</p>
                                 </div>
                             </div>
                         </div>
@@ -167,24 +173,24 @@ export default function Partners({ sponsors = {} }) {
                     </div>
 
                     {/* Partnership Inquiry Form */}
-                    <div id="partner-inquiry" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200/80 shadow-md">
-                            <h3 className="font-heading text-2xl font-bold text-[#164a08] text-center">
+                    <div id="partner-inquiry" className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8 pb-16">
+                        <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-stone-200/80 shadow-md">
+                            <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#164a08] text-center">
                                 Propose an Institutional MoU or Sponsorship
                             </h3>
-                            <p className="text-base text-stone-600 text-center mt-2 mb-8">
+                            <p className="text-xs sm:text-sm text-stone-600 text-center mt-1.5 mb-6 sm:mb-8">
                                 Submit your proposal directly to the Secretary of Partnerships & MoUs.
                             </p>
 
                             {successMsg ? (
-                                <div className="p-5 bg-green-50 border border-green-200 text-green-800 rounded-2xl text-sm text-center font-medium">
+                                <div className="p-4 sm:p-5 bg-green-50 border border-green-200 text-green-800 rounded-2xl text-xs sm:text-sm text-center font-medium">
                                     {successMsg}
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-5">
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Your Name *
                                             </label>
                                             <input
@@ -192,11 +198,11 @@ export default function Partners({ sponsors = {} }) {
                                                 required
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Organisation / University *
                                             </label>
                                             <input
@@ -204,14 +210,14 @@ export default function Partners({ sponsors = {} }) {
                                                 required
                                                 value={formData.organisation}
                                                 onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Email *
                                             </label>
                                             <input
@@ -219,11 +225,11 @@ export default function Partners({ sponsors = {} }) {
                                                 required
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                        <div className="min-w-0">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                                 Phone *
                                             </label>
                                             <input
@@ -231,13 +237,13 @@ export default function Partners({ sponsors = {} }) {
                                                 required
                                                 value={formData.phone}
                                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-semibold text-[#503323] mb-1.5">
+                                        <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
                                             Partnership Intent / Message *
                                         </label>
                                         <textarea
@@ -246,14 +252,14 @@ export default function Partners({ sponsors = {} }) {
                                             value={formData.message}
                                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                             placeholder="Detail your interest: Knowledge Partnership, Academic MoU, Corporate Sponsorship tier..."
-                                            className="w-full text-sm border border-stone-300 rounded-2xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                            className="w-full text-xs sm:text-sm border border-stone-300 rounded-2xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                         ></textarea>
                                     </div>
 
                                     <button
                                         type="submit"
                                         disabled={submitting}
-                                        className="w-full bg-[#164a08] text-white py-4 rounded-full font-heading text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50"
+                                        className="w-full bg-[#164a08] text-white py-3.5 sm:py-4 rounded-full font-heading text-xs sm:text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50 whitespace-nowrap cursor-pointer"
                                     >
                                         {submitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <span>SUBMIT PARTNERSHIP PROPOSAL</span>}
                                     </button>

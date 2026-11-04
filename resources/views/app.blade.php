@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title inertia>AYURPRAVAH 2027 | International Ayurveda Conclave & Expo</title>
-    <meta name="description" content="A global platform bringing together Ayurveda experts, researchers, healthcare professionals, innovators, startups, institutions and industry leaders to shape the future of Ayurveda.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title inertia>AYURPRAVAH 2027 | International AYUSH Conclave & Expo at IIT Delhi</title>
+    <meta name="description" content="Join AYURPRAVAH 2027 at IIT Delhi, 16–18 April 2027, for expert sessions, clinical masterclasses, research presentations, innovation, industry networking and the AYURPRAVAH Expo.">
 
     <!-- Fonts: Sora (Headings) + Inter (Subheadings & Body) + Noto Serif Devanagari (Hindi) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     @inertiaHead
 </head>
-<body class="bg-[#F7F5EC] text-[#503323] antialiased selection:bg-[#164a08] selection:text-white">
+<body class="bg-[#F7F5EC] text-[#503323] antialiased selection:bg-[#164a08] selection:text-white overflow-x-hidden min-h-screen w-full relative">
     @inertia
 </body>
 </html>

@@ -38,17 +38,32 @@
   box-shadow: 0 0 30px rgba(22, 74, 8, 0.25);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Custom Scrollbar - Clean, subtle, and responsive */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(80, 51, 35, 0.25);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #164a08;
+  }
 }
-::-webkit-scrollbar-track {
-  background: #F7F5EC;
-}
-::-webkit-scrollbar-thumb {
-  background: #3e7405;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #164a08;
+
+@media (max-width: 767px) {
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
 }

@@ -185,7 +185,7 @@ export default function RegisterDelegate({ tiers = [] }) {
             description="Book your delegate pass for AYURPRAVAH 2027. Choose pass categories, apply promo coupons, and receive verified delegate credentials."
         >
             {() => (
-                <div className="py-12 space-y-12">
+                <div className="py-8 sm:py-12 pb-24 sm:pb-28 space-y-8 sm:space-y-12">
                     {/* Header */}
                     {/* Header */}
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -230,33 +230,33 @@ export default function RegisterDelegate({ tiers = [] }) {
                                 {/* Left 2 cols: Tier Choice & Form */}
                                 <div className="lg:col-span-2 space-y-6">
                                     {/* Tier Selector */}
-                                    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-4">
-                                        <h3 className="font-heading text-base font-bold text-[#164a08] uppercase tracking-wider">
+                                    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-stone-200/80 shadow-sm space-y-4">
+                                        <h3 className="font-heading text-sm sm:text-base font-bold text-[#164a08] uppercase tracking-wider">
                                             1. Select Delegate Category
                                         </h3>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                                             {tiers.map((t) => {
                                                 const isSelected = selectedTier?.id === t.id;
                                                 return (
                                                     <div
                                                         key={t.id}
                                                         onClick={() => setSelectedTier(t)}
-                                                        className={`p-4 rounded-2xl border cursor-pointer transition ${
+                                                        className={`p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border cursor-pointer transition ${
                                                             isSelected
                                                                 ? 'border-[#164a08] bg-[#F7F5EC] ring-2 ring-[#164a08]/20 shadow-md'
                                                                 : 'border-stone-200 hover:border-[#164a08]/40 bg-white'
                                                         }`}
                                                     >
-                                                        <div className="flex justify-between items-start">
-                                                            <div>
-                                                                <span className="text-xs font-sans font-bold text-[#3e7405] uppercase">
+                                                        <div className="flex justify-between items-start gap-2">
+                                                            <div className="min-w-0">
+                                                                <span className="text-[10px] sm:text-xs font-sans font-bold text-[#3e7405] uppercase">
                                                                     {t.category}
                                                                 </span>
-                                                                <h4 className="font-heading text-base font-bold text-[#164a08]">
+                                                                <h4 className="font-heading text-sm sm:text-base font-bold text-[#164a08] truncate">
                                                                     {t.name}
                                                                 </h4>
                                                             </div>
-                                                            <div className="font-heading text-base font-bold text-[#164a08]">
+                                                            <div className="font-heading text-xs sm:text-sm font-bold text-[#164a08] whitespace-nowrap bg-stone-100 px-2.5 py-1 rounded-full shrink-0">
                                                                 {t.price > 0 ? `₹${(t.price / 100).toLocaleString()}` : 'Pre-Reg'}
                                                             </div>
                                                         </div>
@@ -267,27 +267,27 @@ export default function RegisterDelegate({ tiers = [] }) {
                                     </div>
 
                                     {/* Delegate Form */}
-                                    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-5">
-                                        <h3 className="font-heading text-base font-bold text-[#164a08] uppercase tracking-wider">
+                                    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-stone-200/80 shadow-sm space-y-4 sm:space-y-5">
+                                        <h3 className="font-heading text-sm sm:text-base font-bold text-[#164a08] uppercase tracking-wider">
                                             2. Delegate Details
                                         </h3>
 
                                         {errorMsg && (
-                                            <div className="p-4 bg-red-50 text-red-700 text-sm rounded-2xl flex items-center space-x-2">
-                                                <AlertCircle className="w-5 h-5 shrink-0" />
+                                            <div className="p-3.5 sm:p-4 bg-red-50 text-red-700 text-xs sm:text-sm rounded-xl sm:rounded-2xl flex items-center space-x-2">
+                                                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                                                 <span>{errorMsg}</span>
                                             </div>
                                         )}
 
-                                        <form onSubmit={handleSubmitRegistration} className="space-y-4">
+                                        <form onSubmit={handleSubmitRegistration} className="space-y-3.5 sm:space-y-4">
                                             <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">Title *</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Title *</label>
                                                     <select
                                                         name="title"
                                                         value={formData.title}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 bg-white focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 bg-white focus:ring-2 focus:ring-[#164a08]/30"
                                                     >
                                                         <option value="Dr.">Dr.</option>
                                                         <option value="Prof.">Prof.</option>
@@ -296,96 +296,96 @@ export default function RegisterDelegate({ tiers = [] }) {
                                                         <option value="Ms.">Ms.</option>
                                                     </select>
                                                 </div>
-                                                <div className="sm:col-span-3">
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">Full Name *</label>
+                                                <div className="sm:col-span-3 min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Full Name *</label>
                                                     <input
                                                         type="text"
                                                         required
                                                         name="full_name"
                                                         value={formData.full_name}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">Email *</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Email *</label>
                                                     <input
                                                         type="email"
                                                         required
                                                         name="email"
                                                         value={formData.email}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">Phone / WhatsApp *</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Phone / WhatsApp *</label>
                                                     <input
                                                         type="tel"
                                                         required
                                                         name="phone"
                                                         value={formData.phone}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">Designation</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Designation</label>
                                                     <input
                                                         type="text"
                                                         name="designation"
                                                         value={formData.designation}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">College / Hospital</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">College / Hospital</label>
                                                     <input
                                                         type="text"
                                                         name="organisation_college"
                                                         value={formData.organisation_college}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">City</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">City</label>
                                                     <input
                                                         type="text"
                                                         name="city"
                                                         value={formData.city}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">State</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">State</label>
                                                     <input
                                                         type="text"
                                                         name="state"
                                                         value={formData.state}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
-                                                <div>
-                                                    <label className="block text-sm font-semibold text-[#503323] mb-1.5">Ayurveda Board Reg No</label>
+                                                <div className="min-w-0">
+                                                    <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Ayurveda Board Reg No</label>
                                                     <input
                                                         type="text"
                                                         name="registration_council_no"
                                                         value={formData.registration_council_no}
                                                         onChange={handleInputChange}
-                                                        className="w-full text-sm border border-stone-300 rounded-xl p-3 focus:ring-2 focus:ring-[#164a08]/30"
+                                                        className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                                     />
                                                 </div>
                                             </div>
@@ -393,7 +393,7 @@ export default function RegisterDelegate({ tiers = [] }) {
                                             <button
                                                 type="submit"
                                                 disabled={submitting}
-                                                className="w-full bg-[#164a08] text-white py-4 rounded-full font-heading text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50"
+                                                className="w-full bg-[#164a08] text-white py-3.5 sm:py-4 rounded-full font-heading text-xs sm:text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50 whitespace-nowrap cursor-pointer mt-4"
                                             >
                                                 {submitting ? (
                                                     <Loader2 className="w-5 h-5 animate-spin text-[#DFC479]" />
@@ -410,17 +410,17 @@ export default function RegisterDelegate({ tiers = [] }) {
 
                                 {/* Right col: Order Summary & Coupon */}
                                 <div className="space-y-6">
-                                    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-4">
-                                        <h3 className="font-heading text-base font-bold text-[#164a08] uppercase tracking-wider">
+                                    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-stone-200/80 shadow-sm space-y-4">
+                                        <h3 className="font-heading text-sm sm:text-base font-bold text-[#164a08] uppercase tracking-wider">
                                             Summary & Quote
                                         </h3>
 
                                         {selectedTier && (
-                                            <div className="bg-[#F7F5EC] p-4 rounded-2xl text-sm space-y-1">
-                                                <div className="font-heading font-bold text-[#164a08]">
+                                            <div className="bg-[#F7F5EC] p-3.5 sm:p-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm space-y-1">
+                                                <div className="font-heading font-bold text-[#164a08] truncate">
                                                     {selectedTier.name}
                                                 </div>
-                                                <div className="text-xs text-[#3e7405] uppercase font-semibold">
+                                                <div className="text-[11px] sm:text-xs text-[#3e7405] uppercase font-semibold">
                                                     Category: {selectedTier.category}
                                                 </div>
                                             </div>
@@ -428,26 +428,26 @@ export default function RegisterDelegate({ tiers = [] }) {
 
                                         {/* Coupon */}
                                         <div className="space-y-2 pt-3 border-t border-stone-200">
-                                            <label className="block text-sm font-semibold text-[#503323]">Promo Code</label>
-                                            <div className="flex space-x-2">
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323]">Promo Code</label>
+                                            <div className="flex gap-2">
                                                 <input
                                                     type="text"
                                                     placeholder="CODE"
                                                     value={couponInput}
                                                     onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
-                                                    className="flex-1 text-sm border border-stone-300 rounded-full px-4 py-2 uppercase font-mono focus:ring-2 focus:ring-[#164a08]/30"
+                                                    className="flex-1 min-w-0 text-xs sm:text-sm border border-stone-300 rounded-full px-3.5 sm:px-4 py-2 uppercase font-mono focus:ring-2 focus:ring-[#164a08]/30"
                                                 />
                                                 <button
                                                     type="button"
                                                     onClick={handleApplyCoupon}
                                                     disabled={couponLoading || !couponInput.trim()}
-                                                    className="bg-[#164a08] text-white px-5 py-2 rounded-full text-sm font-heading font-semibold hover:bg-[#0e3005] disabled:opacity-50 transition shadow-sm"
+                                                    className="bg-[#164a08] text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-heading font-semibold hover:bg-[#0e3005] disabled:opacity-50 transition shadow-sm whitespace-nowrap shrink-0 cursor-pointer"
                                                 >
                                                     {couponLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'APPLY'}
                                                 </button>
                                             </div>
-                                            {couponSuccess && <p className="text-sm text-green-700 font-medium">{couponSuccess}</p>}
-                                            {couponError && <p className="text-sm text-red-600">{couponError}</p>}
+                                            {couponSuccess && <p className="text-xs sm:text-sm text-green-700 font-medium">{couponSuccess}</p>}
+                                            {couponError && <p className="text-xs sm:text-sm text-red-600">{couponError}</p>}
                                         </div>
 
                                         {/* Breakdown */}

@@ -65,28 +65,81 @@ export default function SubmitAbstract({ conclaves = [] }) {
 
     return (
         <AppLayout
-            title="Call for Papers — Scientific Abstract Submission"
-            description="Submit your original clinical research, randomized trial data, or theoretical treatise for oral or poster defense at AYURPRAVAH 2027."
+            title="Research & Publication — Call for Abstracts"
+            description="AYURPRAVAH 2027 invites researchers, academicians, clinicians, postgraduate scholars and students to contribute original work to its Research & Publication track."
         >
             {() => (
-                <div className="py-12 space-y-12">
+                <div className="py-8 sm:py-12 pb-24 sm:pb-28 space-y-8 sm:space-y-12">
                     {/* Header */}
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <span className="text-sm font-sans font-bold tracking-[0.25em] text-[#3e7405] uppercase">
-                            Peer-Reviewed Scientific Forum
+                        <span className="text-xs sm:text-sm font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-[#3e7405] uppercase">
+                            Research & Publication Track
                         </span>
-                        <h1 className="mt-3 font-heading text-4xl sm:text-5xl font-black text-[#164a08]">
-                            Call for Scientific Papers
+                        <h1 className="mt-2 sm:mt-3 font-heading text-3xl sm:text-5xl font-black text-[#164a08]">
+                            Share. Present. Publish.
                         </h1>
-                        <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
-                        <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            Submit your clinical trials, pharmaco-epidemiological surveys, AI phenotyping algorithms,
-                            or classical literary hermeneutics across any of our 13 thematic conclave tracks.
+                        <div className="mt-3 sm:mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
+                        <p className="mt-4 sm:mt-5 max-w-3xl mx-auto text-sm sm:text-base md:text-lg font-sans text-[#503323] leading-relaxed">
+                            AYURPRAVAH 2027 invites researchers, academicians, clinicians, postgraduate scholars and students to contribute original work to its Research & Publication track across Ayurveda, AYUSH disciplines, integrative healthcare, pharmaceutical science and technology.
                         </p>
                     </div>
 
+                    {/* Important Dates & Awards Grid */}
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                            {/* Awards Card */}
+                            <div className="bg-[#F7F5EC] p-5 sm:p-6 rounded-2xl border border-[#164a08]/20 space-y-3">
+                                <span className="text-xs font-sans font-bold text-[#3e7405] uppercase tracking-wider block">
+                                    Research Presentation Awards
+                                </span>
+                                <div className="space-y-2 text-xs sm:text-sm">
+                                    <div className="flex items-center justify-between font-semibold text-[#164a08] border-b border-black/5 pb-1.5">
+                                        <span>First Prize:</span>
+                                        <span className="font-bold font-mono">₹10,000 + Certificate & Trophy</span>
+                                    </div>
+                                    <div className="flex items-center justify-between font-semibold text-[#164a08] border-b border-black/5 pb-1.5">
+                                        <span>Second Prize:</span>
+                                        <span className="font-bold font-mono">₹5,000 + Certificate & Trophy</span>
+                                    </div>
+                                    <div className="flex items-center justify-between font-semibold text-[#164a08] border-b border-black/5 pb-1.5">
+                                        <span>Third Prize:</span>
+                                        <span className="font-bold font-mono">₹2,500 + Certificate & Trophy</span>
+                                    </div>
+                                    <p className="text-[11px] sm:text-xs text-[#503323]/80 pt-1">
+                                        ISBN-approved certificates provided. Selected best papers may be considered for publication in reputed journals.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Important Deadlines Card */}
+                            <div className="bg-[#F7F5EC] p-5 sm:p-6 rounded-2xl border border-[#164a08]/20 space-y-3">
+                                <span className="text-xs font-sans font-bold text-[#3e7405] uppercase tracking-wider block">
+                                    Important Milestones & Deadlines
+                                </span>
+                                <div className="space-y-2 text-xs sm:text-sm">
+                                    <div className="flex items-center justify-between text-[#503323] border-b border-black/5 pb-1.5">
+                                        <span>Abstract Submission:</span>
+                                        <span className="font-bold text-[#164a08]">10 February 2027</span>
+                                    </div>
+                                    <div className="flex items-center justify-between text-[#503323] border-b border-black/5 pb-1.5">
+                                        <span>Acceptance Confirmation:</span>
+                                        <span className="font-bold text-[#164a08]">10 March 2027</span>
+                                    </div>
+                                    <div className="flex items-center justify-between text-[#503323] border-b border-black/5 pb-1.5">
+                                        <span>Full Paper & PPT:</span>
+                                        <span className="font-bold text-[#164a08]">1 April 2027</span>
+                                    </div>
+                                    <div className="flex items-center justify-between text-[#503323]">
+                                        <span>Poster Soft-Copy:</span>
+                                        <span className="font-bold text-[#164a08]">4 April 2027</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200/80 shadow-md">
+                        <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-stone-200/80 shadow-md">
                             {successResult ? (
                                 <div className="text-center py-8 space-y-5">
                                     <div className="w-16 h-16 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto">
@@ -238,14 +291,17 @@ export default function SubmitAbstract({ conclaves = [] }) {
                                     <button
                                         type="submit"
                                         disabled={submitting}
-                                        className="w-full bg-[#164a08] text-white py-4 rounded-full font-heading text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50"
+                                        className="w-full bg-[#164a08] text-white py-3.5 sm:py-4 px-4 sm:px-8 rounded-full font-heading text-xs sm:text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50 cursor-pointer whitespace-nowrap"
                                     >
                                         {submitting ? (
-                                            <Loader2 className="w-5 h-5 animate-spin text-[#DFC479]" />
+                                            <>
+                                                <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin text-[#DFC479] shrink-0" />
+                                                <span>SUBMITTING ABSTRACT...</span>
+                                            </>
                                         ) : (
                                             <>
-                                                <span>SUBMIT SCIENTIFIC ABSTRACT</span>
-                                                <ArrowRight className="w-4 h-4 text-[#DFC479]" />
+                                                <span className="text-center">SUBMIT SCIENTIFIC ABSTRACT</span>
+                                                <ArrowRight className="w-4 h-4 text-[#DFC479] shrink-0" />
                                             </>
                                         )}
                                     </button>

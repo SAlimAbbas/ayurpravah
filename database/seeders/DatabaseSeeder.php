@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             SpeakerPlaceholderSeeder::class,
             SponsorSeeder::class,
             TicketTierSeeder::class,
+            ContentSeeder::class,
             DemoUsersSeeder::class,
         ]);
     }

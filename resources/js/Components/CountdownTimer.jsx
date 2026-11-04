@@ -44,16 +44,16 @@ export default function CountdownTimer({ targetDate = '2027-04-16T09:00:00', lab
                     {label}
                 </div>
             )}
-            <div className="grid grid-cols-4 gap-3 sm:gap-5 md:gap-6">
+            <div className="grid grid-cols-4 gap-1.5 xs:gap-2.5 sm:gap-4 md:gap-6 w-full max-w-lg mx-auto px-1">
                 {timeBlocks.map((block, idx) => (
                     <div
                         key={idx}
-                        className="bg-white/95 backdrop-blur-md border border-black/10 rounded-2xl sm:rounded-3xl px-4 py-3.5 sm:px-6 sm:py-5 shadow-sm text-center min-w-[75px] sm:min-w-[100px] transform transition hover:scale-105"
+                        className="bg-white/95 backdrop-blur-md border border-black/10 rounded-xl sm:rounded-3xl px-2 py-2 sm:px-5 sm:py-4 md:px-6 md:py-5 shadow-sm text-center min-w-0 transform transition hover:scale-105"
                     >
-                        <div className="font-heading text-2xl sm:text-4xl md:text-5xl font-black text-[#164a08] leading-none">
+                        <div className="font-heading text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-[#164a08] leading-none">
                             {String(block.value).padStart(2, '0')}
                         </div>
-                        <div className="text-xs font-sans tracking-widest text-[#3e7405] font-bold mt-2 uppercase">
+                        <div className="text-[9px] xs:text-[10px] sm:text-xs font-sans tracking-wider text-[#3e7405] font-bold mt-1.5 sm:mt-2 uppercase truncate">
                             {block.label}
                         </div>
                     </div>
