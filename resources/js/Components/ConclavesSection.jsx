@@ -25,7 +25,7 @@ export default function ConclavesSection({ conclaves = [] }) {
     return (
         <section
             id="conclaves"
-            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+            className="relative py-12 sm:py-16 md:py-20 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
         >
             {/* Subtle Light Herbal Botanical Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
@@ -39,7 +39,7 @@ export default function ConclavesSection({ conclaves = [] }) {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-14">
+                <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         The Core Scientific Program
                     </span>
@@ -68,7 +68,7 @@ export default function ConclavesSection({ conclaves = [] }) {
                 </div>
 
                 {/* 13 Conclaves Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {filteredConclaves.map((conclave, idx) => {
                         const isFeatured =
                             conclave.layout === "featured" || idx === 0;
@@ -83,7 +83,7 @@ export default function ConclavesSection({ conclaves = [] }) {
                                 <div
                                     key={conclave.id}
                                     onClick={() => handleOpenModal(conclave)}
-                                    className="md:col-span-2 bg-gradient-to-br from-[#0e3005] via-[#243F05] to-[#164a08] rounded-3xl p-8 sm:p-10 text-white shadow-xl cursor-pointer transform transition hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between"
+                                    className="md:col-span-2 bg-gradient-to-br from-[#0e3005] via-[#243F05] to-[#164a08] rounded-3xl p-6 sm:p-10 text-white shadow-xl cursor-pointer transform transition hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between"
                                 >
                                     <div>
                                         <div className="flex items-center justify-between mb-5">
@@ -136,7 +136,7 @@ export default function ConclavesSection({ conclaves = [] }) {
                             <div
                                 key={conclave.id}
                                 onClick={() => handleOpenModal(conclave)}
-                                className="bg-white rounded-3xl p-7 border border-black/5 shadow-sm hover:shadow-xl cursor-pointer transform transition hover:-translate-y-1 group flex flex-col justify-between"
+                                className="bg-white rounded-3xl p-5 sm:p-7 border border-black/5 shadow-sm hover:shadow-xl cursor-pointer transform transition hover:-translate-y-1 group flex flex-col justify-between"
                             >
                                 <div>
                                     <div className="flex items-center justify-between mb-4">

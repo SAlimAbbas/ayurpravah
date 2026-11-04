@@ -3,10 +3,13 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function TicketTiersSection({ tiers = [], onSelectTier }) {
     return (
-        <section id="passes" className="py-24 bg-white border-b border-black/5">
+        <section
+            id="passes"
+            className="py-12 sm:py-16 md:py-20 bg-white border-b border-black/5"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         Participation Passes
                     </span>
@@ -22,7 +25,7 @@ export default function TicketTiersSection({ tiers = [], onSelectTier }) {
                 </div>
 
                 {/* Tiers Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
                     {tiers.map((tier, idx) => {
                         const isFeatured = idx === 1;
                         const isFreeOrTbc = tier.price === 0 || !tier.is_active;
@@ -30,7 +33,7 @@ export default function TicketTiersSection({ tiers = [], onSelectTier }) {
                         return (
                             <div
                                 key={tier.id}
-                                className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative ${
                                     isFeatured
                                         ? "bg-[#164a08] text-white shadow-2xl md:-translate-y-2"
                                         : "bg-[#F7F5EC] text-[#503323] border border-black/5 shadow-sm hover:shadow-xl"

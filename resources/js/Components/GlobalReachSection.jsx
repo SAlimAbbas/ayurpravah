@@ -8,10 +8,10 @@ export default function GlobalReachSection() {
     );
 
     return (
-        <section className="py-20 bg-[#164a08] text-white border-b border-[#B89A4A]/30 relative overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-20 bg-[#164a08] text-white border-b border-[#B89A4A]/30 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-12">
+                <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
                     <span className="text-[11px] font-sans font-bold tracking-[0.25em] text-[#DFC479] uppercase">
                         Global Confluence
                     </span>
@@ -27,7 +27,7 @@ export default function GlobalReachSection() {
                 </div>
 
                 {/* Interactive Map Visualizer */}
-                <div className="bg-[#164a08]/40 border border-[#B89A4A]/30 rounded-2xl p-6 sm:p-10 relative">
+                <div className="bg-[#164a08]/40 border border-[#B89A4A]/30 rounded-2xl p-4 sm:p-10 relative">
                     <div className="relative w-full aspect-[2/1] min-h-[300px] max-h-[460px] bg-gradient-to-br from-[#0e3005] to-[#243F05] rounded-xl overflow-hidden border border-[#B89A4A]/20 flex items-center justify-center">
                         {/* World Map Outline SVG */}
                         <svg

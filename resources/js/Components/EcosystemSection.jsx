@@ -13,11 +13,11 @@ export default function EcosystemSection() {
     return (
         <section
             id="ecosystem"
-            className="py-24 bg-white border-b border-black/5"
+            className="py-12 sm:py-16 md:py-20 bg-white border-b border-black/5"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         The Institutional Foundation
                     </span>
@@ -35,13 +35,13 @@ export default function EcosystemSection() {
                 </div>
 
                 {/* 3-Tier Brand Chain */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-20">
                     {brandChain.map((item, idx) => {
                         const Icon = chainIcons[idx] || Building2;
                         return (
                             <div
                                 key={idx}
-                                className="relative bg-[#F7F5EC] rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                                className="relative bg-[#F7F5EC] rounded-3xl p-6 sm:p-8 border border-black/5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
                             >
                                 <div>
                                     <div className="flex items-center justify-between mb-5">
@@ -78,9 +78,9 @@ export default function EcosystemSection() {
                 </div>
 
                 {/* Yasharth Impact Numbers */}
-                <div className="bg-[#164a08] rounded-3xl p-8 sm:p-14 text-white mb-24 border border-black/10 shadow-xl">
-                    <div className="text-center max-w-2xl mx-auto mb-12">
-                        <span className="text-xs font-sans font-bold tracking-[0.25em] text-[#DFC479] uppercase">
+                <div className="bg-[#164a08] rounded-3xl p-6 sm:p-12 text-white mb-12 sm:mb-20 border border-black/10 shadow-xl">
+                    <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+                        <span className="text-xs font-sans font-bold tracking-wider sm:tracking-[0.25em] text-[#DFC479] uppercase">
                             Demonstrated Ground Impact
                         </span>
                         <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mt-1">
@@ -88,13 +88,13 @@ export default function EcosystemSection() {
                         </h3>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-8 text-center">
                         {yasharthStats.map((stat, i) => (
-                            <div key={i} className="space-y-1.5">
-                                <div className="font-heading text-3xl sm:text-4xl font-extrabold text-[#DFC479]">
+                            <div key={i} className="space-y-1 sm:space-y-1.5">
+                                <div className="font-heading text-2xl sm:text-4xl font-extrabold text-[#DFC479]">
                                     {stat.value}
                                 </div>
-                                <div className="text-sm font-sans text-[#ECE7D6]/90 leading-snug">
+                                <div className="text-xs sm:text-sm font-sans text-[#ECE7D6]/90 leading-snug">
                                     {stat.label}
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ export default function EcosystemSection() {
 
                 {/* 8 Operational Pillars */}
                 <div>
-                    <div className="text-center max-w-2xl mx-auto mb-12">
+                    <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
                         <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                             Enduring Mandate
                         </span>

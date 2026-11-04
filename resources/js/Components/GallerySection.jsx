@@ -81,7 +81,7 @@ export default function GallerySection({ galleryItems = [] }) {
     return (
         <section
             id="gallery"
-            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+            className="relative py-12 sm:py-16 md:py-20 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
         >
             {/* Subtle Light Herbal Watercolor Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
@@ -95,7 +95,7 @@ export default function GallerySection({ galleryItems = [] }) {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-14">
+                <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         Visual Archives & Moments
                     </span>
@@ -110,17 +110,17 @@ export default function GallerySection({ galleryItems = [] }) {
                     </p>
                 </div>
 
-                {/* Filter Tabs */}
+                {/* Filter Tabs (Horizontal swipeable on mobile) */}
                 {albums.length > 2 && (
-                    <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+                    <div className="flex items-center gap-2 overflow-x-auto pb-2 mb-8 sm:mb-12 scrollbar-none justify-start sm:justify-center px-4 -mx-4 sm:mx-0">
                         {albums.map((albumName) => (
                             <button
                                 key={albumName}
                                 onClick={() => setActiveFilter(albumName)}
-                                className={`px-5 py-2.5 rounded-full text-sm font-sans font-semibold transition-all duration-200 cursor-pointer ${
+                                className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-sans font-semibold transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap ${
                                     activeFilter === albumName
                                         ? "bg-[#164a08] text-white shadow-md"
-                                        : "bg-[#F7F5EC] text-[#503323] hover:bg-[#164a08]/10"
+                                        : "bg-white/80 text-[#503323] border border-black/5 hover:bg-[#164a08]/10"
                                 }`}
                             >
                                 {albumName}

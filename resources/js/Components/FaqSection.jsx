@@ -10,10 +10,10 @@ export default function FaqSection({ faqs = [] }) {
     };
 
     return (
-        <section className="py-24 bg-white border-b border-black/5">
+        <section className="py-12 sm:py-16 md:py-20 bg-white border-b border-black/5">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 sm:mb-14">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         Clarifications & Guidance
                     </span>

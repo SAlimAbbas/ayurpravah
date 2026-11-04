@@ -3,10 +3,10 @@ import { glanceStats } from "../content/ecosystem";
 
 export default function GlanceStatsSection() {
     return (
-        <section className="py-24 bg-[#164a08] text-white border-b border-black/10">
+        <section className="py-12 sm:py-16 md:py-20 bg-[#164a08] text-white border-b border-black/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
                     <span className="text-xs font-sans font-bold tracking-[0.25em] text-[#DFC479] uppercase">
                         Scale & Magnitude
                     </span>
@@ -22,20 +22,29 @@ export default function GlanceStatsSection() {
                 </div>
 
                 {/* 11 Stats Matrix */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 text-center">
-                    {glanceStats.map((item, idx) => (
-                        <div
-                            key={idx}
-                            className="bg-[#164a08]/30 border border-white/10 rounded-3xl p-6 hover:bg-[#164a08]/50 transition-colors"
-                        >
-                            <div className="font-heading text-3xl sm:text-4xl font-extrabold text-[#DFC479]">
-                                {item.value}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3.5 sm:gap-6 text-center">
+                    {glanceStats.map((item, idx) => {
+                        const isLastOdd =
+                            idx === glanceStats.length - 1 &&
+                            glanceStats.length % 2 !== 0;
+                        return (
+                            <div
+                                key={idx}
+                                className={`bg-[#164a08]/30 border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 hover:bg-[#164a08]/50 transition-colors ${
+                                    isLastOdd
+                                        ? "col-span-2 sm:col-span-1 max-w-xs mx-auto w-full"
+                                        : ""
+                                }`}
+                            >
+                                <div className="font-heading text-2xl sm:text-4xl font-extrabold text-[#DFC479]">
+                                    {item.value}
+                                </div>
+                                <div className="text-xs sm:text-sm font-sans text-[#ECE7D6]/90 mt-1.5 sm:mt-2 leading-snug">
+                                    {item.label}
+                                </div>
                             </div>
-                            <div className="text-sm font-sans text-[#ECE7D6]/90 mt-2 leading-snug">
-                                {item.label}
-                            </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

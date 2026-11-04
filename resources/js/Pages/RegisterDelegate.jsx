@@ -206,7 +206,7 @@ export default function RegisterDelegate({ tiers = [] }) {
             description="Book your delegate pass for AYURPRAVAH 2027. Choose pass categories, apply promo coupons, and receive verified delegate credentials."
         >
             {() => (
-                <div className="py-12 space-y-12">
+                <div className="py-8 sm:py-12 pb-24 sm:pb-16 space-y-8 sm:space-y-12">
                     {/* Header */}
                     {/* Header */}
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

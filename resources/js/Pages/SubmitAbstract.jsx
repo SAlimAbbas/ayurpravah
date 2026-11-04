@@ -82,7 +82,7 @@ export default function SubmitAbstract({ conclaves = [] }) {
             description="AYURPRAVAH 2027 invites researchers, academicians, clinicians, postgraduate scholars and students to contribute original work to its Research & Publication track."
         >
             {() => (
-                <div className="py-8 sm:py-12 space-y-8 sm:space-y-12">
+                <div className="py-8 sm:py-12 pb-24 sm:pb-16 space-y-8 sm:space-y-12">
                     {/* Header */}
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <span className="text-xs sm:text-sm font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-[#3e7405] uppercase">

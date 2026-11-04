@@ -285,13 +285,13 @@ export default function RegistrationModal({
                         <span
                             className={`font-semibold ${step === 1 ? "text-[#164a08]" : "text-stone-400"}`}
                         >
-                            1. Select Pass Tier
+                            1. Select <span className="hidden sm:inline">Pass </span>Tier
                         </span>
                         <span className="text-stone-300">→</span>
                         <span
                             className={`font-semibold ${step === 2 ? "text-[#164a08]" : "text-stone-400"}`}
                         >
-                            2. Details & Verification
+                            2. <span className="hidden sm:inline">Delegate </span>Details<span className="hidden sm:inline"> & Verification</span>
                         </span>
                     </div>
                 )}
@@ -330,18 +330,18 @@ export default function RegistrationModal({
                                                     : "border-stone-200 hover:border-[#164a08]/40 bg-white"
                                             }`}
                                         >
-                                            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1 sm:gap-2">
+                                            <div className="flex items-start justify-between gap-2">
                                                 <div className="min-w-0 flex-1">
                                                     <span className="text-[10px] sm:text-xs font-sans font-bold tracking-wider text-[#3e7405] uppercase block">
                                                         {tier.category}
                                                     </span>
-                                                    <h4 className="font-heading text-sm sm:text-base font-bold text-[#164a08] break-words">
+                                                    <h4 className="font-heading text-sm sm:text-base font-bold text-[#164a08] leading-snug">
                                                         {tier.name}
                                                     </h4>
                                                 </div>
-                                                <div className="shrink-0 self-start sm:self-auto">
+                                                <div className="shrink-0">
                                                     {isFreeOrTbc ? (
-                                                        <span className="inline-block text-[10px] sm:text-xs font-bold text-[#3e7405] bg-[#3e7405]/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full whitespace-nowrap">
+                                                        <span className="inline-flex items-center text-[10px] sm:text-xs font-bold text-[#3e7405] bg-[#3e7405]/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full whitespace-nowrap">
                                                             {tier.price > 0
                                                                 ? `₹${(tier.price / 100).toLocaleString()}`
                                                                 : "Pre-Registration"}

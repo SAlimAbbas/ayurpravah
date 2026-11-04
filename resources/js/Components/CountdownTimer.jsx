@@ -58,7 +58,7 @@ export default function CountdownTimer({
                 {timeBlocks.map((block, idx) => (
                     <div
                         key={idx}
-                        className="bg-white/95 backdrop-blur-md border border-black/10 rounded-xl sm:rounded-3xl px-2 py-2 sm:px-5 sm:py-4 md:px-6 md:py-5 shadow-sm text-center min-w-0 transform transition hover:scale-105"
+                        className="bg-white/95 backdrop-blur-md border border-black/10 rounded-xl sm:rounded-2xl md:rounded-3xl px-2 py-2 sm:px-4 sm:py-3.5 md:px-5 md:py-4 shadow-sm text-center min-w-0 transform transition hover:scale-105"
                     >
                         <div className="font-heading text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-[#164a08] leading-none">
                             {String(block.value).padStart(2, "0")}

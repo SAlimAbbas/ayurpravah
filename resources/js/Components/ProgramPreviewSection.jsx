@@ -31,7 +31,7 @@ export default function ProgramPreviewSection({ sessions = [] }) {
     return (
         <section
             id="program"
-            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+            className="relative py-12 sm:py-16 md:py-20 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
         >
             {/* Subtle Light Vedic Mandala & Jaali Arch Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-55">
@@ -45,7 +45,7 @@ export default function ProgramPreviewSection({ sessions = [] }) {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-14">
+                <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         Scientific Agenda
                     </span>
@@ -61,22 +61,22 @@ export default function ProgramPreviewSection({ sessions = [] }) {
                 </div>
 
                 {/* Day Selection Tabs (Smooth 50px Pill Curves) */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-12 max-w-3xl mx-auto">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3.5 mb-8 sm:mb-12 max-w-3xl mx-auto">
                     {days.map((d) => (
                         <button
                             key={d.day}
                             onClick={() => setActiveDay(d.day)}
-                            className={`w-full sm:w-1/3 py-3.5 px-6 rounded-full text-center transition-all cursor-pointer ${
+                            className={`py-2.5 sm:py-3.5 px-2 sm:px-6 rounded-full text-center transition-all cursor-pointer ${
                                 activeDay === d.day
                                     ? "bg-[#164a08] text-white shadow-md"
                                     : "bg-white text-[#503323] border border-black/5 hover:border-[#164a08]/30"
                             }`}
                         >
-                            <div className="font-heading text-sm font-bold tracking-wider">
+                            <div className="font-heading text-xs sm:text-sm font-bold tracking-wider">
                                 {d.label}
                             </div>
                             <div
-                                className={`text-xs mt-0.5 ${activeDay === d.day ? "text-[#DFC479]" : "text-[#3e7405]"}`}
+                                className={`text-[10px] sm:text-xs mt-0.5 whitespace-nowrap ${activeDay === d.day ? "text-[#DFC479]" : "text-[#3e7405]"}`}
                             >
                                 {d.date}
                             </div>
@@ -85,12 +85,12 @@ export default function ProgramPreviewSection({ sessions = [] }) {
                 </div>
 
                 {/* Day Sessions List */}
-                <div className="space-y-5 max-w-5xl mx-auto">
+                <div className="space-y-4 sm:space-y-5 max-w-5xl mx-auto">
                     {currentSessions.length > 0 ? (
                         currentSessions.map((session) => (
                             <div
                                 key={session.id}
-                                className="bg-white rounded-3xl p-7 border border-black/5 shadow-sm hover:shadow-lg transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
+                                className="bg-white rounded-3xl p-5 sm:p-7 border border-black/5 shadow-sm hover:shadow-lg transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6"
                             >
                                 <div className="space-y-2 flex-1">
                                     <div className="flex flex-wrap items-center gap-2.5 text-xs font-sans font-bold uppercase tracking-wider">
@@ -139,18 +139,20 @@ export default function ProgramPreviewSection({ sessions = [] }) {
                                         )}
                                 </div>
 
-                                <div className="flex md:flex-col items-center md:items-end justify-between border-t md:border-t-0 pt-4 md:pt-0 border-black/5 shrink-0 text-right text-sm space-y-1.5">
-                                    <div className="flex items-center space-x-2 font-mono font-bold text-[#164a08] text-base">
-                                        <Clock className="w-4.5 h-4.5 text-[#164a08]" />
-                                        <span>
+                                <div className="flex flex-wrap sm:flex-nowrap md:flex-col items-start sm:items-center md:items-end justify-between gap-2 border-t md:border-t-0 pt-3 md:pt-0 border-black/5 shrink-0 text-sm">
+                                    <div className="flex items-center space-x-1.5 font-mono font-bold text-[#164a08] text-sm sm:text-base whitespace-nowrap shrink-0">
+                                        <Clock className="w-4 h-4 text-[#164a08] shrink-0" />
+                                        <span className="whitespace-nowrap">
                                             {session.start_time?.slice(0, 5)} -{" "}
                                             {session.end_time?.slice(0, 5)}
                                         </span>
                                     </div>
                                     {session.hall_room && (
-                                        <div className="flex items-center space-x-1.5 text-xs text-[#3e7405] font-medium">
-                                            <MapPin className="w-3.5 h-3.5" />
-                                            <span>{session.hall_room}</span>
+                                        <div className="flex items-center space-x-1.5 text-xs text-[#3e7405] font-medium shrink-0">
+                                            <MapPin className="w-3.5 h-3.5 shrink-0" />
+                                            <span className="truncate max-w-[190px] sm:max-w-none">
+                                                {session.hall_room}
+                                            </span>
                                         </div>
                                     )}
                                 </div>

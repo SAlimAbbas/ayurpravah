@@ -22,8 +22,11 @@ const SpeakerAvatar = ({ speaker }) => {
         if (!name) return "AP";
         const clean = name
             .replace(/^(Dr\.|Prof\.|Vd\.|Acharya|Ms\.|Mr\.)\s+/i, "")
+            .replace(/[\(\)\[\]#0-9]/g, "")
+            .replace(/\bTBC\b/gi, "")
             .trim();
-        const parts = clean.split(" ").filter(Boolean);
+        const parts = clean.split(/\s+/).filter(Boolean);
+        if (parts.length === 0) return "AP";
         if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
         return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
     };
@@ -76,11 +79,11 @@ export default function SpeakersSection({ speakers = [] }) {
     return (
         <section
             id="speakers"
-            className="py-24 bg-white border-b border-black/5"
+            className="py-12 sm:py-16 md:py-20 bg-white border-b border-black/5"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-12">
+                <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         Global Thought Leaders
                     </span>
@@ -97,7 +100,7 @@ export default function SpeakersSection({ speakers = [] }) {
 
                 {/* Category Pills (50px Pure Curves) */}
                 {categories.length > 2 && (
-                    <div className="flex flex-wrap items-center justify-center gap-2.5 mb-14">
+                    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-12">
                         {categories.map((cat) => (
                             <button
                                 key={cat}

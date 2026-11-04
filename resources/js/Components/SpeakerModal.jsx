@@ -9,8 +9,11 @@ export default function SpeakerModal({ speaker, isOpen, onClose }) {
         if (!name) return "AP";
         const clean = name
             .replace(/^(Dr\.|Prof\.|Vd\.|Acharya|Ms\.|Mr\.)\s+/i, "")
+            .replace(/[\(\)\[\]#0-9]/g, "")
+            .replace(/\bTBC\b/gi, "")
             .trim();
-        const parts = clean.split(" ").filter(Boolean);
+        const parts = clean.split(/\s+/).filter(Boolean);
+        if (parts.length === 0) return "AP";
         if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
         return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
     };

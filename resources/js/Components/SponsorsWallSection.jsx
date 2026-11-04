@@ -8,7 +8,7 @@ export default function SponsorsWallSection({ sponsors = {} }) {
     return (
         <section
             id="partners"
-            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+            className="relative py-12 sm:py-16 md:py-20 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
         >
             {/* Subtle Light Vedic Mandala Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-55">
@@ -22,7 +22,7 @@ export default function SponsorsWallSection({ sponsors = {} }) {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         Patrons & Partners
                     </span>
@@ -38,12 +38,12 @@ export default function SponsorsWallSection({ sponsors = {} }) {
                 </div>
 
                 {/* Main Organizers Spotlight */}
-                <div className="bg-white rounded-3xl p-8 sm:p-12 border border-black/5 shadow-sm mb-14 max-w-5xl mx-auto">
-                    <div className="text-center text-xs font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase mb-8">
+                <div className="bg-white rounded-3xl p-6 sm:p-12 border border-black/5 shadow-sm mb-10 sm:mb-14 max-w-5xl mx-auto">
+                    <div className="text-center text-xs font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase mb-6 sm:mb-8">
                         Joint Confluence Organisers
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <div className="p-8 rounded-3xl bg-[#F7F5EC] border border-black/5 text-center space-y-3">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
+                        <div className="p-6 sm:p-8 rounded-3xl bg-[#F7F5EC] border border-black/5 text-center space-y-3">
                             <div className="font-heading text-xl font-bold text-[#164a08]">
                                 Yasharth Veda Foundation
                             </div>

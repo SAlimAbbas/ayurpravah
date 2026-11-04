@@ -54,13 +54,13 @@ export default function Footer() {
                                 <img
                                     src="/images/main-logo.png"
                                     alt="AyurPravah Main Logo"
-                                    className="h-9 w-auto object-contain"
+                                    className="h-14 w-auto object-contain"
                                 />
                                 <div className="h-6 w-px bg-stone-300" />
                                 <img
                                     src="/images/logo.png"
                                     alt="Yasharth Veda Foundation"
-                                    className="h-8 w-8 rounded-full object-contain"
+                                    className="h-14 w-14 rounded-full object-contain"
                                 />
                             </div>
                         </div>
@@ -260,7 +260,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar: Copyright, Compliance, Policies */}
-                <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-sm font-sans text-[#ECE7D6]/75 space-y-4 md:space-y-0">
+                <div className="pt-8 pb-24 sm:pb-8 flex flex-col md:flex-row items-center justify-between text-sm font-sans text-[#ECE7D6]/75 space-y-4 md:space-y-0">
                     <div className="text-center md:text-left">
                         © {new Date().getFullYear()} {eventName} (आयुर प्रवाह).
                         All rights reserved.

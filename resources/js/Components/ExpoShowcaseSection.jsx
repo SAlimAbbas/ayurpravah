@@ -5,10 +5,13 @@ import { Link } from "@inertiajs/react";
 
 export default function ExpoShowcaseSection() {
     return (
-        <section id="expo" className="py-24 bg-white border-b border-black/5">
+        <section
+            id="expo"
+            className="py-12 sm:py-16 md:py-20 bg-white border-b border-black/5"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         Trade, Innovation & Commerce
                     </span>
@@ -24,11 +27,11 @@ export default function ExpoShowcaseSection() {
                 </div>
 
                 {/* 8 Expo Showcase Zones Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-20">
                     {expoItems.map((item, idx) => (
                         <div
                             key={idx}
-                            className="bg-[#F7F5EC] p-7 rounded-3xl border border-black/5 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                            className="bg-[#F7F5EC] p-5 sm:p-7 rounded-3xl border border-black/5 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
                         >
                             <div>
                                 <div className="w-13 h-13 rounded-full bg-[#164a08] text-white flex items-center justify-center font-bold text-base mb-5 group-hover:scale-105 transition-transform">
@@ -49,7 +52,7 @@ export default function ExpoShowcaseSection() {
                 </div>
 
                 {/* Expo Banner with CTAs (50px Pure Curves, No Yellow Border) */}
-                <div className="bg-[#164a08] rounded-3xl p-8 sm:p-14 text-white border border-black/10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+                <div className="bg-[#164a08] rounded-3xl p-6 sm:p-12 text-white border border-black/10 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 shadow-xl">
                     <div className="space-y-3 max-w-xl text-center md:text-left">
                         <span className="text-xs font-sans font-bold tracking-[0.25em] text-[#DFC479] uppercase">
                             Exhibition & Sponsorship Sales Open

@@ -20,10 +20,10 @@ export default function StagesSection() {
     ];
 
     return (
-        <section className="py-24 bg-white border-b border-black/5">
+        <section className="py-12 sm:py-16 md:py-20 bg-white border-b border-black/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
                     <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#3e7405] uppercase">
                         The Participant Journey
                     </span>
@@ -39,13 +39,13 @@ export default function StagesSection() {
                 </div>
 
                 {/* 6 Stages Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {conferenceStages.map((stage, idx) => {
                         const Icon = icons[idx] || Lightbulb;
                         return (
                             <div
                                 key={idx}
-                                className="bg-[#F7F5EC] p-8 rounded-3xl border border-black/5 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                                className="bg-[#F7F5EC] p-6 sm:p-8 rounded-3xl border border-black/5 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
                             >
                                 <div>
                                     <div className="flex items-center justify-between mb-5">
