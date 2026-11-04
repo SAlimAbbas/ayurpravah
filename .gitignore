@@ -3,9 +3,22 @@
 .env
 .env.backup
 .env.production
-deploy-config.sh
+.env.production.*
 *.tar.gz
+*.zip
 ayurpravah-deploy.tar.gz
+
+# Deploy configuration and deployment scripts (sensitive server info)
+deploy*
+deploy-config.sh
+deploy-config.sh.*
+deploy.sh
+deploy.ps1
+
+# Sensitive project documentation & specifications
+*.md
+**/*.md
+
 .phpactor.json
 .phpunit.result.cache
 /.fleet
