@@ -1,69 +1,88 @@
-import React, { useState } from 'react';
-import { Image as ImageIcon, Video, ArrowRight, X } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React, { useState } from "react";
+import { Image as ImageIcon, Video, ArrowRight, X } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function GallerySection({ galleryItems = [] }) {
     const [selectedItem, setSelectedItem] = useState(null);
-    const [activeFilter, setActiveFilter] = useState('ALL');
+    const [activeFilter, setActiveFilter] = useState("ALL");
 
     const resolveImageUrl = (item) => {
         const path = item?.image_url || item?.media_path;
-        if (!path) return '';
-        if (path.startsWith('http://') || path.startsWith('https://')) return path;
-        if (path.startsWith('/storage/')) return path;
-        if (path.startsWith('storage/')) return `/${path}`;
-        return `/storage/${path.replace(/^\/+/, '')}`;
+        if (!path) return "";
+        if (path.startsWith("http://") || path.startsWith("https://"))
+            return path;
+        if (path.startsWith("/storage/")) return path;
+        if (path.startsWith("storage/")) return `/${path}`;
+        return `/storage/${path.replace(/^\/+/, "")}`;
     };
 
     // Extract unique albums
-    const albums = ['ALL', ...new Set(galleryItems.map(item => item.album?.title).filter(Boolean))];
-
-    const filtered = activeFilter === 'ALL'
-        ? galleryItems
-        : galleryItems.filter(item => item.album?.title === activeFilter);
-
-    // Fallback if no gallery items in database yet
-    const displayItems = filtered.length > 0 ? filtered : [
-        {
-            id: 1,
-            caption: 'Plenary Address on Translational Pharmacology & Evidence-based Formulations',
-            album: { title: 'Scientific Conclaves' },
-            type: 'image',
-        },
-        {
-            id: 2,
-            caption: 'International Roundtable: Global Regulatory Harmonization & Botanical Monographs',
-            album: { title: 'Scientific Conclaves' },
-            type: 'image',
-        },
-        {
-            id: 3,
-            caption: 'Tactile Nadi Pariksha Masterclass: Arterial Compliance & Waveform Analysis',
-            album: { title: 'Clinical Workshops' },
-            type: 'image',
-        },
-        {
-            id: 4,
-            caption: 'Advanced Marma Chikitsa: Pain Modulation in Orthopedic Rehabilitation',
-            album: { title: 'Clinical Workshops' },
-            type: 'image',
-        },
-        {
-            id: 5,
-            caption: 'Comprehensive Rural Prakriti Assessment & Preventive Health Camp',
-            album: { title: 'Community Health' },
-            type: 'image',
-        },
-        {
-            id: 6,
-            caption: 'AYUSH Startup Arena: Founders Pitching Bio-Sensory Diagnostics to Investors',
-            album: { title: 'Digital Innovation' },
-            type: 'image',
-        },
+    const albums = [
+        "ALL",
+        ...new Set(
+            galleryItems.map((item) => item.album?.title).filter(Boolean),
+        ),
     ];
 
+    const filtered =
+        activeFilter === "ALL"
+            ? galleryItems
+            : galleryItems.filter((item) => item.album?.title === activeFilter);
+
+    // Fallback if no gallery items in database yet
+    const displayItems =
+        filtered.length > 0
+            ? filtered
+            : [
+                  {
+                      id: 1,
+                      caption:
+                          "Plenary Address on Translational Pharmacology & Evidence-based Formulations",
+                      album: { title: "Scientific Conclaves" },
+                      type: "image",
+                  },
+                  {
+                      id: 2,
+                      caption:
+                          "International Roundtable: Global Regulatory Harmonization & Botanical Monographs",
+                      album: { title: "Scientific Conclaves" },
+                      type: "image",
+                  },
+                  {
+                      id: 3,
+                      caption:
+                          "Tactile Nadi Pariksha Masterclass: Arterial Compliance & Waveform Analysis",
+                      album: { title: "Clinical Workshops" },
+                      type: "image",
+                  },
+                  {
+                      id: 4,
+                      caption:
+                          "Advanced Marma Chikitsa: Pain Modulation in Orthopedic Rehabilitation",
+                      album: { title: "Clinical Workshops" },
+                      type: "image",
+                  },
+                  {
+                      id: 5,
+                      caption:
+                          "Comprehensive Rural Prakriti Assessment & Preventive Health Camp",
+                      album: { title: "Community Health" },
+                      type: "image",
+                  },
+                  {
+                      id: 6,
+                      caption:
+                          "AYUSH Startup Arena: Founders Pitching Bio-Sensory Diagnostics to Investors",
+                      album: { title: "Digital Innovation" },
+                      type: "image",
+                  },
+              ];
+
     return (
-        <section id="gallery" className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden">
+        <section
+            id="gallery"
+            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+        >
             {/* Subtle Light Herbal Watercolor Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
                 <img
@@ -85,8 +104,9 @@ export default function GallerySection({ galleryItems = [] }) {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        A photographic glimpse into international health camps, clinician upskilling masterclasses,
-                        academic summits, and research assemblies leading to AYURPRAVAH 2027.
+                        A photographic glimpse into international health camps,
+                        clinician upskilling masterclasses, academic summits,
+                        and research assemblies leading to AYURPRAVAH 2027.
                     </p>
                 </div>
 
@@ -99,8 +119,8 @@ export default function GallerySection({ galleryItems = [] }) {
                                 onClick={() => setActiveFilter(albumName)}
                                 className={`px-5 py-2.5 rounded-full text-sm font-sans font-semibold transition-all duration-200 cursor-pointer ${
                                     activeFilter === albumName
-                                        ? 'bg-[#164a08] text-white shadow-md'
-                                        : 'bg-[#F7F5EC] text-[#503323] hover:bg-[#164a08]/10'
+                                        ? "bg-[#164a08] text-white shadow-md"
+                                        : "bg-[#F7F5EC] text-[#503323] hover:bg-[#164a08]/10"
                                 }`}
                             >
                                 {albumName}
@@ -121,26 +141,27 @@ export default function GallerySection({ galleryItems = [] }) {
                                 {resolveImageUrl(item) ? (
                                     <img
                                         src={resolveImageUrl(item)}
-                                        alt={item.caption || 'Conclave Gallery'}
+                                        alt={item.caption || "Conclave Gallery"}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 ) : (
                                     <div className="flex flex-col items-center justify-center text-[#164a08]/70 p-6 text-center">
                                         <div className="w-14 h-14 rounded-full bg-white/80 shadow-sm flex items-center justify-center mb-3">
-                                            {item.type === 'video' ? (
+                                            {item.type === "video" ? (
                                                 <Video className="w-7 h-7 text-[#164a08]" />
                                             ) : (
                                                 <ImageIcon className="w-7 h-7 text-[#164a08]" />
                                             )}
                                         </div>
                                         <span className="text-sm font-heading font-bold text-[#164a08]">
-                                            {item.album?.title || 'AYURPRAVAH Media'}
+                                            {item.album?.title ||
+                                                "AYURPRAVAH Media"}
                                         </span>
                                     </div>
                                 )}
 
                                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full text-xs font-sans font-bold text-[#164a08] shadow-sm">
-                                    {item.album?.title || 'Archive'}
+                                    {item.album?.title || "Archive"}
                                 </div>
                             </div>
 
@@ -181,7 +202,8 @@ export default function GallerySection({ galleryItems = [] }) {
                     >
                         <div className="bg-[#164a08] text-white p-5 flex items-center justify-between">
                             <span className="text-sm font-sans font-bold text-[#DFC479]">
-                                {selectedItem.album?.title || 'AYURPRAVAH 2027 Gallery'}
+                                {selectedItem.album?.title ||
+                                    "AYURPRAVAH 2027 Gallery"}
                             </span>
                             <button
                                 onClick={() => setSelectedItem(null)}

@@ -1,7 +1,7 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { ArrowLeft } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function Page({ page }) {
     return (
@@ -28,7 +28,8 @@ export default function Page({ page }) {
                                 {page.title}
                             </h1>
                             <div className="text-xs font-mono text-stone-500 mt-2">
-                                Effective Date: AYURPRAVAH 2027 Secretariat • Version 1.0
+                                Effective Date: AYURPRAVAH 2027 Secretariat •
+                                Version 1.0
                             </div>
                         </div>
 

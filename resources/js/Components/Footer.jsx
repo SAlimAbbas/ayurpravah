@@ -9,9 +9,10 @@ export default function Footer() {
     const datesLabel =
         siteSettings.dates_label || "16th, 17th & 18th April 2027";
     const rawVenueName = siteSettings.venue?.name;
-    const venueName = (rawVenueName && rawVenueName !== "To Be Announced")
-        ? rawVenueName
-        : "Indian Institute of Technology Delhi, Hauz Khas, New Delhi 110016";
+    const venueName =
+        rawVenueName && rawVenueName !== "To Be Announced"
+            ? rawVenueName
+            : "Indian Institute of Technology Delhi, Hauz Khas, New Delhi 110016";
 
     const defaultDepartments = [
         {
@@ -264,7 +265,8 @@ export default function Footer() {
                         © {new Date().getFullYear()} {eventName} (आयुर प्रवाह).
                         All rights reserved.
                         <span className="block text-xs text-[#DFC479] mt-1 italic font-serif">
-                            From Knowledge to Innovation. From Innovation to Impact. From Bharat to the World.
+                            From Knowledge to Innovation. From Innovation to
+                            Impact. From Bharat to the World.
                         </span>
                     </div>
 

@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { Calendar, Clock, MapPin, Search, ChevronRight } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React, { useState } from "react";
+import AppLayout from "../Layouts/AppLayout";
+import { Calendar, Clock, MapPin, Search, ChevronRight } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function Program({ sessions = [], tracks = [], days = [] }) {
     const [activeDay, setActiveDay] = useState(1);
-    const [selectedTrack, setSelectedTrack] = useState('All');
-    const [search, setSearch] = useState('');
+    const [selectedTrack, setSelectedTrack] = useState("All");
+    const [search, setSearch] = useState("");
 
     const filtered = sessions.filter((s) => {
         const matchesDay = s.day_number === activeDay;
-        const matchesTrack = selectedTrack === 'All' || s.track === selectedTrack;
+        const matchesTrack =
+            selectedTrack === "All" || s.track === selectedTrack;
         const matchesSearch =
             !search ||
             s.title.toLowerCase().includes(search.toLowerCase()) ||
-            (s.description && s.description.toLowerCase().includes(search.toLowerCase())) ||
-            (s.hall_room && s.hall_room.toLowerCase().includes(search.toLowerCase()));
+            (s.description &&
+                s.description.toLowerCase().includes(search.toLowerCase())) ||
+            (s.hall_room &&
+                s.hall_room.toLowerCase().includes(search.toLowerCase()));
         return matchesDay && matchesTrack && matchesSearch;
     });
 
@@ -36,7 +39,9 @@ export default function Program({ sessions = [], tracks = [], days = [] }) {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            Filter sessions by day, scientific track, or search keywords. All sessions take place in accordance with the Indian Standard Time (IST).
+                            Filter sessions by day, scientific track, or search
+                            keywords. All sessions take place in accordance with
+                            the Indian Standard Time (IST).
                         </p>
                     </div>
 
@@ -49,14 +54,16 @@ export default function Program({ sessions = [], tracks = [], days = [] }) {
                                     onClick={() => setActiveDay(d.day)}
                                     className={`p-6 rounded-3xl text-left border transition-all ${
                                         activeDay === d.day
-                                            ? 'bg-[#164a08] text-white border-[#164a08] shadow-lg'
-                                            : 'bg-white text-[#503323] border-stone-200 hover:border-[#164a08]/40'
+                                            ? "bg-[#164a08] text-white border-[#164a08] shadow-lg"
+                                            : "bg-white text-[#503323] border-stone-200 hover:border-[#164a08]/40"
                                     }`}
                                 >
                                     <div className="font-heading text-base sm:text-lg font-bold tracking-wider">
                                         {d.label}
                                     </div>
-                                    <p className={`text-sm mt-1.5 ${activeDay === d.day ? 'text-[#DFC479]' : 'text-[#3e7405]'}`}>
+                                    <p
+                                        className={`text-sm mt-1.5 ${activeDay === d.day ? "text-[#DFC479]" : "text-[#3e7405]"}`}
+                                    >
                                         {d.theme}
                                     </p>
                                 </button>
@@ -87,8 +94,8 @@ export default function Program({ sessions = [], tracks = [], days = [] }) {
                                             onClick={() => setSelectedTrack(t)}
                                             className={`px-4 py-2 rounded-full text-sm font-sans font-medium transition ${
                                                 selectedTrack === t
-                                                    ? 'bg-[#164a08] text-white shadow-sm'
-                                                    : 'bg-[#F7F5EC] text-stone-700 hover:bg-stone-200'
+                                                    ? "bg-[#164a08] text-white shadow-sm"
+                                                    : "bg-[#F7F5EC] text-stone-700 hover:bg-stone-200"
                                             }`}
                                         >
                                             {t}
@@ -118,7 +125,8 @@ export default function Program({ sessions = [], tracks = [], days = [] }) {
                                                 )}
                                                 {session.conclave && (
                                                     <span className="text-sm text-stone-500 font-medium">
-                                                        Conclave: {session.conclave.title}
+                                                        Conclave:{" "}
+                                                        {session.conclave.title}
                                                     </span>
                                                 )}
                                             </div>
@@ -133,33 +141,48 @@ export default function Program({ sessions = [], tracks = [], days = [] }) {
                                                 </p>
                                             )}
 
-                                            {session.speakers && session.speakers.length > 0 && (
-                                                <div className="pt-2 flex flex-wrap items-center gap-3 text-sm text-[#164a08]">
-                                                    <span className="font-semibold text-stone-500">Speakers:</span>
-                                                    {session.speakers.map((sp) => (
-                                                        <Link
-                                                            key={sp.id}
-                                                            href={`/speakers/${sp.slug}`}
-                                                            className="hover:underline font-semibold text-[#164a08]"
-                                                        >
-                                                            {sp.name}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            )}
+                                            {session.speakers &&
+                                                session.speakers.length > 0 && (
+                                                    <div className="pt-2 flex flex-wrap items-center gap-3 text-sm text-[#164a08]">
+                                                        <span className="font-semibold text-stone-500">
+                                                            Speakers:
+                                                        </span>
+                                                        {session.speakers.map(
+                                                            (sp) => (
+                                                                <Link
+                                                                    key={sp.id}
+                                                                    href={`/speakers/${sp.slug}`}
+                                                                    className="hover:underline font-semibold text-[#164a08]"
+                                                                >
+                                                                    {sp.name}
+                                                                </Link>
+                                                            ),
+                                                        )}
+                                                    </div>
+                                                )}
                                         </div>
 
                                         <div className="border-t md:border-t-0 md:border-l md:pl-6 pt-3 md:pt-0 border-stone-100 shrink-0 text-left md:text-right space-y-1.5">
                                             <div className="flex md:justify-end items-center space-x-1.5 font-mono text-base font-bold text-[#164a08]">
                                                 <Clock className="w-4 h-4 text-[#164a08]" />
                                                 <span>
-                                                    {session.start_time?.slice(0, 5)} - {session.end_time?.slice(0, 5)}
+                                                    {session.start_time?.slice(
+                                                        0,
+                                                        5,
+                                                    )}{" "}
+                                                    -{" "}
+                                                    {session.end_time?.slice(
+                                                        0,
+                                                        5,
+                                                    )}
                                                 </span>
                                             </div>
                                             {session.hall_room && (
                                                 <div className="flex md:justify-end items-center space-x-1 text-sm text-[#3e7405]">
                                                     <MapPin className="w-4 h-4" />
-                                                    <span>{session.hall_room}</span>
+                                                    <span>
+                                                        {session.hall_room}
+                                                    </span>
                                                 </div>
                                             )}
                                         </div>

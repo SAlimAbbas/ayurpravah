@@ -1,13 +1,20 @@
-import React from 'react';
-import { brandChain, yasharthPillars, yasharthStats } from '../content/ecosystem';
-import { Building2, Cpu, Globe2, ArrowRight } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import {
+    brandChain,
+    yasharthPillars,
+    yasharthStats,
+} from "../content/ecosystem";
+import { Building2, Cpu, Globe2, ArrowRight } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function EcosystemSection() {
     const chainIcons = [Building2, Cpu, Globe2];
 
     return (
-        <section id="ecosystem" className="py-24 bg-white border-b border-black/5">
+        <section
+            id="ecosystem"
+            className="py-24 bg-white border-b border-black/5"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
@@ -19,9 +26,11 @@ export default function EcosystemSection() {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        AYURPRAVAH 2027 is not an isolated assembly. It is the flagship convergence
-                        of a comprehensive ecosystem operating year-round across medical education,
-                        scientific research, digital technology, and grassroots public health.
+                        AYURPRAVAH 2027 is not an isolated assembly. It is the
+                        flagship convergence of a comprehensive ecosystem
+                        operating year-round across medical education,
+                        scientific research, digital technology, and grassroots
+                        public health.
                     </p>
                 </div>
 

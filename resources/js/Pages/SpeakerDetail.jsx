@@ -1,16 +1,17 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { ArrowLeft, User, Building, MessageSquare } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import { ArrowLeft, User, Building, MessageSquare } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function SpeakerDetail({ speaker, otherSpeakers = [] }) {
     const resolveSpeakerPhoto = (spk) => {
         const path = spk?.photo_url || spk?.photo;
         if (!path) return null;
-        if (path.startsWith('http://') || path.startsWith('https://')) return path;
-        if (path.startsWith('/storage/')) return path;
-        if (path.startsWith('storage/')) return `/${path}`;
-        return `/storage/${path.replace(/^\/+/, '')}`;
+        if (path.startsWith("http://") || path.startsWith("https://"))
+            return path;
+        if (path.startsWith("/storage/")) return path;
+        if (path.startsWith("storage/")) return `/${path}`;
+        return `/storage/${path.replace(/^\/+/, "")}`;
     };
 
     return (
@@ -34,7 +35,11 @@ export default function SpeakerDetail({ speaker, otherSpeakers = [] }) {
                         <div className="bg-[#164a08] text-white rounded-3xl p-8 sm:p-12 border border-[#164a08]/30 shadow-xl flex flex-col md:flex-row items-center md:items-start gap-8">
                             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/10 border-4 border-[#DFC479] flex items-center justify-center text-white shrink-0 overflow-hidden shadow-inner">
                                 {resolveSpeakerPhoto(speaker) ? (
-                                    <img src={resolveSpeakerPhoto(speaker)} alt={speaker.name} className="w-full h-full object-cover" />
+                                    <img
+                                        src={resolveSpeakerPhoto(speaker)}
+                                        alt={speaker.name}
+                                        className="w-full h-full object-cover"
+                                    />
                                 ) : (
                                     <User className="w-16 h-16 text-[#DFC479]" />
                                 )}
@@ -42,7 +47,7 @@ export default function SpeakerDetail({ speaker, otherSpeakers = [] }) {
 
                             <div className="space-y-3 text-center md:text-left flex-1">
                                 <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#DFC479] uppercase">
-                                    {speaker.category || 'Conclave Speaker'}
+                                    {speaker.category || "Conclave Speaker"}
                                 </span>
                                 <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-white">
                                     {speaker.name}
@@ -54,7 +59,9 @@ export default function SpeakerDetail({ speaker, otherSpeakers = [] }) {
                                     <div className="flex items-center justify-center md:justify-start space-x-2 text-sm sm:text-base text-[#DFC479]">
                                         <Building className="w-4 h-4 shrink-0" />
                                         <span>{speaker.institution}</span>
-                                        {speaker.country && <span>({speaker.country})</span>}
+                                        {speaker.country && (
+                                            <span>({speaker.country})</span>
+                                        )}
                                     </div>
                                 )}
                             </div>
@@ -90,31 +97,49 @@ export default function SpeakerDetail({ speaker, otherSpeakers = [] }) {
                             )}
 
                             {/* Scheduled Sessions */}
-                            {speaker.sessions && speaker.sessions.length > 0 && (
-                                <div className="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm">
-                                    <h3 className="font-heading text-lg font-bold text-[#164a08] uppercase tracking-wider mb-5">
-                                        Sessions & Timetable
-                                    </h3>
-                                    <div className="space-y-4">
-                                        {speaker.sessions.map((sess) => (
-                                            <div key={sess.id} className="p-5 rounded-2xl bg-[#F7F5EC] border border-stone-200/60 flex flex-col sm:flex-row justify-between gap-3">
-                                                <div>
-                                                    <span className="text-sm font-bold text-[#164a08] uppercase bg-[#164a08]/10 px-3.5 py-1 rounded-full">
-                                                        Day {sess.day_number} • {sess.type}
-                                                    </span>
-                                                    <h4 className="font-heading text-base font-bold text-[#164a08] mt-2">
-                                                        {sess.title}
-                                                    </h4>
+                            {speaker.sessions &&
+                                speaker.sessions.length > 0 && (
+                                    <div className="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm">
+                                        <h3 className="font-heading text-lg font-bold text-[#164a08] uppercase tracking-wider mb-5">
+                                            Sessions & Timetable
+                                        </h3>
+                                        <div className="space-y-4">
+                                            {speaker.sessions.map((sess) => (
+                                                <div
+                                                    key={sess.id}
+                                                    className="p-5 rounded-2xl bg-[#F7F5EC] border border-stone-200/60 flex flex-col sm:flex-row justify-between gap-3"
+                                                >
+                                                    <div>
+                                                        <span className="text-sm font-bold text-[#164a08] uppercase bg-[#164a08]/10 px-3.5 py-1 rounded-full">
+                                                            Day{" "}
+                                                            {sess.day_number} •{" "}
+                                                            {sess.type}
+                                                        </span>
+                                                        <h4 className="font-heading text-base font-bold text-[#164a08] mt-2">
+                                                            {sess.title}
+                                                        </h4>
+                                                    </div>
+                                                    <div className="text-right text-sm shrink-0 font-mono text-[#164a08]">
+                                                        {sess.start_time?.slice(
+                                                            0,
+                                                            5,
+                                                        )}{" "}
+                                                        -{" "}
+                                                        {sess.end_time?.slice(
+                                                            0,
+                                                            5,
+                                                        )}
+                                                        {sess.hall_room && (
+                                                            <div className="text-sm text-stone-500 font-sans mt-0.5">
+                                                                {sess.hall_room}
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                                <div className="text-right text-sm shrink-0 font-mono text-[#164a08]">
-                                                    {sess.start_time?.slice(0, 5)} - {sess.end_time?.slice(0, 5)}
-                                                    {sess.hall_room && <div className="text-sm text-stone-500 font-sans mt-0.5">{sess.hall_room}</div>}
-                                                </div>
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            )}
+                                )}
                         </div>
 
                         {/* Sidebar: Other Faculty */}

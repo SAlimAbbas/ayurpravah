@@ -1,51 +1,51 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { expoItems } from '../content/ecosystem';
-import { Store, CheckCircle2 } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import { expoItems } from "../content/ecosystem";
+import { Store, CheckCircle2 } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function Expo() {
     const stallPackages = [
         {
-            name: 'Standard Shell Scheme (9 sqm)',
-            size: '3m x 3m (9 sqm)',
+            name: "Standard Shell Scheme (9 sqm)",
+            size: "3m x 3m (9 sqm)",
             features: [
-                'Octanorm system stall with white panels',
-                'Fascia name board with company lettering',
-                '1 Reception table & 2 executive chairs',
-                '3 Spotlight fixtures & 1 power socket (5A)',
-                '1 Waste bin & carpeted flooring',
-                '2 Complimentary delegate exhibitor passes',
-                'Listing in official conclave exhibitor directory',
+                "Octanorm system stall with white panels",
+                "Fascia name board with company lettering",
+                "1 Reception table & 2 executive chairs",
+                "3 Spotlight fixtures & 1 power socket (5A)",
+                "1 Waste bin & carpeted flooring",
+                "2 Complimentary delegate exhibitor passes",
+                "Listing in official conclave exhibitor directory",
             ],
-            cta: 'Inquire for 9 sqm Stall',
+            cta: "Inquire for 9 sqm Stall",
         },
         {
-            name: 'Double Shell Scheme (18 sqm)',
-            size: '6m x 3m (18 sqm)',
+            name: "Double Shell Scheme (18 sqm)",
+            size: "6m x 3m (18 sqm)",
             features: [
-                'Prime corner / double open booth visibility',
-                'Customized fascia brand signages',
-                '2 Information counters & 4 chairs',
-                '6 Spotlights & 2 multi-pin power sockets (15A)',
-                '4 Complimentary delegate exhibitor passes',
-                'Full-page profile in printed conclave souvenir',
-                'Direct B2B buyer lounge networking slots',
+                "Prime corner / double open booth visibility",
+                "Customized fascia brand signages",
+                "2 Information counters & 4 chairs",
+                "6 Spotlights & 2 multi-pin power sockets (15A)",
+                "4 Complimentary delegate exhibitor passes",
+                "Full-page profile in printed conclave souvenir",
+                "Direct B2B buyer lounge networking slots",
             ],
-            cta: 'Inquire for 18 sqm Stall',
+            cta: "Inquire for 18 sqm Stall",
         },
         {
-            name: 'Bare Space / Custom Pavilion (36+ sqm)',
-            size: 'Custom Fabricated Bare Island',
+            name: "Bare Space / Custom Pavilion (36+ sqm)",
+            size: "Custom Fabricated Bare Island",
             features: [
-                '4-side open island position with maximum footfall',
-                'Freedom of structural design & branding height',
-                'Dedicated 3-phase heavy industrial power line',
-                '8 Complimentary delegate exhibitor passes',
-                'Speaker slot in Technology & Innovation Showcase',
-                'Featured logo on all event backdrops & main stage',
+                "4-side open island position with maximum footfall",
+                "Freedom of structural design & branding height",
+                "Dedicated 3-phase heavy industrial power line",
+                "8 Complimentary delegate exhibitor passes",
+                "Speaker slot in Technology & Innovation Showcase",
+                "Featured logo on all event backdrops & main stage",
             ],
-            cta: 'Request Bare Space Proposal',
+            cta: "Request Bare Space Proposal",
         },
     ];
 
@@ -66,8 +66,10 @@ export default function Expo() {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            Connecting 100+ premier brands, manufacturers, medical device innovators,
-                            and organic cultivators with over 50,000 healthcare professionals, hospital buyers, and institutional delegations.
+                            Connecting 100+ premier brands, manufacturers,
+                            medical device innovators, and organic cultivators
+                            with over 50,000 healthcare professionals, hospital
+                            buyers, and institutional delegations.
                         </p>
 
                         <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -140,7 +142,10 @@ export default function Expo() {
 
                                         <ul className="mt-6 space-y-3 text-base text-[#503323]">
                                             {pkg.features.map((f, i) => (
-                                                <li key={i} className="flex items-start space-x-2.5">
+                                                <li
+                                                    key={i}
+                                                    className="flex items-start space-x-2.5"
+                                                >
                                                     <CheckCircle2 className="w-4 h-4 text-[#164a08] shrink-0 mt-0.5" />
                                                     <span>{f}</span>
                                                 </li>

@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { ShieldCheck, Handshake, CheckCircle2, ArrowRight, Loader2 } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React, { useState } from "react";
+import AppLayout from "../Layouts/AppLayout";
+import {
+    ShieldCheck,
+    Handshake,
+    CheckCircle2,
+    ArrowRight,
+    Loader2,
+} from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function Partners({ sponsors = {} }) {
     const [formData, setFormData] = useState({
-        type: 'partner',
-        name: '',
-        organisation: '',
-        email: '',
-        phone: '',
-        message: '',
+        type: "partner",
+        name: "",
+        organisation: "",
+        email: "",
+        phone: "",
+        message: "",
     });
     const [submitting, setSubmitting] = useState(false);
     const [successMsg, setSuccessMsg] = useState(null);
@@ -19,35 +25,35 @@ export default function Partners({ sponsors = {} }) {
 
     const sponsorshipTiers = [
         {
-            tier: 'Platinum Patron',
-            slots: 'Exclusive 2 Slots',
+            tier: "Platinum Patron",
+            slots: "Exclusive 2 Slots",
             benefits: [
-                'Premier logo branding on all main stage backdrops, archways, and delegate kits',
-                'Complimentary 36 sqm Bare Space Island pavilion in prime expo foyer',
-                'Keynote address in the Inaugural Plenary session',
-                '15 Complimentary VIP delegate passes + VIP Lounge Access',
-                'Double-page spread in official conclave printed proceedings',
+                "Premier logo branding on all main stage backdrops, archways, and delegate kits",
+                "Complimentary 36 sqm Bare Space Island pavilion in prime expo foyer",
+                "Keynote address in the Inaugural Plenary session",
+                "15 Complimentary VIP delegate passes + VIP Lounge Access",
+                "Double-page spread in official conclave printed proceedings",
             ],
         },
         {
-            tier: 'Gold Partner',
-            slots: '4 Available',
+            tier: "Gold Partner",
+            slots: "4 Available",
             benefits: [
-                'Prominent logo branding across all conference collateral and digital screens',
-                'Complimentary 18 sqm Double Shell Scheme stall in Hall A',
-                'Panelist representation in one thematic conclave track',
-                '8 Complimentary delegate passes',
-                'Full-page colour advertisement in conclave directory',
+                "Prominent logo branding across all conference collateral and digital screens",
+                "Complimentary 18 sqm Double Shell Scheme stall in Hall A",
+                "Panelist representation in one thematic conclave track",
+                "8 Complimentary delegate passes",
+                "Full-page colour advertisement in conclave directory",
             ],
         },
         {
-            tier: 'Silver / Associate Partner',
-            slots: '8 Available',
+            tier: "Silver / Associate Partner",
+            slots: "8 Available",
             benefits: [
-                'Logo display on website, digital screens, and printed agenda',
-                'Complimentary 9 sqm Standard Shell Scheme stall',
-                '4 Complimentary delegate passes',
-                'Half-page profile in conclave compendium',
+                "Logo display on website, digital screens, and printed agenda",
+                "Complimentary 9 sqm Standard Shell Scheme stall",
+                "4 Complimentary delegate passes",
+                "Half-page profile in conclave compendium",
             ],
         },
     ];
@@ -56,18 +62,30 @@ export default function Partners({ sponsors = {} }) {
         e.preventDefault();
         setSubmitting(true);
         try {
-            const res = await fetch('/api/enquiries', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            const res = await fetch("/api/enquiries", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
                 body: JSON.stringify(formData),
             });
             const data = await res.json();
             if (res.ok) {
-                setSuccessMsg('Thank you. Your partnership proposal has been received. Our secretariat will connect with you.');
-                setFormData({ type: 'partner', name: '', organisation: '', email: '', phone: '', message: '' });
+                setSuccessMsg(
+                    "Thank you. Your partnership proposal has been received. Our secretariat will connect with you.",
+                );
+                setFormData({
+                    type: "partner",
+                    name: "",
+                    organisation: "",
+                    email: "",
+                    phone: "",
+                    message: "",
+                });
             }
         } catch (e) {
-            console.error('Error submitting enquiry', e);
+            console.error("Error submitting enquiry", e);
         } finally {
             setSubmitting(false);
         }
@@ -90,8 +108,10 @@ export default function Partners({ sponsors = {} }) {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            Join a prestigious alliance of universities, healthcare networks, pharmaceutical innovators,
-                            and global research organizations co-creating the landmark conclave of 2027.
+                            Join a prestigious alliance of universities,
+                            healthcare networks, pharmaceutical innovators, and
+                            global research organizations co-creating the
+                            landmark conclave of 2027.
                         </p>
                     </div>
 
@@ -106,19 +126,25 @@ export default function Partners({ sponsors = {} }) {
                                     <h3 className="font-heading text-base sm:text-lg font-bold text-white">
                                         IIT Delhi
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">Host Institution & Academic Partner</p>
+                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">
+                                        Host Institution & Academic Partner
+                                    </p>
                                 </div>
                                 <div className="bg-[#164a08]/40 p-4 sm:p-5 rounded-2xl border border-[#164a08]/20">
                                     <h3 className="font-heading text-base sm:text-lg font-bold text-white">
                                         Yasharth Veda Foundation
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">Ecosystem-Building Non-Profit Trust</p>
+                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">
+                                        Ecosystem-Building Non-Profit Trust
+                                    </p>
                                 </div>
                                 <div className="bg-[#164a08]/40 p-4 sm:p-5 rounded-2xl border border-[#164a08]/20">
                                     <h3 className="font-heading text-base sm:text-lg font-bold text-white">
                                         AyurWings HealthTech
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">Digital Backbone & HealthTech Platform</p>
+                                    <p className="text-xs sm:text-sm text-[#DFC479] mt-1">
+                                        Digital Backbone & HealthTech Platform
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +177,10 @@ export default function Partners({ sponsors = {} }) {
 
                                         <ul className="mt-6 space-y-3 text-sm text-[#503323]">
                                             {tier.benefits.map((b, i) => (
-                                                <li key={i} className="flex items-start space-x-2.5">
+                                                <li
+                                                    key={i}
+                                                    className="flex items-start space-x-2.5"
+                                                >
                                                     <CheckCircle2 className="w-4 h-4 text-[#164a08] shrink-0 mt-0.5" />
                                                     <span>{b}</span>
                                                 </li>
@@ -173,13 +202,17 @@ export default function Partners({ sponsors = {} }) {
                     </div>
 
                     {/* Partnership Inquiry Form */}
-                    <div id="partner-inquiry" className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8 pb-16">
+                    <div
+                        id="partner-inquiry"
+                        className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8 pb-16"
+                    >
                         <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-stone-200/80 shadow-md">
                             <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#164a08] text-center">
                                 Propose an Institutional MoU or Sponsorship
                             </h3>
                             <p className="text-xs sm:text-sm text-stone-600 text-center mt-1.5 mb-6 sm:mb-8">
-                                Submit your proposal directly to the Secretary of Partnerships & MoUs.
+                                Submit your proposal directly to the Secretary
+                                of Partnerships & MoUs.
                             </p>
 
                             {successMsg ? (
@@ -187,7 +220,10 @@ export default function Partners({ sponsors = {} }) {
                                     {successMsg}
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="space-y-4 sm:space-y-5"
+                                >
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                         <div className="min-w-0">
                                             <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
@@ -197,7 +233,12 @@ export default function Partners({ sponsors = {} }) {
                                                 type="text"
                                                 required
                                                 value={formData.name}
-                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        name: e.target.value,
+                                                    })
+                                                }
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
@@ -209,7 +250,13 @@ export default function Partners({ sponsors = {} }) {
                                                 type="text"
                                                 required
                                                 value={formData.organisation}
-                                                onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        organisation:
+                                                            e.target.value,
+                                                    })
+                                                }
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
@@ -224,7 +271,12 @@ export default function Partners({ sponsors = {} }) {
                                                 type="email"
                                                 required
                                                 value={formData.email}
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        email: e.target.value,
+                                                    })
+                                                }
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
@@ -236,7 +288,12 @@ export default function Partners({ sponsors = {} }) {
                                                 type="tel"
                                                 required
                                                 value={formData.phone}
-                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        phone: e.target.value,
+                                                    })
+                                                }
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
@@ -250,7 +307,12 @@ export default function Partners({ sponsors = {} }) {
                                             rows="4"
                                             required
                                             value={formData.message}
-                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    message: e.target.value,
+                                                })
+                                            }
                                             placeholder="Detail your interest: Knowledge Partnership, Academic MoU, Corporate Sponsorship tier..."
                                             className="w-full text-xs sm:text-sm border border-stone-300 rounded-2xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                         ></textarea>
@@ -261,7 +323,13 @@ export default function Partners({ sponsors = {} }) {
                                         disabled={submitting}
                                         className="w-full bg-[#164a08] text-white py-3.5 sm:py-4 rounded-full font-heading text-xs sm:text-sm font-bold tracking-wider hover:bg-[#0e3005] transition flex items-center justify-center space-x-2 shadow-md disabled:opacity-50 whitespace-nowrap cursor-pointer"
                                     >
-                                        {submitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <span>SUBMIT PARTNERSHIP PROPOSAL</span>}
+                                        {submitting ? (
+                                            <Loader2 className="w-5 h-5 animate-spin" />
+                                        ) : (
+                                            <span>
+                                                SUBMIT PARTNERSHIP PROPOSAL
+                                            </span>
+                                        )}
                                     </button>
                                 </form>
                             )}

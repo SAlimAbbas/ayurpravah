@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-export default function CountdownTimer({ targetDate = '2027-04-16T09:00:00', label = 'EVENT COMMENCES IN' }) {
+export default function CountdownTimer({
+    targetDate = "2027-04-16T09:00:00",
+    label = "EVENT COMMENCES IN",
+}) {
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
@@ -11,9 +14,16 @@ export default function CountdownTimer({ targetDate = '2027-04-16T09:00:00', lab
 
     useEffect(() => {
         const calculateTime = () => {
-            const difference = new Date(targetDate).getTime() - new Date().getTime();
+            const difference =
+                new Date(targetDate).getTime() - new Date().getTime();
             if (difference <= 0) {
-                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true });
+                setTimeLeft({
+                    days: 0,
+                    hours: 0,
+                    minutes: 0,
+                    seconds: 0,
+                    isExpired: true,
+                });
                 return;
             }
 
@@ -31,10 +41,10 @@ export default function CountdownTimer({ targetDate = '2027-04-16T09:00:00', lab
     }, [targetDate]);
 
     const timeBlocks = [
-        { label: 'DAYS', value: timeLeft.days },
-        { label: 'HOURS', value: timeLeft.hours },
-        { label: 'MINUTES', value: timeLeft.minutes },
-        { label: 'SECONDS', value: timeLeft.seconds },
+        { label: "DAYS", value: timeLeft.days },
+        { label: "HOURS", value: timeLeft.hours },
+        { label: "MINUTES", value: timeLeft.minutes },
+        { label: "SECONDS", value: timeLeft.seconds },
     ];
 
     return (
@@ -51,7 +61,7 @@ export default function CountdownTimer({ targetDate = '2027-04-16T09:00:00', lab
                         className="bg-white/95 backdrop-blur-md border border-black/10 rounded-xl sm:rounded-3xl px-2 py-2 sm:px-5 sm:py-4 md:px-6 md:py-5 shadow-sm text-center min-w-0 transform transition hover:scale-105"
                     >
                         <div className="font-heading text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-[#164a08] leading-none">
-                            {String(block.value).padStart(2, '0')}
+                            {String(block.value).padStart(2, "0")}
                         </div>
                         <div className="text-[9px] xs:text-[10px] sm:text-xs font-sans tracking-wider text-[#3e7405] font-bold mt-1.5 sm:mt-2 uppercase truncate">
                             {block.label}

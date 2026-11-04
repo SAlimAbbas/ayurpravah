@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { ArrowRight, Layers, CheckCircle2, Search } from 'lucide-react';
-import { Link } from '@inertiajs/react';
-import ConclaveModal from '../Components/ConclaveModal';
+import React, { useState } from "react";
+import AppLayout from "../Layouts/AppLayout";
+import { ArrowRight, Layers, CheckCircle2, Search } from "lucide-react";
+import { Link } from "@inertiajs/react";
+import ConclaveModal from "../Components/ConclaveModal";
 
 export default function Conclaves({ conclaves = [] }) {
     const [selectedConclave, setSelectedConclave] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
 
-    const filtered = conclaves.filter(c =>
-        c.title.toLowerCase().includes(search.toLowerCase()) ||
-        (c.short_description && c.short_description.toLowerCase().includes(search.toLowerCase()))
+    const filtered = conclaves.filter(
+        (c) =>
+            c.title.toLowerCase().includes(search.toLowerCase()) ||
+            (c.short_description &&
+                c.short_description
+                    .toLowerCase()
+                    .includes(search.toLowerCase())),
     );
 
     const handleOpenModal = (conclave) => {
@@ -36,8 +40,10 @@ export default function Conclaves({ conclaves = [] }) {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-4 max-w-3xl mx-auto text-base sm:text-lg font-sans text-[#503323]/90 leading-relaxed">
-                            Each conclave operates as a dedicated scientific forum featuring keynotes,
-                            evidence panels, hands-on masterclasses, and peer-reviewed oral and poster paper defenses.
+                            Each conclave operates as a dedicated scientific
+                            forum featuring keynotes, evidence panels, hands-on
+                            masterclasses, and peer-reviewed oral and poster
+                            paper defenses.
                         </p>
 
                         {/* Search Input (50px pure curve) */}
@@ -57,9 +63,13 @@ export default function Conclaves({ conclaves = [] }) {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {filtered.map((conclave, idx) => {
-                                const focusAreas = Array.isArray(conclave.focus_areas)
+                                const focusAreas = Array.isArray(
+                                    conclave.focus_areas,
+                                )
                                     ? conclave.focus_areas
-                                    : (typeof conclave.focus_areas === 'string' ? JSON.parse(conclave.focus_areas || '[]') : []);
+                                    : typeof conclave.focus_areas === "string"
+                                      ? JSON.parse(conclave.focus_areas || "[]")
+                                      : [];
 
                                 return (
                                     <div
@@ -72,7 +82,11 @@ export default function Conclaves({ conclaves = [] }) {
                                                     <Layers className="w-5 h-5 text-[#164a08]" />
                                                 </div>
                                                 <span className="px-3.5 py-1 rounded-full bg-[#F7F5EC] font-mono text-sm text-[#164a08] font-bold tracking-wider">
-                                                    TRACK {String(idx + 1).padStart(2, '0')}
+                                                    TRACK{" "}
+                                                    {String(idx + 1).padStart(
+                                                        2,
+                                                        "0",
+                                                    )}
                                                 </span>
                                             </div>
 
@@ -103,7 +117,9 @@ export default function Conclaves({ conclaves = [] }) {
 
                                         <div className="mt-6 pt-5 border-t border-black/5 flex items-center justify-between">
                                             <button
-                                                onClick={() => handleOpenModal(conclave)}
+                                                onClick={() =>
+                                                    handleOpenModal(conclave)
+                                                }
                                                 className="text-sm font-sans font-semibold text-[#3e7405] hover:text-[#164a08] cursor-pointer"
                                             >
                                                 Quick Preview

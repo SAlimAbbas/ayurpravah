@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
-import { User, MessageSquare, ArrowRight } from 'lucide-react';
-import SpeakerModal from './SpeakerModal';
-import { Link } from '@inertiajs/react';
+import React, { useState } from "react";
+import { User, MessageSquare, ArrowRight } from "lucide-react";
+import SpeakerModal from "./SpeakerModal";
+import { Link } from "@inertiajs/react";
 
 const SpeakerAvatar = ({ speaker }) => {
     const [imgError, setImgError] = useState(false);
-    
+
     const resolvePath = (s) => {
         const path = s?.photo_url || s?.photo;
         if (!path) return null;
-        if (path.startsWith('http://') || path.startsWith('https://')) return path;
-        if (path.startsWith('/storage/')) return path;
-        if (path.startsWith('storage/')) return `/${path}`;
-        return `/storage/${path.replace(/^\/+/, '')}`;
+        if (path.startsWith("http://") || path.startsWith("https://"))
+            return path;
+        if (path.startsWith("/storage/")) return path;
+        if (path.startsWith("storage/")) return `/${path}`;
+        return `/storage/${path.replace(/^\/+/, "")}`;
     };
 
     const photo = resolvePath(speaker);
 
     const getInitials = (name) => {
-        if (!name) return 'AP';
-        const clean = name.replace(/^(Dr\.|Prof\.|Vd\.|Acharya|Ms\.|Mr\.)\s+/i, '').trim();
-        const parts = clean.split(' ').filter(Boolean);
+        if (!name) return "AP";
+        const clean = name
+            .replace(/^(Dr\.|Prof\.|Vd\.|Acharya|Ms\.|Mr\.)\s+/i, "")
+            .trim();
+        const parts = clean.split(" ").filter(Boolean);
         if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
         return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
     };
@@ -38,8 +41,10 @@ const SpeakerAvatar = ({ speaker }) => {
 
     return (
         <div className="w-full h-full bg-gradient-to-br from-[#0e3005] via-[#164a08] to-[#243F05] flex flex-col items-center justify-center text-[#DFC479] font-heading font-bold select-none p-2 text-center">
-            <span className="text-2xl sm:text-3xl tracking-widest">{getInitials(speaker.name)}</span>
-            {speaker.country && speaker.country !== 'TBC' && (
+            <span className="text-2xl sm:text-3xl tracking-widest">
+                {getInitials(speaker.name)}
+            </span>
+            {speaker.country && speaker.country !== "TBC" && (
                 <span className="text-[10px] text-[#ECE7D6]/80 font-sans tracking-wide uppercase mt-0.5 truncate max-w-[90px]">
                     {speaker.country}
                 </span>
@@ -51,13 +56,17 @@ const SpeakerAvatar = ({ speaker }) => {
 export default function SpeakersSection({ speakers = [] }) {
     const [selectedSpeaker, setSelectedSpeaker] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
-    const [activeCategory, setActiveCategory] = useState('ALL');
+    const [activeCategory, setActiveCategory] = useState("ALL");
 
-    const categories = ['ALL', ...new Set(speakers.map(s => s.category).filter(Boolean))];
+    const categories = [
+        "ALL",
+        ...new Set(speakers.map((s) => s.category).filter(Boolean)),
+    ];
 
-    const filtered = activeCategory === 'ALL'
-        ? speakers
-        : speakers.filter(s => s.category === activeCategory);
+    const filtered =
+        activeCategory === "ALL"
+            ? speakers
+            : speakers.filter((s) => s.category === activeCategory);
 
     const handleOpenModal = (speaker) => {
         setSelectedSpeaker(speaker);
@@ -65,7 +74,10 @@ export default function SpeakersSection({ speakers = [] }) {
     };
 
     return (
-        <section id="speakers" className="py-24 bg-white border-b border-black/5">
+        <section
+            id="speakers"
+            className="py-24 bg-white border-b border-black/5"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
@@ -77,8 +89,9 @@ export default function SpeakersSection({ speakers = [] }) {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        Gathering leading researchers, clinical vaidyas, institutional directors,
-                        and international health policymakers sharing groundbreaking evidence and vision.
+                        Gathering leading researchers, clinical vaidyas,
+                        institutional directors, and international health
+                        policymakers sharing groundbreaking evidence and vision.
                     </p>
                 </div>
 
@@ -91,8 +104,8 @@ export default function SpeakersSection({ speakers = [] }) {
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-5 py-2.5 rounded-full text-sm font-sans font-semibold transition cursor-pointer ${
                                     activeCategory === cat
-                                        ? 'bg-[#164a08] text-white shadow-md'
-                                        : 'bg-[#F7F5EC] text-[#503323] hover:bg-[#164a08]/10'
+                                        ? "bg-[#164a08] text-white shadow-md"
+                                        : "bg-[#F7F5EC] text-[#503323] hover:bg-[#164a08]/10"
                                 }`}
                             >
                                 {cat}

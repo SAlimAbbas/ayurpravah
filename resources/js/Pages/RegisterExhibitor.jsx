@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { Store, CheckCircle2, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
+import React, { useState } from "react";
+import AppLayout from "../Layouts/AppLayout";
+import {
+    Store,
+    CheckCircle2,
+    ArrowRight,
+    Loader2,
+    AlertCircle,
+} from "lucide-react";
 
 export default function RegisterExhibitor() {
     const [formData, setFormData] = useState({
-        company: '',
-        contact_person: '',
-        email: '',
-        phone: '',
-        website: '',
-        category_industry: 'Ayurvedic Pharmaceuticals & Classical Formulations',
-        stall_interest: '9 sqm Standard Shell Scheme (3m x 3m)',
-        stall_size: '9 sqm',
-        products_brief: '',
-        message: '',
+        company: "",
+        contact_person: "",
+        email: "",
+        phone: "",
+        website: "",
+        category_industry: "Ayurvedic Pharmaceuticals & Classical Formulations",
+        stall_interest: "9 sqm Standard Shell Scheme (3m x 3m)",
+        stall_size: "9 sqm",
+        products_brief: "",
+        message: "",
     });
 
     const [submitting, setSubmitting] = useState(false);
@@ -21,21 +27,21 @@ export default function RegisterExhibitor() {
     const [errorMsg, setErrorMsg] = useState(null);
 
     const industries = [
-        'Ayurvedic Pharmaceuticals & Classical Formulations',
-        'Medicinal Plants, Raw Herbs & Phytopharmaceuticals',
-        'Personal Care, Cosmeceuticals & Beauty',
-        'Panchakarma, Wellness & Rejuvenation',
-        'AI & Digital HealthTech Startups',
-        'Nutraceuticals & Dietary Supplements',
-        'AYUSH Medical Devices & Diagnostics',
-        'Education, Research & Publishing',
+        "Ayurvedic Pharmaceuticals & Classical Formulations",
+        "Medicinal Plants, Raw Herbs & Phytopharmaceuticals",
+        "Personal Care, Cosmeceuticals & Beauty",
+        "Panchakarma, Wellness & Rejuvenation",
+        "AI & Digital HealthTech Startups",
+        "Nutraceuticals & Dietary Supplements",
+        "AYUSH Medical Devices & Diagnostics",
+        "Education, Research & Publishing",
     ];
 
     const stallTypes = [
-        '9 sqm Standard Shell Scheme (3m x 3m)',
-        '18 sqm Double Shell Scheme (6m x 3m)',
-        '36 sqm Bare Space Island Pavilion',
-        'Custom Bare Space (50+ sqm)',
+        "9 sqm Standard Shell Scheme (3m x 3m)",
+        "18 sqm Double Shell Scheme (6m x 3m)",
+        "36 sqm Bare Space Island Pavilion",
+        "Custom Bare Space (50+ sqm)",
     ];
 
     const handleSubmit = async (e) => {
@@ -44,19 +50,24 @@ export default function RegisterExhibitor() {
         setErrorMsg(null);
 
         try {
-            const res = await fetch('/api/exhibitors', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            const res = await fetch("/api/exhibitors", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
                 body: JSON.stringify(formData),
             });
             const data = await res.json();
             if (res.ok) {
                 setSuccessResult(data);
             } else {
-                setErrorMsg(data.message || 'Error submitting exhibitor inquiry.');
+                setErrorMsg(
+                    data.message || "Error submitting exhibitor inquiry.",
+                );
             }
         } catch (e) {
-            setErrorMsg('Network error while submitting lead.');
+            setErrorMsg("Network error while submitting lead.");
         } finally {
             setSubmitting(false);
         }
@@ -79,8 +90,10 @@ export default function RegisterExhibitor() {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            Position your brand in front of thousands of Ayurvedic practitioners, hospital purchasers,
-                            retail chains, and international buyers over three high-impact days at IIT Delhi.
+                            Position your brand in front of thousands of
+                            Ayurvedic practitioners, hospital purchasers, retail
+                            chains, and international buyers over three
+                            high-impact days at IIT Delhi.
                         </p>
                     </div>
 
@@ -101,11 +114,16 @@ export default function RegisterExhibitor() {
                                         Inquiry UUID: {successResult.lead_id}
                                     </div>
                                     <p className="text-xs sm:text-sm text-[#3e7405]">
-                                        Our Industry & Trade Secretariat will share the floor plan and allotment details shortly.
+                                        Our Industry & Trade Secretariat will
+                                        share the floor plan and allotment
+                                        details shortly.
                                     </p>
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="space-y-4 sm:space-y-5"
+                                >
                                     {errorMsg && (
                                         <div className="p-3.5 sm:p-4 bg-red-50 text-red-700 text-xs sm:text-sm rounded-xl sm:rounded-2xl flex items-center space-x-2">
                                             <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
@@ -115,23 +133,38 @@ export default function RegisterExhibitor() {
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                         <div className="min-w-0">
-                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Company / Brand Name *</label>
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                                Company / Brand Name *
+                                            </label>
                                             <input
                                                 type="text"
                                                 required
                                                 value={formData.company}
-                                                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        company: e.target.value,
+                                                    })
+                                                }
                                                 placeholder="e.g. Rasayana Botanicals Ltd"
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
                                         <div className="min-w-0">
-                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Contact Person Name *</label>
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                                Contact Person Name *
+                                            </label>
                                             <input
                                                 type="text"
                                                 required
                                                 value={formData.contact_person}
-                                                onChange={(e) => setFormData({ ...formData, contact_person: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        contact_person:
+                                                            e.target.value,
+                                                    })
+                                                }
                                                 placeholder="e.g. Rajesh Mehra"
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
@@ -140,23 +173,37 @@ export default function RegisterExhibitor() {
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                         <div className="min-w-0">
-                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Work Email Address *</label>
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                                Work Email Address *
+                                            </label>
                                             <input
                                                 type="email"
                                                 required
                                                 value={formData.email}
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        email: e.target.value,
+                                                    })
+                                                }
                                                 placeholder="contact@company.com"
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
                                         </div>
                                         <div className="min-w-0">
-                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Phone / WhatsApp *</label>
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                                Phone / WhatsApp *
+                                            </label>
                                             <input
                                                 type="tel"
                                                 required
                                                 value={formData.phone}
-                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        phone: e.target.value,
+                                                    })
+                                                }
                                                 placeholder="+91 98765 43210"
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                             />
@@ -165,48 +212,88 @@ export default function RegisterExhibitor() {
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                         <div className="min-w-0">
-                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Industry Sector</label>
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                                Industry Sector
+                                            </label>
                                             <select
-                                                value={formData.category_industry}
-                                                onChange={(e) => setFormData({ ...formData, category_industry: e.target.value })}
+                                                value={
+                                                    formData.category_industry
+                                                }
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        category_industry:
+                                                            e.target.value,
+                                                    })
+                                                }
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 bg-white focus:ring-2 focus:ring-[#164a08]/30"
                                             >
                                                 {industries.map((ind, i) => (
-                                                    <option key={i} value={ind}>{ind}</option>
+                                                    <option key={i} value={ind}>
+                                                        {ind}
+                                                    </option>
                                                 ))}
                                             </select>
                                         </div>
                                         <div className="min-w-0">
-                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Stall Space Preference</label>
+                                            <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                                Stall Space Preference
+                                            </label>
                                             <select
                                                 value={formData.stall_interest}
-                                                onChange={(e) => setFormData({ ...formData, stall_interest: e.target.value, stall_size: e.target.value })}
+                                                onChange={(e) =>
+                                                    setFormData({
+                                                        ...formData,
+                                                        stall_interest:
+                                                            e.target.value,
+                                                        stall_size:
+                                                            e.target.value,
+                                                    })
+                                                }
                                                 className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 bg-white focus:ring-2 focus:ring-[#164a08]/30"
                                             >
                                                 {stallTypes.map((st, i) => (
-                                                    <option key={i} value={st}>{st}</option>
+                                                    <option key={i} value={st}>
+                                                        {st}
+                                                    </option>
                                                 ))}
                                             </select>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Website URL (Optional)</label>
+                                        <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                            Website URL (Optional)
+                                        </label>
                                         <input
                                             type="url"
                                             value={formData.website}
-                                            onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    website: e.target.value,
+                                                })
+                                            }
                                             placeholder="https://company.com"
                                             className="w-full text-xs sm:text-sm border border-stone-300 rounded-xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">Brief Description of Products / Innovations</label>
+                                        <label className="block text-xs sm:text-sm font-semibold text-[#503323] mb-1">
+                                            Brief Description of Products /
+                                            Innovations
+                                        </label>
                                         <textarea
                                             rows="3"
                                             value={formData.products_brief}
-                                            onChange={(e) => setFormData({ ...formData, products_brief: e.target.value })}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    products_brief:
+                                                        e.target.value,
+                                                })
+                                            }
                                             placeholder="Overview of formulations, equipment, or technologies you plan to showcase..."
                                             className="w-full text-xs sm:text-sm border border-stone-300 rounded-2xl p-2.5 sm:p-3 focus:ring-2 focus:ring-[#164a08]/30"
                                         ></textarea>
@@ -221,7 +308,9 @@ export default function RegisterExhibitor() {
                                             <Loader2 className="w-5 h-5 animate-spin text-[#DFC479]" />
                                         ) : (
                                             <>
-                                                <span>SUBMIT EXHIBITOR INQUIRY</span>
+                                                <span>
+                                                    SUBMIT EXHIBITOR INQUIRY
+                                                </span>
                                                 <ArrowRight className="w-4 h-4 text-[#DFC479]" />
                                             </>
                                         )}

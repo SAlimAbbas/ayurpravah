@@ -1,12 +1,15 @@
-import React from 'react';
-import { Link } from '@inertiajs/react';
-import { ArrowRight } from 'lucide-react';
+import React from "react";
+import { Link } from "@inertiajs/react";
+import { ArrowRight } from "lucide-react";
 
 export default function SponsorsWallSection({ sponsors = {} }) {
     const categories = Object.keys(sponsors);
 
     return (
-        <section id="partners" className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden">
+        <section
+            id="partners"
+            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+        >
             {/* Subtle Light Vedic Mandala Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-55">
                 <img
@@ -28,8 +31,9 @@ export default function SponsorsWallSection({ sponsors = {} }) {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        AYURPRAVAH 2027 is convened under the shared stewardship of foundational
-                        AYUSH research trusts, digital health enterprises, and premier academic bodies.
+                        AYURPRAVAH 2027 is convened under the shared stewardship
+                        of foundational AYUSH research trusts, digital health
+                        enterprises, and premier academic bodies.
                     </p>
                 </div>
 
@@ -47,8 +51,9 @@ export default function SponsorsWallSection({ sponsors = {} }) {
                                 Ecosystem-Building Public Health Trust
                             </div>
                             <p className="text-sm text-[#503323]/85 leading-relaxed pt-1">
-                                Committed to traditional knowledge preservation, evidence-based research,
-                                clinical mastery, and community wellness.
+                                Committed to traditional knowledge preservation,
+                                evidence-based research, clinical mastery, and
+                                community wellness.
                             </p>
                         </div>
 
@@ -60,8 +65,9 @@ export default function SponsorsWallSection({ sponsors = {} }) {
                                 Digital Healthcare & Education Backbone
                             </div>
                             <p className="text-sm text-[#503323]/85 leading-relaxed pt-1">
-                                Empowering clinicians and institutions through telehealth, CME accreditations,
-                                and cutting-edge healthcare technology.
+                                Empowering clinicians and institutions through
+                                telehealth, CME accreditations, and cutting-edge
+                                healthcare technology.
                             </p>
                         </div>
                     </div>
@@ -71,7 +77,7 @@ export default function SponsorsWallSection({ sponsors = {} }) {
                 {categories.length > 0 && (
                     <div className="space-y-10">
                         {categories.map((cat) => {
-                            if (cat === 'Organized By') return null;
+                            if (cat === "Organized By") return null;
                             const items = sponsors[cat] || [];
                             if (items.length === 0) return null;
 
@@ -102,7 +108,9 @@ export default function SponsorsWallSection({ sponsors = {} }) {
                         href="/partners"
                         className="inline-flex items-center space-x-2 bg-[#164a08] text-white px-8 py-3.5 rounded-full text-sm font-heading font-bold tracking-wider uppercase hover:bg-[#0e3005] transition shadow-md"
                     >
-                        <span>BECOME AN OFFICIAL KNOWLEDGE OR SPONSORSHIP PARTNER</span>
+                        <span>
+                            BECOME AN OFFICIAL KNOWLEDGE OR SPONSORSHIP PARTNER
+                        </span>
                         <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { globalRegions } from '../content/ecosystem';
-import { Globe, MapPin } from 'lucide-react';
+import React, { useState } from "react";
+import { globalRegions } from "../content/ecosystem";
+import { Globe, MapPin } from "lucide-react";
 
 export default function GlobalReachSection() {
-    const [selectedRegion, setSelectedRegion] = useState(globalRegions.find(r => r.isOrigin) || globalRegions[5]);
+    const [selectedRegion, setSelectedRegion] = useState(
+        globalRegions.find((r) => r.isOrigin) || globalRegions[5],
+    );
 
     return (
         <section className="py-20 bg-[#164a08] text-white border-b border-[#B89A4A]/30 relative overflow-hidden">
@@ -18,8 +20,9 @@ export default function GlobalReachSection() {
                     </h2>
                     <div className="mt-3 w-16 h-1 bg-[#B89A4A] mx-auto rounded-full"></div>
                     <p className="mt-4 text-xs sm:text-sm font-sans text-[#ECE7D6]/80 leading-relaxed">
-                        Connecting international delegations, research universities, regulatory boards,
-                        and integrative medical societies worldwide with the epicentre in India.
+                        Connecting international delegations, research
+                        universities, regulatory boards, and integrative medical
+                        societies worldwide with the epicentre in India.
                     </p>
                 </div>
 
@@ -35,13 +38,35 @@ export default function GlobalReachSection() {
                             strokeWidth="1"
                         >
                             {/* Stylized continent vectors */}
-                            <path d="M150,120 Q180,90 260,110 T320,180 T260,260 T180,240 Z" fill="#3e7405" />
-                            <path d="M250,290 Q290,280 320,340 T300,430 T250,380 Z" fill="#3e7405" />
-                            <path d="M460,110 Q520,80 570,120 T550,200 T480,180 Z" fill="#3e7405" />
-                            <path d="M470,220 Q540,210 560,280 T530,390 T470,320 Z" fill="#3e7405" />
-                            <path d="M600,100 Q780,70 850,150 T800,280 T680,220 Z" fill="#3e7405" />
-                            <path d="M660,230 Q700,220 710,280 T670,330 T640,260 Z" fill="#B89A4A" fillOpacity="0.4" />
-                            <path d="M780,340 Q850,330 870,390 T800,440 Z" fill="#3e7405" />
+                            <path
+                                d="M150,120 Q180,90 260,110 T320,180 T260,260 T180,240 Z"
+                                fill="#3e7405"
+                            />
+                            <path
+                                d="M250,290 Q290,280 320,340 T300,430 T250,380 Z"
+                                fill="#3e7405"
+                            />
+                            <path
+                                d="M460,110 Q520,80 570,120 T550,200 T480,180 Z"
+                                fill="#3e7405"
+                            />
+                            <path
+                                d="M470,220 Q540,210 560,280 T530,390 T470,320 Z"
+                                fill="#3e7405"
+                            />
+                            <path
+                                d="M600,100 Q780,70 850,150 T800,280 T680,220 Z"
+                                fill="#3e7405"
+                            />
+                            <path
+                                d="M660,230 Q700,220 710,280 T670,330 T640,260 Z"
+                                fill="#B89A4A"
+                                fillOpacity="0.4"
+                            />
+                            <path
+                                d="M780,340 Q850,330 870,390 T800,440 Z"
+                                fill="#3e7405"
+                            />
                         </svg>
 
                         {/* Interactive Region Dots */}
@@ -52,31 +77,38 @@ export default function GlobalReachSection() {
                             return (
                                 <button
                                     key={region.id}
-                                    style={{ left: `${region.x}%`, top: `${region.y}%` }}
+                                    style={{
+                                        left: `${region.x}%`,
+                                        top: `${region.y}%`,
+                                    }}
                                     onClick={() => setSelectedRegion(region)}
                                     className={`absolute -translate-x-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 focus:outline-none group ${
-                                        isSelected ? 'scale-125 z-20' : 'hover:scale-110 z-10'
+                                        isSelected
+                                            ? "scale-125 z-20"
+                                            : "hover:scale-110 z-10"
                                     }`}
                                     aria-label={region.name}
                                 >
                                     <div
                                         className={`w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full flex items-center justify-center transition-all ${
                                             isOrigin
-                                                ? 'bg-[#DFC479] ring-4 ring-[#DFC479]/40 animate-pulse'
+                                                ? "bg-[#DFC479] ring-4 ring-[#DFC479]/40 animate-pulse"
                                                 : isSelected
-                                                ? 'bg-white ring-4 ring-[#B89A4A]/50'
-                                                : 'bg-[#B89A4A] ring-2 ring-white/30'
+                                                  ? "bg-white ring-4 ring-[#B89A4A]/50"
+                                                  : "bg-[#B89A4A] ring-2 ring-white/30"
                                         }`}
                                     >
-                                        {isOrigin && <span className="w-1.5 h-1.5 rounded-full bg-[#164a08]"></span>}
+                                        {isOrigin && (
+                                            <span className="w-1.5 h-1.5 rounded-full bg-[#164a08]"></span>
+                                        )}
                                     </div>
 
                                     {/* Tooltip on hover / active */}
                                     <span
                                         className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-sans font-semibold whitespace-nowrap transition-opacity ${
                                             isSelected
-                                                ? 'bg-[#DFC479] text-[#164a08] opacity-100 shadow-md'
-                                                : 'bg-black/75 text-white opacity-0 group-hover:opacity-100'
+                                                ? "bg-[#DFC479] text-[#164a08] opacity-100 shadow-md"
+                                                : "bg-black/75 text-white opacity-0 group-hover:opacity-100"
                                         }`}
                                     >
                                         {region.name}

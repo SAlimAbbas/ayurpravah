@@ -1,9 +1,9 @@
-import React, { useState, createContext, useContext } from 'react';
-import { Head, usePage } from '@inertiajs/react';
-import Navbar from '../Components/Navbar';
-import Footer from '../Components/Footer';
-import RegistrationModal from '../Components/RegistrationModal';
-import { MessageCircle, Ticket } from 'lucide-react';
+import React, { useState, createContext, useContext } from "react";
+import { Head, usePage } from "@inertiajs/react";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import RegistrationModal from "../Components/RegistrationModal";
+import { MessageCircle, Ticket } from "lucide-react";
 
 export const RegisterModalContext = createContext({
     openRegisterWithTier: () => {},
@@ -11,25 +11,32 @@ export const RegisterModalContext = createContext({
 
 export const useRegisterModal = () => useContext(RegisterModalContext);
 
-export default function AppLayout({ children, title = null, description = null }) {
+export default function AppLayout({
+    children,
+    title = null,
+    description = null,
+}) {
     const { props } = usePage();
     const [regModalOpen, setRegModalOpen] = useState(false);
     const [selectedTierId, setSelectedTierId] = useState(null);
 
     const siteSettings = props.site_settings || {};
-    const eventName = siteSettings.event_name || 'AYURPRAVAH 2027';
-    const whatsappNumber = siteSettings.whatsapp || '+919704321786';
-    const cleanPhone = whatsappNumber.replace(/[^0-9]/g, '');
+    const eventName = siteSettings.event_name || "AYURPRAVAH 2027";
+    const whatsappNumber = siteSettings.whatsapp || "+919704321786";
+    const cleanPhone = whatsappNumber.replace(/[^0-9]/g, "");
 
     const { url } = usePage();
-    const isActionFormPage = url.startsWith('/register') || url.startsWith('/submit-abstract') || url.startsWith('/contact') || url.startsWith('/partners');
+    const isActionFormPage =
+        url.startsWith("/register") || url.startsWith("/submit-abstract");
 
     const pageTitle = title
         ? `${title} — ${eventName}`
         : `${eventName} | International AYUSH Conclave & Expo | IIT Delhi`;
 
-    const pageDesc = description || siteSettings.supporting ||
-        'Uniting Global Experts, Researchers, Innovators & Industry Leaders to Shape the Future of AYUR. 16–18 April 2027 at IIT Delhi.';
+    const pageDesc =
+        description ||
+        siteSettings.supporting ||
+        "Uniting Global Experts, Researchers, Innovators & Industry Leaders to Shape the Future of AYUR. 16–18 April 2027 at IIT Delhi.";
 
     const openRegisterWithTier = (tierId = null) => {
         setSelectedTierId(tierId);
@@ -52,7 +59,9 @@ export default function AppLayout({ children, title = null, description = null }
 
                 {/* Main Content Area */}
                 <main className="flex-grow pt-16 sm:pt-20 lg:pt-24 w-full overflow-x-hidden">
-                    {typeof children === 'function' ? children({ openRegisterWithTier }) : children}
+                    {typeof children === "function"
+                        ? children({ openRegisterWithTier })
+                        : children}
                 </main>
 
                 {/* Global Footer */}
@@ -63,7 +72,7 @@ export default function AppLayout({ children, title = null, description = null }
                     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex flex-col items-end space-y-2 sm:space-y-3 pointer-events-auto">
                         {/* Floating WhatsApp Helpdesk */}
                         <a
-                            href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent('Hello AyurPravah 2027 Desk, I would like to inquire about the conclave at IIT Delhi.')}`}
+                            href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent("Hello AyurPravah 2027 Desk, I would like to inquire about the conclave at IIT Delhi.")}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#25D366] text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 border-2 border-white group relative shrink-0"

@@ -1,25 +1,32 @@
-import React, { useState } from 'react';
-import { ArrowRight, Layers, CheckCircle2, Search } from 'lucide-react';
-import ConclaveModal from './ConclaveModal';
-import { Link } from '@inertiajs/react';
+import React, { useState } from "react";
+import { ArrowRight, Layers, CheckCircle2, Search } from "lucide-react";
+import ConclaveModal from "./ConclaveModal";
+import { Link } from "@inertiajs/react";
 
 export default function ConclavesSection({ conclaves = [] }) {
     const [selectedConclave, setSelectedConclave] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState("");
 
     const handleOpenModal = (conclave) => {
         setSelectedConclave(conclave);
         setModalOpen(true);
     };
 
-    const filteredConclaves = conclaves.filter(c =>
-        c.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (c.short_description && c.short_description.toLowerCase().includes(searchTerm.toLowerCase()))
+    const filteredConclaves = conclaves.filter(
+        (c) =>
+            c.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (c.short_description &&
+                c.short_description
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())),
     );
 
     return (
-        <section id="conclaves" className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden">
+        <section
+            id="conclaves"
+            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+        >
             {/* Subtle Light Herbal Botanical Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
                 <img
@@ -41,8 +48,9 @@ export default function ConclavesSection({ conclaves = [] }) {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        Spanning every vital frontier of modern and classical Ayurveda — from clinical
-                        panchakarma excellence and pharmaceutical innovations to AI prakriti diagnostics
+                        Spanning every vital frontier of modern and classical
+                        Ayurveda — from clinical panchakarma excellence and
+                        pharmaceutical innovations to AI prakriti diagnostics
                         and international health diplomacy.
                     </p>
 
@@ -62,10 +70,13 @@ export default function ConclavesSection({ conclaves = [] }) {
                 {/* 13 Conclaves Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredConclaves.map((conclave, idx) => {
-                        const isFeatured = conclave.layout === 'featured' || idx === 0;
+                        const isFeatured =
+                            conclave.layout === "featured" || idx === 0;
                         const focusAreas = Array.isArray(conclave.focus_areas)
                             ? conclave.focus_areas
-                            : (typeof conclave.focus_areas === 'string' ? JSON.parse(conclave.focus_areas || '[]') : []);
+                            : typeof conclave.focus_areas === "string"
+                              ? JSON.parse(conclave.focus_areas || "[]")
+                              : [];
 
                         if (isFeatured) {
                             return (
@@ -79,7 +90,9 @@ export default function ConclavesSection({ conclaves = [] }) {
                                             <div className="inline-flex items-center space-x-2 bg-white/10 text-[#DFC479] px-4 py-1.5 rounded-full text-xs font-sans font-bold tracking-wider uppercase">
                                                 <span>Flagship Assembly</span>
                                             </div>
-                                            <span className="font-mono text-sm text-[#DFC479] font-bold">01 / 13</span>
+                                            <span className="font-mono text-sm text-[#DFC479] font-bold">
+                                                01 / 13
+                                            </span>
                                         </div>
 
                                         <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white group-hover:text-[#DFC479] transition">
@@ -92,18 +105,27 @@ export default function ConclavesSection({ conclaves = [] }) {
 
                                         {focusAreas.length > 0 && (
                                             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[#ECE7D6]/90">
-                                                {focusAreas.slice(0, 4).map((f, i) => (
-                                                    <div key={i} className="flex items-center space-x-2">
-                                                        <CheckCircle2 className="w-4 h-4 text-[#DFC479] shrink-0" />
-                                                        <span className="truncate">{f}</span>
-                                                    </div>
-                                                ))}
+                                                {focusAreas
+                                                    .slice(0, 4)
+                                                    .map((f, i) => (
+                                                        <div
+                                                            key={i}
+                                                            className="flex items-center space-x-2"
+                                                        >
+                                                            <CheckCircle2 className="w-4 h-4 text-[#DFC479] shrink-0" />
+                                                            <span className="truncate">
+                                                                {f}
+                                                            </span>
+                                                        </div>
+                                                    ))}
                                             </div>
                                         )}
                                     </div>
 
                                     <div className="mt-8 flex items-center space-x-2 text-sm font-heading font-bold text-[#DFC479] group-hover:translate-x-1.5 transition-transform">
-                                        <span>EXPLORE FOCUS AREAS & WORKSHOPS</span>
+                                        <span>
+                                            EXPLORE FOCUS AREAS & WORKSHOPS
+                                        </span>
                                         <ArrowRight className="w-4.5 h-4.5" />
                                     </div>
                                 </div>
@@ -122,7 +144,8 @@ export default function ConclavesSection({ conclaves = [] }) {
                                             <Layers className="w-5 h-5 text-[#164a08]" />
                                         </div>
                                         <span className="px-3.5 py-1 rounded-full bg-[#F7F5EC] font-mono text-xs text-[#164a08] font-bold">
-                                            Track {String(idx + 1).padStart(2, '0')}
+                                            Track{" "}
+                                            {String(idx + 1).padStart(2, "0")}
                                         </span>
                                     </div>
 
@@ -136,7 +159,9 @@ export default function ConclavesSection({ conclaves = [] }) {
                                 </div>
 
                                 <div className="mt-6 pt-5 border-t border-black/5 flex items-center justify-between text-sm font-heading font-semibold text-[#164a08]">
-                                    <span className="group-hover:underline">View Details</span>
+                                    <span className="group-hover:underline">
+                                        View Details
+                                    </span>
                                     <ArrowRight className="w-4 h-4 text-[#164a08] group-hover:translate-x-1.5 transition-transform" />
                                 </div>
                             </div>
@@ -150,7 +175,9 @@ export default function ConclavesSection({ conclaves = [] }) {
                         href="/conclaves"
                         className="inline-flex items-center space-x-2 bg-[#164a08] text-white px-8 py-3.5 rounded-full text-sm font-heading font-bold tracking-wider uppercase hover:bg-[#0e3005] transition shadow-md"
                     >
-                        <span>VIEW COMPLETE DIRECTORY & ABSTRACT GUIDELINES</span>
+                        <span>
+                            VIEW COMPLETE DIRECTORY & ABSTRACT GUIDELINES
+                        </span>
                         <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>

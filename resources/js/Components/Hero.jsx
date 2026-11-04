@@ -3,7 +3,10 @@ import { Link, usePage } from "@inertiajs/react";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 
-export default function Hero({ onOpenRegister, siteSettings: customSiteSettings }) {
+export default function Hero({
+    onOpenRegister,
+    siteSettings: customSiteSettings,
+}) {
     const { props } = usePage();
     const siteSettings = customSiteSettings || props?.site_settings || {};
 
@@ -21,21 +24,20 @@ export default function Hero({ onOpenRegister, siteSettings: customSiteSettings 
     const countdownDate = siteSettings.countdown_date || "2027-04-16T09:00:00";
     const rawVenueName = siteSettings.venue?.name;
     const rawVenueCity = siteSettings.venue?.city;
-    
+
     // Fallback to confirmed Master Document venue if DB setting is still default placeholder
-    const venueName = (rawVenueName && rawVenueName !== "To Be Announced")
-        ? rawVenueName
-        : "IIT Delhi (Hauz Khas)";
-    const venueCity = (rawVenueCity && rawVenueCity !== "TBC")
-        ? rawVenueCity
-        : "New Delhi";
+    const venueName =
+        rawVenueName && rawVenueName !== "To Be Announced"
+            ? rawVenueName
+            : "IIT Delhi (Hauz Khas)";
+    const venueCity =
+        rawVenueCity && rawVenueCity !== "TBC" ? rawVenueCity : "New Delhi";
     const venueDisplay = venueName.includes("Delhi")
         ? `${venueName}`
         : `${venueName}, ${venueCity}`;
 
     return (
         <section className="relative overflow-hidden bg-[#F7F5EC] pt-6 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-18 border-b border-black/5">
-
             {/* Multi-Screen Responsive Hero Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                 <img
@@ -83,11 +85,15 @@ export default function Hero({ onOpenRegister, siteSettings: customSiteSettings 
                 <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 text-xs sm:text-sm md:text-base font-sans font-semibold text-[#164a08]">
                     <div className="inline-flex items-center space-x-2 bg-white/95 backdrop-blur-sm px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border border-[#503323]/25 shadow-xs">
                         <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#164a08]" />
-                        <span className="text-sm sm:text-base md:text-lg">{datesLabel}</span>
+                        <span className="text-sm sm:text-base md:text-lg">
+                            {datesLabel}
+                        </span>
                     </div>
                     <div className="inline-flex items-center space-x-2 bg-white/95 backdrop-blur-sm px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border border-[#503323]/25 shadow-xs">
                         <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#164a08]" />
-                        <span className="text-sm sm:text-base md:text-lg">{venueDisplay}</span>
+                        <span className="text-sm sm:text-base md:text-lg">
+                            {venueDisplay}
+                        </span>
                     </div>
                 </div>
 

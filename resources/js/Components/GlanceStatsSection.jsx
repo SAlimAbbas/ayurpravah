@@ -1,5 +1,5 @@
-import React from 'react';
-import { glanceStats } from '../content/ecosystem';
+import React from "react";
+import { glanceStats } from "../content/ecosystem";
 
 export default function GlanceStatsSection() {
     return (
@@ -15,8 +15,9 @@ export default function GlanceStatsSection() {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#DFC479] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#ECE7D6]/90 leading-relaxed">
-                        A grand assembly of national and international scale uniting every dimension
-                        of clinical science, academic pedagogy, botanical enterprise, and digital innovation.
+                        A grand assembly of national and international scale
+                        uniting every dimension of clinical science, academic
+                        pedagogy, botanical enterprise, and digital innovation.
                     </p>
                 </div>
 

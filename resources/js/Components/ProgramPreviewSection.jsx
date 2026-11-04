@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
-import { Clock, MapPin, User, ArrowRight } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React, { useState } from "react";
+import { Clock, MapPin, User, ArrowRight } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function ProgramPreviewSection({ sessions = [] }) {
     const [activeDay, setActiveDay] = useState(1);
 
     const days = [
-        { day: 1, label: 'DAY 1', date: 'Fri, 16 April 2027', theme: 'Inaugural & Foundations' },
-        { day: 2, label: 'DAY 2', date: 'Sat, 17 April 2027', theme: 'Clinical Mastery & AI' },
-        { day: 3, label: 'DAY 3', date: 'Sun, 18 April 2027', theme: 'Research & Valedictory' },
+        {
+            day: 1,
+            label: "DAY 1",
+            date: "Fri, 16 April 2027",
+            theme: "Inaugural & Foundations",
+        },
+        {
+            day: 2,
+            label: "DAY 2",
+            date: "Sat, 17 April 2027",
+            theme: "Clinical Mastery & AI",
+        },
+        {
+            day: 3,
+            label: "DAY 3",
+            date: "Sun, 18 April 2027",
+            theme: "Research & Valedictory",
+        },
     ];
 
-    const currentSessions = sessions.filter(s => s.day_number === activeDay);
+    const currentSessions = sessions.filter((s) => s.day_number === activeDay);
 
     return (
-        <section id="program" className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden">
+        <section
+            id="program"
+            className="relative py-24 bg-[#F7F5EC] border-b border-black/5 overflow-hidden"
+        >
             {/* Subtle Light Vedic Mandala & Jaali Arch Background Graphic */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-55">
                 <img
@@ -36,8 +54,9 @@ export default function ProgramPreviewSection({ sessions = [] }) {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        Curated plenary addresses, concurrent symposia, tactile masterclasses,
-                        and poster defenses across state-of-the-art auditoriums.
+                        Curated plenary addresses, concurrent symposia, tactile
+                        masterclasses, and poster defenses across
+                        state-of-the-art auditoriums.
                     </p>
                 </div>
 
@@ -49,14 +68,16 @@ export default function ProgramPreviewSection({ sessions = [] }) {
                             onClick={() => setActiveDay(d.day)}
                             className={`w-full sm:w-1/3 py-3.5 px-6 rounded-full text-center transition-all cursor-pointer ${
                                 activeDay === d.day
-                                    ? 'bg-[#164a08] text-white shadow-md'
-                                    : 'bg-white text-[#503323] border border-black/5 hover:border-[#164a08]/30'
+                                    ? "bg-[#164a08] text-white shadow-md"
+                                    : "bg-white text-[#503323] border border-black/5 hover:border-[#164a08]/30"
                             }`}
                         >
                             <div className="font-heading text-sm font-bold tracking-wider">
                                 {d.label}
                             </div>
-                            <div className={`text-xs mt-0.5 ${activeDay === d.day ? 'text-[#DFC479]' : 'text-[#3e7405]'}`}>
+                            <div
+                                className={`text-xs mt-0.5 ${activeDay === d.day ? "text-[#DFC479]" : "text-[#3e7405]"}`}
+                            >
                                 {d.date}
                             </div>
                         </button>
@@ -94,23 +115,36 @@ export default function ProgramPreviewSection({ sessions = [] }) {
                                     )}
 
                                     {/* Speakers associated */}
-                                    {session.speakers && session.speakers.length > 0 && (
-                                        <div className="pt-2 flex flex-wrap items-center gap-2 text-sm text-[#164a08]">
-                                            <User className="w-4 h-4 text-[#3e7405]" />
-                                            {session.speakers.map((s, idx) => (
-                                                <span key={s.id} className="font-semibold">
-                                                    {s.name}{idx < session.speakers.length - 1 ? ',' : ''}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    )}
+                                    {session.speakers &&
+                                        session.speakers.length > 0 && (
+                                            <div className="pt-2 flex flex-wrap items-center gap-2 text-sm text-[#164a08]">
+                                                <User className="w-4 h-4 text-[#3e7405]" />
+                                                {session.speakers.map(
+                                                    (s, idx) => (
+                                                        <span
+                                                            key={s.id}
+                                                            className="font-semibold"
+                                                        >
+                                                            {s.name}
+                                                            {idx <
+                                                            session.speakers
+                                                                .length -
+                                                                1
+                                                                ? ","
+                                                                : ""}
+                                                        </span>
+                                                    ),
+                                                )}
+                                            </div>
+                                        )}
                                 </div>
 
                                 <div className="flex md:flex-col items-center md:items-end justify-between border-t md:border-t-0 pt-4 md:pt-0 border-black/5 shrink-0 text-right text-sm space-y-1.5">
                                     <div className="flex items-center space-x-2 font-mono font-bold text-[#164a08] text-base">
                                         <Clock className="w-4.5 h-4.5 text-[#164a08]" />
                                         <span>
-                                            {session.start_time?.slice(0, 5)} - {session.end_time?.slice(0, 5)}
+                                            {session.start_time?.slice(0, 5)} -{" "}
+                                            {session.end_time?.slice(0, 5)}
                                         </span>
                                     </div>
                                     {session.hall_room && (
@@ -124,7 +158,8 @@ export default function ProgramPreviewSection({ sessions = [] }) {
                         ))
                     ) : (
                         <div className="bg-white rounded-3xl p-10 text-center text-sm text-gray-500 border border-black/5">
-                            Session details for this day will be finalized shortly.
+                            Session details for this day will be finalized
+                            shortly.
                         </div>
                     )}
                 </div>

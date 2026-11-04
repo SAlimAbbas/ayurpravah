@@ -1,13 +1,15 @@
-import React from 'react';
-import { X, CheckCircle, BookOpen, ArrowRight } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import { X, CheckCircle, BookOpen, ArrowRight } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function ConclaveModal({ conclave, isOpen, onClose }) {
     if (!isOpen || !conclave) return null;
 
     const focusAreas = Array.isArray(conclave.focus_areas)
         ? conclave.focus_areas
-        : (typeof conclave.focus_areas === 'string' ? JSON.parse(conclave.focus_areas || '[]') : []);
+        : typeof conclave.focus_areas === "string"
+          ? JSON.parse(conclave.focus_areas || "[]")
+          : [];
 
     return (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
@@ -45,11 +47,16 @@ export default function ConclaveModal({ conclave, isOpen, onClose }) {
                         <div className="bg-[#F7F5EC] p-5 rounded-2xl border border-[#164a08]/15">
                             <h4 className="font-heading text-sm font-bold text-[#164a08] uppercase tracking-wider mb-3 flex items-center space-x-2">
                                 <BookOpen className="w-4 h-4 text-[#164a08]" />
-                                <span>Key Scientific & Clinical Focus Areas</span>
+                                <span>
+                                    Key Scientific & Clinical Focus Areas
+                                </span>
                             </h4>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                 {focusAreas.map((area, idx) => (
-                                    <div key={idx} className="flex items-start space-x-2 text-sm text-[#503323]">
+                                    <div
+                                        key={idx}
+                                        className="flex items-start space-x-2 text-sm text-[#503323]"
+                                    >
                                         <CheckCircle className="w-4 h-4 text-[#164a08] shrink-0 mt-0.5" />
                                         <span>{area}</span>
                                     </div>

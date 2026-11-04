@@ -26,8 +26,10 @@ export default function About({ team = [] }) {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            AYURPRAVAH 2027 represents the collective confluence of India's premier technological institute, 
-                            foundational non-profit clinical research, and forward-looking digital healthcare infrastructure.
+                            AYURPRAVAH 2027 represents the collective confluence
+                            of India's premier technological institute,
+                            foundational non-profit clinical research, and
+                            forward-looking digital healthcare infrastructure.
                         </p>
                     </div>
 
@@ -46,19 +48,30 @@ export default function About({ team = [] }) {
                                         Indian Institute of Technology Delhi
                                     </h2>
                                     <p className="text-base font-sans text-[#3e7405] font-semibold italic">
-                                        "Connecting Knowledge. Inspiring Innovation. Advancing Ayurveda Globally."
+                                        "Connecting Knowledge. Inspiring
+                                        Innovation. Advancing Ayurveda
+                                        Globally."
                                     </p>
                                 </div>
                                 <div className="text-sm sm:text-base text-[#503323] max-w-md leading-relaxed">
-                                    Founded in 1961, IIT Delhi is one of India's premier institutions for science, engineering and technology, 
-                                    providing a rigorous setting for dialogue between Ayurveda and contemporary scientific inquiry.
+                                    Founded in 1961, IIT Delhi is one of India's
+                                    premier institutions for science,
+                                    engineering and technology, providing a
+                                    rigorous setting for dialogue between
+                                    Ayurveda and contemporary scientific
+                                    inquiry.
                                 </div>
                             </div>
 
                             <p className="text-sm sm:text-base text-[#503323] leading-relaxed">
-                                The event's interdisciplinary orientation creates unprecedented opportunities to consider how scientific inquiry, 
-                                biomedical engineering, digital telemetry, and technology-led innovation can engage directly with questions 
-                                relevant to traditional healthcare—recognizing the distinct expertise of clinicians, researchers, technologists, and institutions.
+                                The event's interdisciplinary orientation
+                                creates unprecedented opportunities to consider
+                                how scientific inquiry, biomedical engineering,
+                                digital telemetry, and technology-led innovation
+                                can engage directly with questions relevant to
+                                traditional healthcare—recognizing the distinct
+                                expertise of clinicians, researchers,
+                                technologists, and institutions.
                             </p>
 
                             <div className="pt-2 flex flex-wrap gap-3">
@@ -66,7 +79,8 @@ export default function About({ team = [] }) {
                                     📍 Hauz Khas, New Delhi 110016
                                 </span>
                                 <span className="bg-[#F7F5EC] text-[#164a08] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border border-[#164a08]/15">
-                                    🚇 IIT Delhi Metro Station (Magenta Line Gate No. 1)
+                                    🚇 IIT Delhi Metro Station (Magenta Line
+                                    Gate No. 1)
                                 </span>
                             </div>
                         </div>
@@ -90,12 +104,18 @@ export default function About({ team = [] }) {
                                         "Builds the ecosystem."
                                     </p>
                                     <div className="text-sm font-heading font-bold text-[#503323]">
-                                        Founder & Chairman: <span className="text-[#164a08]">Vd. Yash Chaudhary</span>
+                                        Founder & Chairman:{" "}
+                                        <span className="text-[#164a08]">
+                                            Vd. Yash Chaudhary
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="text-sm sm:text-base text-[#503323] max-w-md leading-relaxed">
-                                    A non-profit organization committed to the advancement of Ayurveda and AYUSH through traditional knowledge, 
-                                    clinical excellence, scientific research, education, technology, and global collaboration.
+                                    A non-profit organization committed to the
+                                    advancement of Ayurveda and AYUSH through
+                                    traditional knowledge, clinical excellence,
+                                    scientific research, education, technology,
+                                    and global collaboration.
                                 </div>
                             </div>
 
@@ -106,7 +126,11 @@ export default function About({ team = [] }) {
                                         Vision
                                     </h3>
                                     <p className="text-sm text-[#503323] leading-relaxed">
-                                        To bring the AYUSH community together under one roof, building a world in which time-honoured Vedic knowledge can contribute meaningfully to the future of healthcare.
+                                        To bring the AYUSH community together
+                                        under one roof, building a world in
+                                        which time-honoured Vedic knowledge can
+                                        contribute meaningfully to the future of
+                                        healthcare.
                                     </p>
                                 </div>
                                 <div>
@@ -114,7 +138,11 @@ export default function About({ team = [] }) {
                                         Mission
                                     </h3>
                                     <p className="text-sm text-[#503323] leading-relaxed">
-                                        To empower the AYUSH fraternity through knowledge, collaboration, research, technology and professional opportunities, while advancing Ayurveda's global acceptance and impact.
+                                        To empower the AYUSH fraternity through
+                                        knowledge, collaboration, research,
+                                        technology and professional
+                                        opportunities, while advancing
+                                        Ayurveda's global acceptance and impact.
                                     </p>
                                 </div>
                             </div>
@@ -181,12 +209,19 @@ export default function About({ team = [] }) {
                                         "Empowering Ayurveda Digitally."
                                     </p>
                                     <div className="text-sm font-heading font-bold text-[#ECE7D6]">
-                                        Founder: <span className="text-[#DFC479]">Vd. Pooja Kohli</span>
+                                        Founder:{" "}
+                                        <span className="text-[#DFC479]">
+                                            Vd. Pooja Kohli
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="text-sm sm:text-base text-[#ECE7D6]/90 max-w-md leading-relaxed">
-                                    A premier digital health platform empowering Ayurvedic professionals and healthcare institutions 
-                                    worldwide through specialized CME courses, digital marketing, online consultations, thesis support, and scientific writing.
+                                    A premier digital health platform empowering
+                                    Ayurvedic professionals and healthcare
+                                    institutions worldwide through specialized
+                                    CME courses, digital marketing, online
+                                    consultations, thesis support, and
+                                    scientific writing.
                                 </div>
                             </div>
 
@@ -197,7 +232,12 @@ export default function About({ team = [] }) {
                                         Vision
                                     </h3>
                                     <p className="text-sm text-[#ECE7D6]/90 leading-relaxed">
-                                        To build a digitally empowered Ayurveda ecosystem in which authentic knowledge, modern technology, clinical excellence and global collaboration contribute to greater accessibility, credibility and impact.
+                                        To build a digitally empowered Ayurveda
+                                        ecosystem in which authentic knowledge,
+                                        modern technology, clinical excellence
+                                        and global collaboration contribute to
+                                        greater accessibility, credibility and
+                                        impact.
                                     </p>
                                 </div>
                                 <div>
@@ -205,7 +245,11 @@ export default function About({ team = [] }) {
                                         Mission
                                     </h3>
                                     <p className="text-sm text-[#ECE7D6]/90 leading-relaxed">
-                                        To equip Ayurveda stakeholders with knowledge, digital tools, professional opportunities and collaborative networks that help them participate confidently in the modern healthcare ecosystem.
+                                        To equip Ayurveda stakeholders with
+                                        knowledge, digital tools, professional
+                                        opportunities and collaborative networks
+                                        that help them participate confidently
+                                        in the modern healthcare ecosystem.
                                     </p>
                                 </div>
                             </div>

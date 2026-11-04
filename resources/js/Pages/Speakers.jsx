@@ -1,27 +1,37 @@
-import React, { useState } from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { User, MessageSquare, ArrowRight, Building, Globe, Search } from 'lucide-react';
-import { Link } from '@inertiajs/react';
-import SpeakerModal from '../Components/SpeakerModal';
+import React, { useState } from "react";
+import AppLayout from "../Layouts/AppLayout";
+import {
+    User,
+    MessageSquare,
+    ArrowRight,
+    Building,
+    Globe,
+    Search,
+} from "lucide-react";
+import { Link } from "@inertiajs/react";
+import SpeakerModal from "../Components/SpeakerModal";
 
 const SpeakerAvatar = ({ speaker }) => {
     const [imgError, setImgError] = useState(false);
-    
+
     const resolvePath = (s) => {
         const path = s?.photo_url || s?.photo;
         if (!path) return null;
-        if (path.startsWith('http://') || path.startsWith('https://')) return path;
-        if (path.startsWith('/storage/')) return path;
-        if (path.startsWith('storage/')) return `/${path}`;
-        return `/storage/${path.replace(/^\/+/, '')}`;
+        if (path.startsWith("http://") || path.startsWith("https://"))
+            return path;
+        if (path.startsWith("/storage/")) return path;
+        if (path.startsWith("storage/")) return `/${path}`;
+        return `/storage/${path.replace(/^\/+/, "")}`;
     };
 
     const photo = resolvePath(speaker);
 
     const getInitials = (name) => {
-        if (!name) return 'AP';
-        const clean = name.replace(/^(Dr\.|Prof\.|Vd\.|Acharya|Ms\.|Mr\.)\s+/i, '').trim();
-        const parts = clean.split(' ').filter(Boolean);
+        if (!name) return "AP";
+        const clean = name
+            .replace(/^(Dr\.|Prof\.|Vd\.|Acharya|Ms\.|Mr\.)\s+/i, "")
+            .trim();
+        const parts = clean.split(" ").filter(Boolean);
         if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
         return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
     };
@@ -39,8 +49,10 @@ const SpeakerAvatar = ({ speaker }) => {
 
     return (
         <div className="w-full h-full bg-gradient-to-br from-[#0e3005] via-[#164a08] to-[#243F05] flex flex-col items-center justify-center text-[#DFC479] font-heading font-bold select-none p-2 text-center">
-            <span className="text-2xl sm:text-3xl tracking-widest">{getInitials(speaker.name)}</span>
-            {speaker.country && speaker.country !== 'TBC' && (
+            <span className="text-2xl sm:text-3xl tracking-widest">
+                {getInitials(speaker.name)}
+            </span>
+            {speaker.country && speaker.country !== "TBC" && (
                 <span className="text-[10px] text-[#ECE7D6]/80 font-sans tracking-wide uppercase mt-0.5 truncate max-w-[90px]">
                     {speaker.country}
                 </span>
@@ -52,16 +64,20 @@ const SpeakerAvatar = ({ speaker }) => {
 export default function Speakers({ speakers = [], categories = [] }) {
     const [selectedSpeaker, setSelectedSpeaker] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
-    const [activeCategory, setActiveCategory] = useState('ALL');
-    const [search, setSearch] = useState('');
+    const [activeCategory, setActiveCategory] = useState("ALL");
+    const [search, setSearch] = useState("");
 
-    const allCategories = ['ALL', ...categories];
+    const allCategories = ["ALL", ...categories];
 
-    const filtered = speakers.filter(s => {
-        const matchesCategory = activeCategory === 'ALL' || s.category === activeCategory;
-        const matchesSearch = s.name.toLowerCase().includes(search.toLowerCase()) ||
-            (s.talk_topic && s.talk_topic.toLowerCase().includes(search.toLowerCase())) ||
-            (s.institution && s.institution.toLowerCase().includes(search.toLowerCase()));
+    const filtered = speakers.filter((s) => {
+        const matchesCategory =
+            activeCategory === "ALL" || s.category === activeCategory;
+        const matchesSearch =
+            s.name.toLowerCase().includes(search.toLowerCase()) ||
+            (s.talk_topic &&
+                s.talk_topic.toLowerCase().includes(search.toLowerCase())) ||
+            (s.institution &&
+                s.institution.toLowerCase().includes(search.toLowerCase()));
         return matchesCategory && matchesSearch;
     });
 
@@ -87,8 +103,10 @@ export default function Speakers({ speakers = [], categories = [] }) {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-4 max-w-3xl mx-auto text-base sm:text-lg font-sans text-[#503323]/90 leading-relaxed">
-                            Discover the visionary clinicians, scientists, and healthcare innovators
-                            delivering keynotes, leading panels, and conducting masterclasses at AYURPRAVAH 2027.
+                            Discover the visionary clinicians, scientists, and
+                            healthcare innovators delivering keynotes, leading
+                            panels, and conducting masterclasses at AYURPRAVAH
+                            2027.
                         </p>
 
                         {/* Search & Categories (Pure 50px curves) */}
@@ -111,8 +129,8 @@ export default function Speakers({ speakers = [], categories = [] }) {
                                         onClick={() => setActiveCategory(cat)}
                                         className={`px-5 py-2.5 rounded-full text-sm font-sans font-medium transition cursor-pointer ${
                                             activeCategory === cat
-                                                ? 'bg-[#164a08] text-white shadow-md'
-                                                : 'bg-white text-[#503323] border border-black/5 hover:border-[#164a08]'
+                                                ? "bg-[#164a08] text-white shadow-md"
+                                                : "bg-white text-[#503323] border border-black/5 hover:border-[#164a08]"
                                         }`}
                                     >
                                         {cat}
@@ -157,7 +175,9 @@ export default function Speakers({ speakers = [], categories = [] }) {
                                             <div className="mt-5 bg-[#F7F5EC] p-4 rounded-2xl border border-black/5 text-left">
                                                 <div className="text-sm font-heading font-bold text-[#164a08] uppercase tracking-wider flex items-center space-x-1.5">
                                                     <MessageSquare className="w-3.5 h-3.5 text-[#164a08]" />
-                                                    <span>Presentation Topic</span>
+                                                    <span>
+                                                        Presentation Topic
+                                                    </span>
                                                 </div>
                                                 <p className="text-base font-sans text-[#164a08] font-medium mt-1 line-clamp-2">
                                                     "{speaker.talk_topic}"
@@ -168,7 +188,9 @@ export default function Speakers({ speakers = [], categories = [] }) {
 
                                     <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-sm font-heading font-semibold text-[#164a08]">
                                         <button
-                                            onClick={() => handleOpenModal(speaker)}
+                                            onClick={() =>
+                                                handleOpenModal(speaker)
+                                            }
                                             className="hover:underline cursor-pointer"
                                         >
                                             Quick Bio

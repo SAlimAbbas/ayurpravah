@@ -1,7 +1,15 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { Plane, Train, Hotel, MapPin, Navigation, Compass, CheckCircle2 } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import {
+    Plane,
+    Train,
+    Hotel,
+    MapPin,
+    Navigation,
+    Compass,
+    CheckCircle2,
+} from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function Venue() {
     return (
@@ -21,8 +29,10 @@ export default function Venue() {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            AYURPRAVAH 2027 is proudly hosted at the prestigious Indian Institute of Technology Delhi,
-                            offering world-class auditoriums, interdisciplinary research facilities, and seamless rapid transit access.
+                            AYURPRAVAH 2027 is proudly hosted at the prestigious
+                            Indian Institute of Technology Delhi, offering
+                            world-class auditoriums, interdisciplinary research
+                            facilities, and seamless rapid transit access.
                         </p>
                     </div>
 
@@ -40,11 +50,15 @@ export default function Venue() {
                                 Hauz Khas, New Delhi 110016, India
                             </p>
                             <p className="text-sm sm:text-base text-[#ECE7D6]/90 max-w-2xl mx-auto leading-relaxed">
-                                Founded in 1961, IIT Delhi is one of India's foremost centers for science, engineering and technology education. 
-                                Its inclusion provides an ideal academic and scientific setting for meaningful dialogue between classical Ayurveda, 
-                                contemporary science, biomedical engineering, and emerging healthcare technology.
+                                Founded in 1961, IIT Delhi is one of India's
+                                foremost centers for science, engineering and
+                                technology education. Its inclusion provides an
+                                ideal academic and scientific setting for
+                                meaningful dialogue between classical Ayurveda,
+                                contemporary science, biomedical engineering,
+                                and emerging healthcare technology.
                             </p>
-                            
+
                             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
                                 <a
                                     href="https://maps.google.com/?q=IIT+Delhi+Hauz+Khas+New+Delhi"
@@ -76,8 +90,12 @@ export default function Venue() {
                                     IIT Delhi Metro Station (Magenta Line)
                                 </h3>
                                 <p className="text-sm text-[#503323] leading-relaxed">
-                                    Use <strong>Gate No. 1</strong> of the IIT Delhi Metro Station on the Magenta Line, located just 200 metres from the conclave entrance. 
-                                    Directly connected to Indira Gandhi International Airport (Terminal 1) and Hauz Khas interchange.
+                                    Use <strong>Gate No. 1</strong> of the IIT
+                                    Delhi Metro Station on the Magenta Line,
+                                    located just 200 metres from the conclave
+                                    entrance. Directly connected to Indira
+                                    Gandhi International Airport (Terminal 1)
+                                    and Hauz Khas interchange.
                                 </p>
                             </div>
                         </div>
@@ -90,7 +108,8 @@ export default function Venue() {
                                 Estimated Journey Times & Transit
                             </h3>
                             <p className="text-sm text-[#503323]/80 mt-1">
-                                Source estimates; please allow extra time for city traffic.
+                                Source estimates; please allow extra time for
+                                city traffic.
                             </p>
                         </div>
 
@@ -106,7 +125,10 @@ export default function Venue() {
                                     ~25 Minutes
                                 </div>
                                 <p className="text-sm text-[#503323] leading-relaxed">
-                                    Indira Gandhi International Airport (Terminals 1, 2, and 3) is approximately 25 minutes by taxi or direct via the Magenta Line Metro.
+                                    Indira Gandhi International Airport
+                                    (Terminals 1, 2, and 3) is approximately 25
+                                    minutes by taxi or direct via the Magenta
+                                    Line Metro.
                                 </p>
                             </div>
 
@@ -121,7 +143,10 @@ export default function Venue() {
                                     ~25 Minutes
                                 </div>
                                 <p className="text-sm text-[#503323] leading-relaxed">
-                                    Both New Delhi Railway Station (NDLS) and Hazrat Nizamuddin Railway Station are approximately 25 minutes by metro or app-based cabs.
+                                    Both New Delhi Railway Station (NDLS) and
+                                    Hazrat Nizamuddin Railway Station are
+                                    approximately 25 minutes by metro or
+                                    app-based cabs.
                                 </p>
                             </div>
 
@@ -136,10 +161,16 @@ export default function Venue() {
                                     Hauz Khas & South Delhi
                                 </div>
                                 <p className="text-sm text-[#503323] leading-relaxed">
-                                    A wide selection of partner hotels, guest houses, and subsidized academic residencies are available in South Delhi within a short radius of IIT Delhi.
+                                    A wide selection of partner hotels, guest
+                                    houses, and subsidized academic residencies
+                                    are available in South Delhi within a short
+                                    radius of IIT Delhi.
                                 </p>
                                 <div className="pt-2">
-                                    <Link href="/accommodation" className="inline-flex items-center text-sm font-bold text-[#164a08] hover:underline">
+                                    <Link
+                                        href="/accommodation"
+                                        className="inline-flex items-center text-sm font-bold text-[#164a08] hover:underline"
+                                    >
                                         View Partner Accommodations →
                                     </Link>
                                 </div>

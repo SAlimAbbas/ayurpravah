@@ -1,6 +1,6 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { Hotel, MapPin } from 'lucide-react';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import { Hotel, MapPin } from "lucide-react";
 
 export default function Accommodation({ accommodations = [] }) {
     return (
@@ -20,8 +20,10 @@ export default function Accommodation({ accommodations = [] }) {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            Exclusive discounted room rates, daily shuttle transfers to the conclave center,
-                            and Sattvic dining arrangements for all national and international delegates.
+                            Exclusive discounted room rates, daily shuttle
+                            transfers to the conclave center, and Sattvic dining
+                            arrangements for all national and international
+                            delegates.
                         </p>
                     </div>
 
@@ -62,7 +64,8 @@ export default function Accommodation({ accommodations = [] }) {
 
                                     <div className="mt-8 pt-5 border-t border-stone-100 flex items-center justify-between">
                                         <div className="text-sm text-stone-500">
-                                            {acc.contact_info || 'AyurPravah Hospitality'}
+                                            {acc.contact_info ||
+                                                "AyurPravah Hospitality"}
                                         </div>
                                         <a
                                             href={`https://wa.me/919704321786?text=${encodeURIComponent(`Inquiry for accommodation: ${acc.name}`)}`}
@@ -82,10 +85,13 @@ export default function Accommodation({ accommodations = [] }) {
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="bg-[#164a08] text-white p-8 sm:p-10 rounded-3xl border border-[#164a08]/30 text-center space-y-3 shadow-xl">
                             <h4 className="font-heading text-xl font-bold text-white">
-                                Need Dedicated Group Booking or University Delegation Accommodation?
+                                Need Dedicated Group Booking or University
+                                Delegation Accommodation?
                             </h4>
                             <p className="text-base text-[#ECE7D6]/90 max-w-lg mx-auto">
-                                Contact our Hospitality & Logistics Secretariat directly at +91 97043 21786 or info@ayurpravah.com
+                                Contact our Hospitality & Logistics Secretariat
+                                directly at +91 97043 21786 or
+                                info@ayurpravah.com
                             </p>
                         </div>
                     </div>

@@ -1,6 +1,10 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { ayurpravahDimensions, themeConvergence, pinnedConcepts } from '../content/ecosystem';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import {
+    ayurpravahDimensions,
+    themeConvergence,
+    pinnedConcepts,
+} from "../content/ecosystem";
 
 export default function AyurPravah() {
     return (
@@ -20,9 +24,12 @@ export default function AyurPravah() {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            "Pravah" (प्रवाह) signifies the perpetual, unceasing flow of authentic healing wisdom.
-                            AYURPRAVAH 2027 harmonizes classical Vedic medical texts with cutting-edge 21st-century
-                            clinical trials, biomedical engineering, and global healthcare policy.
+                            "Pravah" (प्रवाह) signifies the perpetual, unceasing
+                            flow of authentic healing wisdom. AYURPRAVAH 2027
+                            harmonizes classical Vedic medical texts with
+                            cutting-edge 21st-century clinical trials,
+                            biomedical engineering, and global healthcare
+                            policy.
                         </p>
                     </div>
 
@@ -98,7 +105,10 @@ export default function AyurPravah() {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {pinnedConcepts.map((item, idx) => (
-                                    <div key={idx} className="bg-white p-6 rounded-2xl border border-stone-200/80">
+                                    <div
+                                        key={idx}
+                                        className="bg-white p-6 rounded-2xl border border-stone-200/80"
+                                    >
                                         <h4 className="font-heading text-base font-bold text-[#164a08]">
                                             {item.title}
                                         </h4>

@@ -1,12 +1,14 @@
-import React from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { ArrowLeft, CheckCircle2, Clock, MapPin, BookOpen } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import AppLayout from "../Layouts/AppLayout";
+import { ArrowLeft, CheckCircle2, Clock, MapPin, BookOpen } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function ConclaveDetail({ conclave, otherConclaves = [] }) {
     const focusAreas = Array.isArray(conclave.focus_areas)
         ? conclave.focus_areas
-        : (typeof conclave.focus_areas === 'string' ? JSON.parse(conclave.focus_areas || '[]') : []);
+        : typeof conclave.focus_areas === "string"
+          ? JSON.parse(conclave.focus_areas || "[]")
+          : [];
 
     return (
         <AppLayout
@@ -33,7 +35,8 @@ export default function ConclaveDetail({ conclave, otherConclaves = [] }) {
                                 {conclave.title}
                             </h1>
                             <p className="mt-4 text-base sm:text-lg font-sans text-[#ECE7D6]/90 max-w-3xl leading-relaxed">
-                                {conclave.description || conclave.short_description}
+                                {conclave.description ||
+                                    conclave.short_description}
                             </p>
 
                             <div className="mt-8 flex flex-wrap gap-4">
@@ -61,11 +64,16 @@ export default function ConclaveDetail({ conclave, otherConclaves = [] }) {
                                 <div className="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm">
                                     <h3 className="font-heading text-lg font-bold text-[#164a08] uppercase tracking-wider mb-5 flex items-center space-x-2">
                                         <BookOpen className="w-5 h-5 text-[#164a08]" />
-                                        <span>Key Focus Areas & Academic Scope</span>
+                                        <span>
+                                            Key Focus Areas & Academic Scope
+                                        </span>
                                     </h3>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                                         {focusAreas.map((area, idx) => (
-                                            <div key={idx} className="flex items-start space-x-2.5 text-sm text-[#503323]">
+                                            <div
+                                                key={idx}
+                                                className="flex items-start space-x-2.5 text-sm text-[#503323]"
+                                            >
                                                 <CheckCircle2 className="w-4 h-4 text-[#164a08] shrink-0 mt-0.5" />
                                                 <span>{area}</span>
                                             </div>
@@ -90,34 +98,53 @@ export default function ConclaveDetail({ conclave, otherConclaves = [] }) {
                             )}
 
                             {/* Associated Sessions */}
-                            {conclave.sessions && conclave.sessions.length > 0 && (
-                                <div className="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm">
-                                    <h3 className="font-heading text-lg font-bold text-[#164a08] uppercase tracking-wider mb-5">
-                                        Scheduled Sessions for this Conclave
-                                    </h3>
-                                    <div className="space-y-4">
-                                        {conclave.sessions.map((s) => (
-                                            <div key={s.id} className="p-5 rounded-2xl bg-[#F7F5EC] border border-stone-200/60 flex flex-col sm:flex-row justify-between gap-3">
-                                                <div>
-                                                    <span className="text-sm font-bold text-[#164a08] uppercase bg-[#164a08]/10 px-3.5 py-1 rounded-full">
-                                                        Day {s.day_number} • {s.type}
-                                                    </span>
-                                                    <h4 className="font-heading text-base font-bold text-[#164a08] mt-2">
-                                                        {s.title}
-                                                    </h4>
-                                                    {s.description && (
-                                                        <p className="text-base font-sans text-[#503323] mt-1 leading-relaxed">{s.description}</p>
-                                                    )}
+                            {conclave.sessions &&
+                                conclave.sessions.length > 0 && (
+                                    <div className="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm">
+                                        <h3 className="font-heading text-lg font-bold text-[#164a08] uppercase tracking-wider mb-5">
+                                            Scheduled Sessions for this Conclave
+                                        </h3>
+                                        <div className="space-y-4">
+                                            {conclave.sessions.map((s) => (
+                                                <div
+                                                    key={s.id}
+                                                    className="p-5 rounded-2xl bg-[#F7F5EC] border border-stone-200/60 flex flex-col sm:flex-row justify-between gap-3"
+                                                >
+                                                    <div>
+                                                        <span className="text-sm font-bold text-[#164a08] uppercase bg-[#164a08]/10 px-3.5 py-1 rounded-full">
+                                                            Day {s.day_number} •{" "}
+                                                            {s.type}
+                                                        </span>
+                                                        <h4 className="font-heading text-base font-bold text-[#164a08] mt-2">
+                                                            {s.title}
+                                                        </h4>
+                                                        {s.description && (
+                                                            <p className="text-base font-sans text-[#503323] mt-1 leading-relaxed">
+                                                                {s.description}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                    <div className="text-right text-sm shrink-0 font-mono text-[#164a08]">
+                                                        {s.start_time?.slice(
+                                                            0,
+                                                            5,
+                                                        )}{" "}
+                                                        -{" "}
+                                                        {s.end_time?.slice(
+                                                            0,
+                                                            5,
+                                                        )}
+                                                        {s.hall_room && (
+                                                            <div className="text-sm text-stone-500 font-sans mt-0.5">
+                                                                {s.hall_room}
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                                <div className="text-right text-sm shrink-0 font-mono text-[#164a08]">
-                                                    {s.start_time?.slice(0, 5)} - {s.end_time?.slice(0, 5)}
-                                                    {s.hall_room && <div className="text-sm text-stone-500 font-sans mt-0.5">{s.hall_room}</div>}
-                                                </div>
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            )}
+                                )}
                         </div>
 
                         {/* Sidebar: Other Conclaves */}

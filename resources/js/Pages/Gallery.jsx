@@ -1,35 +1,47 @@
-import React, { useState } from 'react';
-import AppLayout from '../Layouts/AppLayout';
-import { Image as ImageIcon, X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import React, { useState } from "react";
+import AppLayout from "../Layouts/AppLayout";
+import {
+    Image as ImageIcon,
+    X,
+    ChevronLeft,
+    ChevronRight,
+    ZoomIn,
+} from "lucide-react";
 
 export default function Gallery({ albums = [] }) {
-    const [selectedAlbumId, setSelectedAlbumId] = useState('ALL');
+    const [selectedAlbumId, setSelectedAlbumId] = useState("ALL");
     const [lightboxIndex, setLightboxIndex] = useState(null);
 
     // Normalizes storage media paths reliably
     const resolveImageUrl = (item) => {
         const path = item?.image_url || item?.media_path;
-        if (!path) return '';
-        if (path.startsWith('http://') || path.startsWith('https://')) return path;
-        if (path.startsWith('/storage/')) return path;
-        if (path.startsWith('storage/')) return `/${path}`;
-        return `/storage/${path.replace(/^\/+/, '')}`;
+        if (!path) return "";
+        if (path.startsWith("http://") || path.startsWith("https://"))
+            return path;
+        if (path.startsWith("/storage/")) return path;
+        if (path.startsWith("storage/")) return `/${path}`;
+        return `/storage/${path.replace(/^\/+/, "")}`;
     };
 
     // Flatten all items across albums for 'ALL' tab or active album
-    const allItems = albums.flatMap(album =>
-        (album.items || []).map(item => ({
+    const allItems = albums.flatMap((album) =>
+        (album.items || []).map((item) => ({
             ...item,
             albumTitle: album.title,
-        }))
+        })),
     );
 
-    const activeItems = selectedAlbumId === 'ALL'
-        ? allItems
-        : (albums.find(a => a.id === selectedAlbumId)?.items || []).map(item => ({
-            ...item,
-            albumTitle: albums.find(a => a.id === selectedAlbumId)?.title || 'AYURPRAVAH Gallery',
-        }));
+    const activeItems =
+        selectedAlbumId === "ALL"
+            ? allItems
+            : (albums.find((a) => a.id === selectedAlbumId)?.items || []).map(
+                  (item) => ({
+                      ...item,
+                      albumTitle:
+                          albums.find((a) => a.id === selectedAlbumId)?.title ||
+                          "AYURPRAVAH Gallery",
+                  }),
+              );
 
     const openLightbox = (index) => {
         setLightboxIndex(index);
@@ -49,11 +61,14 @@ export default function Gallery({ albums = [] }) {
     const prevImage = (e) => {
         e?.stopPropagation();
         if (lightboxIndex !== null && activeItems.length > 0) {
-            setLightboxIndex((lightboxIndex - 1 + activeItems.length) % activeItems.length);
+            setLightboxIndex(
+                (lightboxIndex - 1 + activeItems.length) % activeItems.length,
+            );
         }
     };
 
-    const currentLightboxItem = lightboxIndex !== null ? activeItems[lightboxIndex] : null;
+    const currentLightboxItem =
+        lightboxIndex !== null ? activeItems[lightboxIndex] : null;
 
     return (
         <AppLayout
@@ -72,8 +87,10 @@ export default function Gallery({ albums = [] }) {
                         </h1>
                         <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                         <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg font-sans text-[#503323] leading-relaxed">
-                            A curated look at international health camps, educational masterclasses,
-                            academic ceremonies, and scientific deliberations leading up to AYURPRAVAH 2027.
+                            A curated look at international health camps,
+                            educational masterclasses, academic ceremonies, and
+                            scientific deliberations leading up to AYURPRAVAH
+                            2027.
                         </p>
                     </div>
 
@@ -82,11 +99,11 @@ export default function Gallery({ albums = [] }) {
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="flex flex-wrap items-center justify-center gap-2.5">
                                 <button
-                                    onClick={() => setSelectedAlbumId('ALL')}
+                                    onClick={() => setSelectedAlbumId("ALL")}
                                     className={`px-5 py-2.5 rounded-full text-sm font-sans font-semibold transition-all duration-200 cursor-pointer ${
-                                        selectedAlbumId === 'ALL'
-                                            ? 'bg-[#164a08] text-white shadow-md'
-                                            : 'bg-white text-[#503323] hover:bg-[#164a08]/10 border border-black/5'
+                                        selectedAlbumId === "ALL"
+                                            ? "bg-[#164a08] text-white shadow-md"
+                                            : "bg-white text-[#503323] hover:bg-[#164a08]/10 border border-black/5"
                                     }`}
                                 >
                                     All Albums ({allItems.length})
@@ -94,14 +111,17 @@ export default function Gallery({ albums = [] }) {
                                 {albums.map((album) => (
                                     <button
                                         key={album.id}
-                                        onClick={() => setSelectedAlbumId(album.id)}
+                                        onClick={() =>
+                                            setSelectedAlbumId(album.id)
+                                        }
                                         className={`px-5 py-2.5 rounded-full text-sm font-sans font-semibold transition-all duration-200 cursor-pointer ${
                                             selectedAlbumId === album.id
-                                                ? 'bg-[#164a08] text-white shadow-md'
-                                                : 'bg-white text-[#503323] hover:bg-[#164a08]/10 border border-black/5'
+                                                ? "bg-[#164a08] text-white shadow-md"
+                                                : "bg-white text-[#503323] hover:bg-[#164a08]/10 border border-black/5"
                                         }`}
                                     >
-                                        {album.title} ({album.items?.length || 0})
+                                        {album.title} (
+                                        {album.items?.length || 0})
                                     </button>
                                 ))}
                             </div>
@@ -124,7 +144,11 @@ export default function Gallery({ albums = [] }) {
                                                 {imgUrl ? (
                                                     <img
                                                         src={imgUrl}
-                                                        alt={item.caption || item.alt_text || 'Conclave Gallery Image'}
+                                                        alt={
+                                                            item.caption ||
+                                                            item.alt_text ||
+                                                            "Conclave Gallery Image"
+                                                        }
                                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                         loading="lazy"
                                                     />
@@ -134,7 +158,8 @@ export default function Gallery({ albums = [] }) {
 
                                                 {/* Album Badge */}
                                                 <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full text-sm font-sans font-bold text-[#164a08] shadow-sm">
-                                                    {item.albumTitle || 'Conclave Archive'}
+                                                    {item.albumTitle ||
+                                                        "Conclave Archive"}
                                                 </div>
 
                                                 {/* Hover Overlay with Zoom Icon */}
@@ -160,12 +185,42 @@ export default function Gallery({ albums = [] }) {
                             /* Visual highlights teaser cards if no items exist */
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {[
-                                    { title: 'National AYUSH Research Conclaves', subtitle: 'Academic & Clinical Exchange', tag: 'Conference' },
-                                    { title: 'Free Health Screening & Diagnosis Camps', subtitle: 'Grassroots Community Wellness', tag: 'Community' },
-                                    { title: 'Hands-on Panchakarma Upskilling', subtitle: 'Physician Continuing Medical Education', tag: 'Masterclass' },
-                                    { title: 'Digital AYUSH & AI Hackathons', subtitle: 'Emerging Healthcare Technology', tag: 'Innovation' },
-                                    { title: 'Himalayan Medicinal Plant Expeditions', subtitle: 'Botanical Conservation & GAP Cultivation', tag: 'Botanicals' },
-                                    { title: 'Bilateral Global Knowledge MoUs', subtitle: 'Cross-Continental Collaborations', tag: 'Global' },
+                                    {
+                                        title: "National AYUSH Research Conclaves",
+                                        subtitle:
+                                            "Academic & Clinical Exchange",
+                                        tag: "Conference",
+                                    },
+                                    {
+                                        title: "Free Health Screening & Diagnosis Camps",
+                                        subtitle:
+                                            "Grassroots Community Wellness",
+                                        tag: "Community",
+                                    },
+                                    {
+                                        title: "Hands-on Panchakarma Upskilling",
+                                        subtitle:
+                                            "Physician Continuing Medical Education",
+                                        tag: "Masterclass",
+                                    },
+                                    {
+                                        title: "Digital AYUSH & AI Hackathons",
+                                        subtitle:
+                                            "Emerging Healthcare Technology",
+                                        tag: "Innovation",
+                                    },
+                                    {
+                                        title: "Himalayan Medicinal Plant Expeditions",
+                                        subtitle:
+                                            "Botanical Conservation & GAP Cultivation",
+                                        tag: "Botanicals",
+                                    },
+                                    {
+                                        title: "Bilateral Global Knowledge MoUs",
+                                        subtitle:
+                                            "Cross-Continental Collaborations",
+                                        tag: "Global",
+                                    },
                                 ].map((item, idx) => (
                                     <div
                                         key={idx}
@@ -208,10 +263,12 @@ export default function Gallery({ albums = [] }) {
                                 <div className="bg-[#164a08] text-white px-6 py-4 flex items-center justify-between shrink-0">
                                     <div className="flex items-center space-x-3">
                                         <span className="text-sm font-sans font-bold tracking-wider text-[#DFC479] uppercase">
-                                            {currentLightboxItem.albumTitle || 'AYURPRAVAH 2027 Gallery'}
+                                            {currentLightboxItem.albumTitle ||
+                                                "AYURPRAVAH 2027 Gallery"}
                                         </span>
                                         <span className="text-sm text-white/50">
-                                            {lightboxIndex + 1} of {activeItems.length}
+                                            {lightboxIndex + 1} of{" "}
+                                            {activeItems.length}
                                         </span>
                                     </div>
                                     <button
@@ -227,8 +284,13 @@ export default function Gallery({ albums = [] }) {
                                 <div className="relative flex-1 bg-stone-900 flex items-center justify-center p-2 min-h-[300px] overflow-hidden">
                                     {resolveImageUrl(currentLightboxItem) ? (
                                         <img
-                                            src={resolveImageUrl(currentLightboxItem)}
-                                            alt={currentLightboxItem.caption || 'Expanded Photo'}
+                                            src={resolveImageUrl(
+                                                currentLightboxItem,
+                                            )}
+                                            alt={
+                                                currentLightboxItem.caption ||
+                                                "Expanded Photo"
+                                            }
                                             className="max-h-[65vh] w-auto max-w-full object-contain select-none"
                                         />
                                     ) : (

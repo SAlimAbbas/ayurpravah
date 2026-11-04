@@ -1,7 +1,7 @@
-import React from 'react';
-import { expoItems } from '../content/ecosystem';
-import { Store, ArrowRight } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import React from "react";
+import { expoItems } from "../content/ecosystem";
+import { Store, ArrowRight } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 export default function ExpoShowcaseSection() {
     return (
@@ -17,8 +17,9 @@ export default function ExpoShowcaseSection() {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        A high-visibility global showcase uniting 100+ premier brands, manufacturers,
-                        botanical cultivators, health tech startups, and over 50,000 visitors.
+                        A high-visibility global showcase uniting 100+ premier
+                        brands, manufacturers, botanical cultivators, health
+                        tech startups, and over 50,000 visitors.
                     </p>
                 </div>
 
@@ -57,8 +58,9 @@ export default function ExpoShowcaseSection() {
                             Showcase Your Brand Before 50,000+ Decision Makers
                         </h3>
                         <p className="text-sm sm:text-base font-sans text-[#ECE7D6]/85 leading-relaxed">
-                            Custom bare spaces, 9 sqm / 18 sqm shell scheme stalls, B2B buyer lounge passes,
-                            and prominent brand mentions across conclave collateral.
+                            Custom bare spaces, 9 sqm / 18 sqm shell scheme
+                            stalls, B2B buyer lounge passes, and prominent brand
+                            mentions across conclave collateral.
                         </p>
                     </div>
 

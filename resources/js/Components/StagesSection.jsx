@@ -1,9 +1,23 @@
-import React from 'react';
-import { conferenceStages } from '../content/ecosystem';
-import { GraduationCap, Lightbulb, Users, Compass, Handshake, TrendingUp } from 'lucide-react';
+import React from "react";
+import { conferenceStages } from "../content/ecosystem";
+import {
+    GraduationCap,
+    Lightbulb,
+    Users,
+    Compass,
+    Handshake,
+    TrendingUp,
+} from "lucide-react";
 
 export default function StagesSection() {
-    const icons = [GraduationCap, Lightbulb, Users, Compass, Handshake, TrendingUp];
+    const icons = [
+        GraduationCap,
+        Lightbulb,
+        Users,
+        Compass,
+        Handshake,
+        TrendingUp,
+    ];
 
     return (
         <section className="py-24 bg-white border-b border-black/5">
@@ -18,8 +32,9 @@ export default function StagesSection() {
                     </h2>
                     <div className="mt-4 w-20 h-1 bg-[#164a08] mx-auto rounded-full"></div>
                     <p className="mt-4 text-base font-sans text-[#503323]/90 leading-relaxed">
-                        A transformative 6-stage developmental immersion designed to enrich every
-                        vaidya, scientist, student, and entrepreneur who walks into our halls.
+                        A transformative 6-stage developmental immersion
+                        designed to enrich every vaidya, scientist, student, and
+                        entrepreneur who walks into our halls.
                     </p>
                 </div>
 
