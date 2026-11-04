@@ -237,6 +237,7 @@ class RegistrationService
             'type' => 'free_confirmed',
             'ticket_code' => $ticket->ticket_code,
             'reference' => $registration->reference,
+            'registration_uuid' => $registration->uuid,
         ];
     }
 }

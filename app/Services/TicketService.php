@@ -47,8 +47,12 @@ class TicketService
             'issued_at' => now(),
         ]);
 
-        // Generate PDF ticket asynchronously or directly
-        $this->generatePdfTicket($ticket);
+        // Generate PDF ticket safely
+        try {
+            $this->generatePdfTicket($ticket);
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::warning('PDF ticket generation deferred: ' . $e->getMessage());
+        }
 
         return $ticket;
     }

@@ -170,7 +170,7 @@ export default function Navbar({ onOpenRegister }) {
                         <img
                             src="/images/main-logo.png"
                             alt="AYURPRAVAH 2027 Main Logo"
-                            className="h-7 sm:h-9 md:h-11 max-h-11 w-auto max-w-[130px] xs:max-w-[160px] sm:max-w-none object-contain transition-transform duration-200 group-hover:scale-102 shrink"
+                            className="h-11 sm:h-14 md:h-14 max-h-14 w-auto max-w-[155px] xs:max-w-[160px] sm:max-w-none object-contain transition-transform duration-200 group-hover:scale-102 shrink"
                         />
 
                         {/* Subtle Vertical Divider */}
@@ -180,7 +180,7 @@ export default function Navbar({ onOpenRegister }) {
                         <img
                             src="/images/logo.png"
                             alt="Yasharth Veda Foundation Emblem"
-                            className="h-6 sm:h-8 md:h-9 w-auto object-contain rounded-full bg-white p-0.5 border border-black/10 shadow-xs transition-transform duration-200 group-hover:scale-105 shrink-0"
+                            className="h-12 sm:h-14 md:h-14 w-auto object-contain rounded-full bg-white p-0.5 border border-black/10 shadow-xs transition-transform duration-200 group-hover:scale-105 shrink-0"
                         />
                     </Link>
 

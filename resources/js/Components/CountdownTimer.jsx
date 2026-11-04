@@ -63,7 +63,7 @@ export default function CountdownTimer({
                         <div className="font-heading text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-[#164a08] leading-none">
                             {String(block.value).padStart(2, "0")}
                         </div>
-                        <div className="text-[9px] xs:text-[10px] sm:text-xs font-sans tracking-wider text-[#3e7405] font-bold mt-1.5 sm:mt-2 uppercase truncate">
+                        <div className="text-[9px] xs:text-[10px] sm:text-xs font-sans tracking-wider text-[#3e7405] font-bold mt-1.5 sm:mt-2 uppercase">
                             {block.label}
                         </div>
                     </div>

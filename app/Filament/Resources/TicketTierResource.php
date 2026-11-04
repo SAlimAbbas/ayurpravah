@@ -65,8 +65,8 @@ class TicketTierResource extends Resource
                         Forms\Components\DateTimePicker::make('valid_until'),
                         Forms\Components\Toggle::make('is_active')
                             ->label('Active for Online Booking')
-                            ->helperText('Keep inactive until real confirmed price is determined')
-                            ->default(false),
+                            ->helperText('Enables registration and checkout for this tier')
+                            ->default(true),
                         Forms\Components\TextInput::make('sort_order')
                             ->numeric()
                             ->default(0),
@@ -89,8 +89,7 @@ class TicketTierResource extends Resource
                 Tables\Columns\TextColumn::make('sold_count')
                     ->label('Sold / Quota')
                     ->formatStateUsing(fn ($record) => "{$record->sold_count} / {$record->quota}"),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean()
+                Tables\Columns\ToggleColumn::make('is_active')
                     ->label('Active'),
                 Tables\Columns\TextColumn::make('sort_order')
                     ->sortable(),

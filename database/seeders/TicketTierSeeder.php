@@ -19,7 +19,7 @@ class TicketTierSeeder extends Seeder
                 'gst_percent' => 18.00,
                 'quota' => 1000,
                 'sold_count' => 0,
-                'is_active' => false, // Inactive until real price is entered by admin
+                'is_active' => true,
                 'sort_order' => 1,
                 'inclusions' => [
                     'Access to all 13 Conclaves & Scientific Sessions',
@@ -37,7 +37,7 @@ class TicketTierSeeder extends Seeder
                 'gst_percent' => 18.00,
                 'quota' => 2500,
                 'sold_count' => 0,
-                'is_active' => false,
+                'is_active' => true,
                 'sort_order' => 2,
                 'inclusions' => [
                     'Access to all 13 Conclaves & Scientific Sessions',
@@ -55,7 +55,7 @@ class TicketTierSeeder extends Seeder
                 'gst_percent' => 18.00,
                 'quota' => 1500,
                 'sold_count' => 0,
-                'is_active' => false,
+                'is_active' => true,
                 'sort_order' => 3,
                 'inclusions' => [
                     'Access to all Conclaves & Workshops',
@@ -73,7 +73,7 @@ class TicketTierSeeder extends Seeder
                 'gst_percent' => 18.00,
                 'quota' => 500,
                 'sold_count' => 0,
-                'is_active' => false,
+                'is_active' => true,
                 'sort_order' => 4,
                 'inclusions' => [
                     'Full Conclave & Global Forum Pass',
@@ -91,7 +91,7 @@ class TicketTierSeeder extends Seeder
                 'gst_percent' => 18.00,
                 'quota' => 100,
                 'sold_count' => 0,
-                'is_active' => false,
+                'is_active' => true,
                 'sort_order' => 5,
                 'inclusions' => [
                     '3m x 3m Shell Scheme Stall',
@@ -103,7 +103,7 @@ class TicketTierSeeder extends Seeder
         ];
 
         foreach ($tiers as $tier) {
-            TicketTier::firstOrCreate(['name' => $tier['name']], $tier);
+            TicketTier::updateOrCreate(['name' => $tier['name']], $tier);
         }
 
         // Sample coupon for admin preview
