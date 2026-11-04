@@ -76,11 +76,11 @@ export default function About({ team = [] }) {
 
                             <div className="pt-2 flex flex-wrap gap-3">
                                 <span className="bg-[#F7F5EC] text-[#164a08] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border border-[#164a08]/15">
-                                    📍 Hauz Khas, New Delhi 110016
+                                    Hauz Khas, New Delhi 110016
                                 </span>
                                 <span className="bg-[#F7F5EC] text-[#164a08] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border border-[#164a08]/15">
-                                    🚇 IIT Delhi Metro Station (Magenta Line
-                                    Gate No. 1)
+                                    IIT Delhi Metro Station (Magenta Line Gate
+                                    No. 1)
                                 </span>
                             </div>
                         </div>
